@@ -1,7 +1,7 @@
 ![Screenshot](https://raw.githubusercontent.com/emirozer/bowshock/master/docs/bowshock2.png)
 
 An npm Package for Node.js based on https://github.com/emirozer/bowshock
-
+<br/>
 bowshock is an all-in-one wrapper for NASA API's.
 Here is a list of currently supported API's :
 
