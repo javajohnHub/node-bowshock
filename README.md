@@ -22,7 +22,7 @@ Here is a list of currently supported API's :
 
 Standart Procedure
 
-	npm install
+	npm install node-bowshock
 
 ## Do i need an API Key ?
 
@@ -46,20 +46,20 @@ set an environment varible NASA_API_KEY which is equal to your key string
 -
 #####Apod
 ```javascript
-var apod = require('./src/lib/apod.js');
+var bowshock = require('node-bowshock');
 
 //with specific date and tags - For apod all args are optional
-apod(date="2017-03-11");
+bowshock.apod(date="2017-03-11");
 
 ```
 
 -
 #####Asterank
 ```javascript
-var asterank = require('./src/lib/asterank.js');
+var bowshock = require('node-bowshock');
 
 //all args mandatory
-asterank(
+bowshock.asterank(
             	query={"e": {"$lt": 0.1},
                	       "i": {"$lt": 4},
                        "a": {"$lt": 1.5}},
@@ -71,25 +71,25 @@ asterank(
 -
 #####Earth
 ```javascript
-var earth = require('./src/lib/earth.js');
+var bowshock = require('node-bowshock');
 
 //imagery endpoint lon & lat mandatory, rest optional
-earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
+bowshock.earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
 
 //assets endpoint lon & lat & begin mandatory, end optional
-earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
+bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
 ```
 
 -
 #####HelioViewer
 ```javascript
-var helioviewer = require('./src/lib/helioviewer.js');
+var bowshock = require('node-bowshock');
 
 //args are mandatory
-helioviewer.getjp2image(date='2014-01-01T23:59:59', sourceId=14);
+bowshock.helioviewer.getjp2image(date='2014-01-01T23:59:59', sourceId=14);
 
 //args are mandatory
-helioviewer.getjp2header(Id=7654321);
+bowshock.helioviewer.getjp2header(Id=7654321);
 
 ```
 
@@ -97,39 +97,39 @@ helioviewer.getjp2header(Id=7654321);
 -
 #####MAAS
 ```javascript
-var maas = require('./src/lib/maas.js');
+var bowshock = require('node-bowshock');
 
 //mandatory date begin / end
-maas.maas_archive(begin="2015-03-19", end="2017-03-19")
+bowshock.maas.maas_archive(begin="2015-03-19", end="2017-03-19")
 
-maas.maas_latest()
+bowshock.maas.maas_latest()
 
 ```
 
 -
 #####Patents
 ```javascript
-var patents = require('./src/lib/patents.js');
+var bowshock = require('node-bowshock');
 
 //only query is mandatory, rest is optional
-bs.patents.patents(query="temperature", concept_tags=True, limit=5);
+bowshock.patents(query="temperature", concept_tags=True, limit=5);
 
 ```
 -
 ##### Skymorph
 ```javascript
-var skymorph = require('./src/lib/skymorph.js');
+var bowshock = require('node-bowshock');
 
 // mandatory obj id
-skymorph.search_target_obj("J99TS7A")
+bowshock.skymorph.search_target_obj("J99TS7A")
 
 #TODO : add search_position() , search_target_obj()
 
 ```
 #####techport
 ```javascript
-var htechport = require('./src/lib/helioviewertechport.js');
-techport.techport(Id="4795");
+var bowshock = require('node-bowshock');
+bowshock.techport(Id="4795");
 
 ```
 ##Contributors
