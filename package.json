@@ -4,6 +4,7 @@
   "description": "An npm Package for Node.js based on https://github.com/emirozer/bowshock",
   "private": false,
   "_location": "/node-bowshock",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/javajohnhub/node-bowshock.git"
