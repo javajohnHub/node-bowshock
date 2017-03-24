@@ -55,6 +55,7 @@ function patents(query, concept_tags, limit){
     return helpers.dispatch_http_get(req_url);
 }
 
+module.exports = patents;
 //patents(query="temperature");
 
 

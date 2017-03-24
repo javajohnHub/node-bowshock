@@ -9,13 +9,13 @@ endpoint and examples of usage.
 const helpers = require('./helpers');
 const logger = require('winston');
 
-
-function getjp2image(date,
-    sourceId,
-    observatory,
-    instrument,
-    detector,
-    measurement){
+let helioviewer = {
+    getjp2image(date,
+        sourceId,
+        observatory,
+        instrument,
+        detector,
+        measurement){
     "use strict";
     /*
      Helioviewer.org and JHelioviewer operate off of JPEG2000 formatted image data generated from science-quality FITS files. Use the APIs below to interact directly with these intermediary JPEG2000 files.
@@ -89,29 +89,29 @@ function getjp2image(date,
     req_url += base_url + "json=true&jpip=true";
 
     return helpers.dispatch_http_get(req_url);
-}
+},
 
-function getjp2header(Id){
+getjp2header(Id){
     "use strict";
     /*
-    GET /api/v1/getJP2Header/
+     GET /api/v1/getJP2Header/
 
 
-    Get the XML header embedded in a JPEG2000 image. Includes the FITS header as well as a section of Helioviewer-specific metadata.
+     Get the XML header embedded in a JPEG2000 image. Includes the FITS header as well as a section of Helioviewer-specific metadata.
 
-        Request Parameters:
+     Request Parameters:
 
-        Parameter	Required	Type	Example	Description
-    id	Required	number	7654321	Unique JP2 image identifier.
-        callback	Optional	string		Wrap the response object in a function call of your choosing.
+     Parameter	Required	Type	Example	Description
+     id	Required	number	7654321	Unique JP2 image identifier.
+     callback	Optional	string		Wrap the response object in a function call of your choosing.
 
-    Example (A):
+     Example (A):
 
-    string (XML)
+     string (XML)
 
-    Example Request:
+     Example Request:
 
-        http://helioviewer.org/api/v1/getJP2Header/?id=7654321
+     http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
      */
     let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Header/?';
@@ -125,6 +125,8 @@ function getjp2header(Id){
     return helpers.dispatch_http_get(base_url);
 
 }
+}
+module.exports = helioviewer;
 
 //getjp2image(date="2014-01-01T23:59:59Z", sourceId=14);
 //getjp2header(17654321);

@@ -48,4 +48,6 @@ function techport(Id){
     }
     return helpers.dispatch_http_get(base_url);
 }
+
+module.exports = techport;
 //techport('111');

@@ -10,8 +10,8 @@ Note that this is a rough calculation, mainly used to filter out exceedingly clo
 */
 const helpers = require('./helpers');
 const decimal = require('decimal');
-
-function imagery(lon, lat, date, dim, cloud_score) {
+let earth = {
+    imagery(lon, lat, date, dim, cloud_score) {
     "use strict";
     /*
      ----------QUERY PARAMETERS----------
@@ -70,32 +70,32 @@ function imagery(lon, lat, date, dim, cloud_score) {
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
     return helpers.dispatch_http_get(req_url);
-}
+},
 
+/*
+ This endpoint retrieves the date-times and asset names for available imagery for a supplied location.
+ The satellite passes over each point on earth roughly once every sixteen days.
+ This is an amazing visualization of the acquisition pattern for Landsat 8 imagery.
+ The objective of this endpoint is primarily to support the use of the imagery endpoint.
+ */
+assets(lon, lat, begin, end){
     /*
-    This endpoint retrieves the date-times and asset names for available imagery for a supplied location.
-    The satellite passes over each point on earth roughly once every sixteen days.
-    This is an amazing visualization of the acquisition pattern for Landsat 8 imagery.
-    The objective of this endpoint is primarily to support the use of the imagery endpoint.
-    */
-function assets(lon, lat, begin, end){
-    /*
-    HTTP REQUEST
+     HTTP REQUEST
 
-    GET https://api.data.gov/nasa/planetary/earth/assets
+     GET https://api.data.gov/nasa/planetary/earth/assets
 
-        QUERY PARAMETERS
+     QUERY PARAMETERS
 
-    Parameter	Type	Default	Description
-    lat	float	n/a	Latitude
-    lon	float	n/a	Longitude
-    begin	YYYY-MM-DD	n/a	beginning of date range
-    end	        YYYY-MM-DD	today	end of date range
-    api_key	string	DEMO_KEY	api.data.gov key for expanded usage
-    EXAMPLE QUERY
+     Parameter	Type	Default	Description
+     lat	float	n/a	Latitude
+     lon	float	n/a	Longitude
+     begin	YYYY-MM-DD	n/a	beginning of date range
+     end	        YYYY-MM-DD	today	end of date range
+     api_key	string	DEMO_KEY	api.data.gov key for expanded usage
+     EXAMPLE QUERY
 
-    https://api.data.gov/nasa/planetary/earth/assets?lon=100.75&lat=1.5&begin=2014-02-01&api_key=DEMO_KEY
-    */
+     https://api.data.gov/nasa/planetary/earth/assets?lon=100.75&lat=1.5&begin=2014-02-01&api_key=DEMO_KEY
+     */
     let base_url = "https://api.nasa.gov/planetary/earth/assets?";
     if(!lon || !lat){
         throw "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
@@ -131,10 +131,12 @@ function assets(lon, lat, begin, end){
             throw "Incorrect date format, should be YYYY-MM-DD";
         }
     }
-    req_url = base_url + "api_key=" + helpers.nasa_api_key();
+    let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
     return helpers.dispatch_http_get(req_url)
 
 }
+};
+module.exports = earth;
 //imagery(lon=100.75, lat=1.5, date="2014-02-04");
 //assets(lon=100.75, lat=1.5, begin="2014-02-01");

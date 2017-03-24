@@ -4,14 +4,15 @@
 var helpers = require('./helpers');
 var kwargs = require('kwargs');
 
-function search_target_obj(target){
+let skymorph = {
+    search_target_obj(target){
     "use strict";
     /*
-    Query for a specific target:
+     Query for a specific target:
 
-        http://asterank.com/api/skymorph/search?<params>
-            target	Target object (lookup in MPC).
-    */
+     http://asterank.com/api/skymorph/search?<params>
+     target	Target object (lookup in MPC).
+     */
     let base_url = "http://www.asterank.com/api/skymorph/search?";
     if(typeof target !== 'string'){
         throw "The target arg you provided is not the type of str";
@@ -20,25 +21,25 @@ function search_target_obj(target){
         base_url += "target=" + target;
     }
     return helpers.dispatch_http_get(base_url);
-}
+},
 
 
-function search_orbit(__kwargs){
+search_orbit(__kwargs){
     "use strict";
     /*
-    Query based on orbital elements:
+     Query based on orbital elements:
 
-        http://asterank.com/api/skymorph/search_orbit?<params>
-            epoch	Epoch ([M]JD or ISO)
-    ecc	eccentricity
-    per	Perihelion distance (AU)
-    per_date	Perihelion date ([M]JD or ISO)
-    om	Longitude of ascending node (deg)
-    w	Argument of perihelion (deg)
-    i	Inclination (deg)
-    H	Absolute magnitude
+     http://asterank.com/api/skymorph/search_orbit?<params>
+     epoch	Epoch ([M]JD or ISO)
+     ecc	eccentricity
+     per	Perihelion distance (AU)
+     per_date	Perihelion date ([M]JD or ISO)
+     om	Longitude of ascending node (deg)
+     w	Argument of perihelion (deg)
+     i	Inclination (deg)
+     H	Absolute magnitude
 
-    */
+     */
     let base_url = "http://www.asterank.com/api/skymorph/search_orbit?";
     for(let x in __kwargs){
         if (x === 'length' || !__kwargs.hasOwnProperty(x)) continue;
@@ -49,5 +50,8 @@ function search_orbit(__kwargs){
     return helpers.dispatch_http_get(base_url);
 
 }
+
+};
+module.exports = skymorph;
 
 //search_target_obj("J99TS7A");
