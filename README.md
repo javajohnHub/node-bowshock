@@ -46,7 +46,7 @@ set an environment varible NASA_API_KEY which is equal to your key string
 -
 #####Apod
 ```javascript
-var apod = require('./src/lib/apod');
+var apod = require('./src/lib/apod.js');
 
 //with specific date and tags - For apod all args are optional
 apod(date="2017-03-11");
@@ -56,10 +56,10 @@ apod(date="2017-03-11");
 -
 #####Asterank
 ```javascript
-var bs = require('node-bowshock');
+var asterank = require('./src/lib/asterank.js');
 
 //all args mandatory
-bs.asterank(
+asterank(
             	query={"e": {"$lt": 0.1},
                	       "i": {"$lt": 4},
                        "a": {"$lt": 1.5}},
@@ -71,25 +71,25 @@ bs.asterank(
 -
 #####Earth
 ```javascript
-var bs = require('node-bowshock');
+var earth = require('./src/lib/earth.js');
 
 //imagery endpoint lon & lat mandatory, rest optional
-bs.earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
+earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
 
 //assets endpoint lon & lat & begin mandatory, end optional
-bs.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
+earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
 ```
 
 -
 #####HelioViewer
 ```javascript
-var bs = require('node-bowshock');
+var helioviewer = require('./src/lib/helioviewer.js');
 
 //args are mandatory
-bs.helioviewer.getjp2image(date='2014-01-01T23:59:59', sourceId=14);
+helioviewer.getjp2image(date='2014-01-01T23:59:59', sourceId=14);
 
 //args are mandatory
-bs.helioviewer.getjp2header(Id=7654321);
+helioviewer.getjp2header(Id=7654321);
 
 ```
 
@@ -97,19 +97,19 @@ bs.helioviewer.getjp2header(Id=7654321);
 -
 #####MAAS
 ```javascript
-var bs = require('node-bowshock');
+var maas = require('./src/lib/maas.js');
 
 //mandatory date begin / end
-bs.maas.maas_archive(begin="2015-03-19", end="2017-03-19")
+maas.maas_archive(begin="2015-03-19", end="2017-03-19")
 
-bs.maas.maas_latest()
+maas.maas_latest()
 
 ```
 
 -
 #####Patents
 ```javascript
-var bs = require('node-bowshock');
+var patents = require('./src/lib/patents.js');
 
 //only query is mandatory, rest is optional
 bs.patents.patents(query="temperature", concept_tags=True, limit=5);
@@ -119,22 +119,14 @@ bs.patents.patents(query="temperature", concept_tags=True, limit=5);
 
 -
 #####PredictTheSky - Not Working
-```javascript
-var bs = require('node-bowshock');
-
-//args are mandatory
-bs.predictthesky.space_events(lon=100.75, lat=1.5);
-
-```
-
 
 -
 ##### Skymorph
 ```javascript
-var bs = require('node-bowshock');
+var skymorph = require('./src/lib/skymorph.js');
 
 // mandatory obj id
-bs.skymorph.search_target_obj("J99TS7A")
+skymorph.search_target_obj("J99TS7A")
 
 #TODO : add search_position() , search_target_obj()
 
@@ -143,22 +135,11 @@ bs.skymorph.search_target_obj("J99TS7A")
 
 -
 #####temperature anomalies - Not Working
-```javascript
-var bs = require('node-bowshock');
-
-//end arg is optional, rest is mandatory
-bs.temperature_anomalies.coordinate(lon=100.3, lat=1.6, begin="1990", end="2005")
-
-
-```
-
-
 -
 #####techport
 ```javascript
-var bs = require('node-bowshock');
-
-bs.techport.techport(Id="4795")
+var htechport = require('./src/lib/helioviewertechport.js');
+techport.techport(Id="4795");
 
 ```
 ##Contributors
