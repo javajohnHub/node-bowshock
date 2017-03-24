@@ -115,11 +115,6 @@ var patents = require('./src/lib/patents.js');
 bs.patents.patents(query="temperature", concept_tags=True, limit=5);
 
 ```
-
-
--
-#####PredictTheSky - Not Working
-
 -
 ##### Skymorph
 ```javascript
@@ -131,11 +126,6 @@ skymorph.search_target_obj("J99TS7A")
 #TODO : add search_position() , search_target_obj()
 
 ```
-
-
--
-#####temperature anomalies - Not Working
--
 #####techport
 ```javascript
 var htechport = require('./src/lib/helioviewertechport.js');
