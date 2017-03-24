@@ -5,11 +5,19 @@
   "private": false,
   "_location": "/node-bowshock",
   "main": "index.js",
+  "author": "MJohn Edwards",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/javajohnhub/node-bowshock.git"
   },
   "scripts": {},
+  "keywords": [
+    "node",
+    "nasa",
+    "api",
+    "wrapper"
+  ],
   "dependencies": {
     "decimal": "0.0.2",
     "dotenv": "^4.0.0",
