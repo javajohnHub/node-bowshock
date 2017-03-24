@@ -21,5 +21,4 @@ function apod(date, concept_tags=true){
     return helpers.dispatch_http_get(req_url)
 
 }
-exports.apod = apod;
-apod('2017-03-11');
+module.exports = apod;

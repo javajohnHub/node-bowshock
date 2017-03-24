@@ -22,7 +22,7 @@ Here is a list of currently supported API's :
 
 Standart Procedure
 
-	npm install node-bowshock
+	npm install
 
 ## Do i need an API Key ?
 
@@ -46,10 +46,10 @@ set an environment varible NASA_API_KEY which is equal to your key string
 -
 #####Apod
 ```javascript
-var bs = require('node-bowshock');
+var apod = require('./src/lib/apod');
 
 //with specific date and tags - For apod all args are optional
-bs.apod(date="2017-03-11");
+apod(date="2017-03-11");
 
 ```
 
