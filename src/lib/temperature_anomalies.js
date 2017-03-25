@@ -1,4 +1,4 @@
-//not working - bad api endpoint
+//NOT WORKING - bad api endpoint
 /*
 There is no doubt that, on average, the earth is warming. However, the warming is spatially heterogenous.
 
@@ -128,5 +128,5 @@ function coordinate(lon, lat, begin, end){
     return dispatch_http_get(req_url);
 }
 
-//address("3500 Reynolds Rd Toledo Ohio", "2015");
+address("3500 Reynolds Rd Toledo Ohio", "2015");
 //coordinate();

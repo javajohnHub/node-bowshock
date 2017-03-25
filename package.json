@@ -1,11 +1,11 @@
 {
   "name": "node-bowshock",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An npm Package for Node.js based on https://github.com/emirozer/bowshock",
   "private": false,
   "_location": "/node-bowshock",
   "main": "index.js",
-  "author": "MJohn Edwards",
+  "author": "John Edwards",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,12 +21,9 @@
   "dependencies": {
     "decimal": "0.0.2",
     "dotenv": "^4.0.0",
-    "kwargs": "0.0.2",
     "node-datetime": "^1.0.0",
-    "numjs": "^0.12.4",
     "request": "^2.81.0",
-    "winston": "^2.3.1",
-    "xrange": "^1.0.1"
+    "winston": "^2.3.1"
   },
   "devDependencies": {}
 }
