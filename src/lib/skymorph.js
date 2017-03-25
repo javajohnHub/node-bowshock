@@ -24,5 +24,10 @@ let skymorph = {
 
 };
 module.exports = skymorph;
-
-//skymorph.search_target_obj("J99TS7A");
+/*
+skymorph.search_target_obj("J99TS7A")
+    .then(result => {
+        console.log(JSON.parse(result));
+        return JSON.parse(result);
+});
+*/

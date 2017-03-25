@@ -54,7 +54,12 @@ set an environment varible NASA_API_KEY which is equal to your key string
 var bowshock = require('node-bowshock');
 
 //with specific date and tags - For apod all args are optional
-bowshock.apod(date="2017-03-11");
+bowshock.apod(date="2017-03-11")
+.then(result => {
+//do what you want with the returned data
+    console.log(result);
+    return result;
+});
 
 ```
 
@@ -64,11 +69,11 @@ bowshock.apod(date="2017-03-11");
 var bowshock = require('node-bowshock');
 
 //all args mandatory
-bowshock.asterank(
-            	query={"e": {"$lt": 0.1},
-               	       "i": {"$lt": 4},
-                       "a": {"$lt": 1.5}},
-                  limit=1)
+bowshock.asterank({"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, 10)
+         .then(result => {
+          console.log(result[0].sigma_tp);
+          return result;
+          });
 
 ```
 
@@ -78,11 +83,17 @@ bowshock.asterank(
 ```javascript
 var bowshock = require('node-bowshock');
 
-//imagery endpoint lon & lat mandatory, rest optional
-bowshock.earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
+bowshock.earth.imagery(lon=100.75, lat=1.5, date="2014-02-04")
+    .then(result => {
+        console.log(JSON.parse(result));
+        return JSON.parse(result);
+ });
 
-//assets endpoint lon & lat & begin mandatory, end optional
-bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
+bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01")
+    .then(result => {
+        console.log(JSON.parse(result));
+        return JSON.parse(result);
+});
 ```
 
 -
@@ -90,11 +101,17 @@ bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
 ```javascript
 var bowshock = require('node-bowshock');
 
-//args are mandatory
-bowshock.helioviewer.getjp2image(date='2014-01-01T23:59:59', sourceId=14);
+bowshock.helioviewer.getjp2image(date="2014-01-01T23:59:59Z", sourceId=14)
+    .then(result => {
+        console.log(JSON.parse(result));
+        return JSON.parse(result);
+    });
 
-//args are mandatory
-bowshock.helioviewer.getjp2header(Id=7654321);
+bowshock.helioviewer.getjp2header(17654321)
+    .then(result => {
+        console.log(result);
+        return result;
+    });
 
 ```
 
@@ -105,9 +122,15 @@ bowshock.helioviewer.getjp2header(Id=7654321);
 var bowshock = require('node-bowshock');
 
 //mandatory date begin / end
+bowshock.maas.maas_latest().then(result => {
+    console.log(JSON.parse(result));
+    return JSON.parse(result);
+});
 bowshock.maas.maas_archive(begin="2015-03-19", end="2017-03-19")
-
-bowshock.maas.maas_latest()
+    .then(result => {
+        console.log(JSON.parse(result));
+        return JSON.parse(result);
+});
 
 ```
 
@@ -117,16 +140,24 @@ bowshock.maas.maas_latest()
 var bowshock = require('node-bowshock');
 
 //only query is mandatory, rest is optional
-bowshock.patents(query="temperature", concept_tags=True, limit=5);
+bowshock.patents(query="temperature")
+             .then(result => {
+                 console.log(JSON.parse(result));
+                 return JSON.parse(result);
+         });
 
 ```
 -
-##### Skymorph
+#####Skymorph
 ```javascript
 var bowshock = require('node-bowshock');
 
 // mandatory obj id
 bowshock.skymorph.search_target_obj("J99TS7A")
+             .then(result => {
+                 console.log(JSON.parse(result));
+                 return JSON.parse(result);
+         });
 
 #TODO : add search_position() , search_target_obj()
 
@@ -134,7 +165,12 @@ bowshock.skymorph.search_target_obj("J99TS7A")
 #####techport
 ```javascript
 var bowshock = require('node-bowshock');
-bowshock.techport(Id="4795");
+
+bowshock.techport('111')
+             .then(result => {
+                 console.log(JSON.parse(result));
+                 return JSON.parse(result);
+             });
 
 ```
 ##Contributors

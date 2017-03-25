@@ -4,25 +4,31 @@ var request = require('request');
 require('dotenv').config();
 
 module.exports = {
-    dispatch_http_get: function(url){
-    logger.log("warn", "Dispatching HTTP GET Request : %s ", url);
-    try {
-        let headers = {
-            'User-Agent': 'Super Agent/0.0.1',
-            'Content-Type': 'application/x-www-form-urlencoded'
-        };
-        let options = {
-            url: url,
-            method: 'GET',
-            headers: headers
-        };
 
-        return request(options, function (error, response, body) {
-            if (!error && response.statusCode === 200) {
-                // Print out the response body
-                console.log(body)
-            }
-        });
+dispatch_http_get: function(url){
+    logger.log("warn", "Dispatching HTTP GET Request : %s ", url);
+    let headers = {
+        'User-Agent': 'Super Agent/0.0.1',
+        'Content-Type': 'application/x-www-form-urlencoded'
+    };
+    let options = {
+        url: url,
+        method: 'GET',
+        headers: headers
+        };
+    try {
+        return new Promise(
+            function (resolve, reject) {
+                request(options, function (error, response, body) {
+                    if (!error && response.statusCode === 200) {
+                        // Print out the response body
+                        logger.log('info','Status: ', response.statusCode );
+                        resolve(body);
+                    }
+                    reject(error);
+                });
+
+            });
     }
     catch(e){
         console.log(e);

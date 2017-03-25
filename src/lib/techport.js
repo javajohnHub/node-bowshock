@@ -14,7 +14,7 @@ provides a RESTful web services API to make technology Program and Project data 
 a machine-readable format. This API can be used to export TechPort data into an XML format,
 which can be further processed and analyzed.
 */
-var helpers = require('./helpers');
+let helpers = require('./helpers');
 
 
 function techport(Id){
@@ -50,4 +50,11 @@ function techport(Id){
 }
 
 module.exports = techport;
-//techport('111');
+
+/*
+techport('111')
+    .then(result => {
+        console.log(JSON.parse(result));
+        return JSON.parse(result);
+    });
+*/
