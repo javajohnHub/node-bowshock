@@ -43,7 +43,7 @@ let helioviewer = {
     let req_url = '';
     try{
         helpers.validate_iso8601(date);
-        if(!date.charAt(-1) === 'Z'){
+        if(date.charAt(-1) !== 'Z'){
             date += 'Z';
         }
         base_url += 'date=' + date + '&';

@@ -1,34 +1,21 @@
 const logger = require('winston');
 const datetime = require('node-datetime');
-var request = require('request');
+let request = require('request');
+
 require('dotenv').config();
 
 module.exports = {
-    dispatch_http_get: function(url){
+dispatch_http_get: function(url){
     logger.log("warn", "Dispatching HTTP GET Request : %s ", url);
-    try {
-        let headers = {
-            'User-Agent': 'Super Agent/0.0.1',
-            'Content-Type': 'application/x-www-form-urlencoded'
-        };
-        let options = {
-            url: url,
-            method: 'GET',
-            headers: headers
-        };
-
-        return request(options, function (error, response, body) {
-            if (!error && response.statusCode === 200) {
-                // Print out the response body
-                console.log(body)
-            }
-        });
-    }
-    catch(e){
-        console.log(e);
-    }
-
+    request(url, function (error, response, body) {
+        console.log('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log('body:', body); // Print the HTML for the Google homepage.
+        return body;
+    });
 },
+
+
 
 vali_date: function(date_text) {
     "use strict";
