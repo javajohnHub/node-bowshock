@@ -73,14 +73,6 @@ maas_archive(begin, end){
 };
 module.exports = maas;
 
-/*
-maas.maas_latest().then(result => {
-    console.log(JSON.parse(result));
-    return JSON.parse(result);
-});
-maas.maas_archive(begin="2015-03-19", end="2017-03-19")
-    .then(result => {
-        console.log(JSON.parse(result));
-        return JSON.parse(result);
-});
-*/
+
+//maas_latest();
+//maas_archive(begin="2015-03-19", end="2017-03-19");

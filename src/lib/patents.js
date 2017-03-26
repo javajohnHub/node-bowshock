@@ -56,12 +56,7 @@ function patents(query, concept_tags, limit){
 }
 
 module.exports = patents;
-/*
-patents(query="temperature")
-    .then(result => {
-        console.log(JSON.parse(result));
-        return JSON.parse(result);
-});
-*/
+//patents(query="temperature");
+
 
 

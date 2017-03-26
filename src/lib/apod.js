@@ -18,14 +18,7 @@ function apod(date, concept_tags=true){
 
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.dispatch_http_get(req_url);
+    return helpers.dispatch_http_get(req_url)
 
 }
 module.exports = apod;
-
-/*
-apod().then(result => {
-    console.log(JSON.parse(result));
-    return JSON.parse(result);
-});
-*/

@@ -50,12 +50,5 @@ function asterank(query, limit){
     return helpers.dispatch_http_get(base_url)
 }
 module.exports = asterank;
-
-/*
-asterank({"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, 10)
-.then(result => {
-    console.log(JSON.parse(result));
-    return JSON.parse(result);
- });
-*/
+//asterank({"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, 10);
 

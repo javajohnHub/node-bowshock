@@ -138,18 +138,5 @@ assets(lon, lat, begin, end){
 }
 };
 module.exports = earth;
-/*
-earth.imagery(lon=100.75, lat=1.5, date="2014-02-04")
-    .then(result => {
-        console.log(JSON.parse(result));
-        return JSON.parse(result);
- });
-*/
-
-/*
-earth.assets(lon=100.75, lat=1.5, begin="2014-02-01")
-    .then(result => {
-        console.log(JSON.parse(result));
-        return JSON.parse(result);
-});
-*/
+//earth.imagery(lon=100.75, lat=1.5, date="2014-02-04");
+//earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
