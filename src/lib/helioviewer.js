@@ -7,7 +7,6 @@ datasets to scientists, educators, developers, and the general public. Read belo
 endpoint and examples of usage.
 */
 const helpers = require('./helpers');
-const logger = require('winston');
 
 let helioviewer = {
     getjp2image(date,
@@ -52,35 +51,35 @@ let helioviewer = {
         throw "Your date input is not in iso8601 format. ex: 2014-01-01T23:59:59";
     }
     if(typeof parseInt(sourceId) !== 'number'){
-        logger.log("error", "The sourceId argument should be an int, ignoring it");
+        console.log("error", "The sourceId argument should be an int, ignoring it");
 
     }
     else{
         base_url += "sourceId=" + sourceId.toString() + "&";
     }
     if(typeof observatory !== 'string'){
-        logger.log('error', "The observatory argument should be a str, ignoring it");
+        console.log('error', "The observatory argument should be a str, ignoring it");
 
     }
     else{
         base_url += "observatory=" + observatory + "&";
     }
     if(typeof instrument !== 'string'){
-        logger.log("error",
+        console.log("error",
             "The instrument argument should be a str, ignoring it");
     }
     else{
         base_url += "instrument=" + instrument + "&";
     }
     if(typeof detector !== 'string'){
-        logger.log("error",
+        console.log("error",
             "The detector argument should be a str, ignoring it");
     }
     else{
         base_url += "detector=" + detector + "&";
     }
     if(typeof measurement !== 'string'){
-        logger.log("error",
+        console.log("error",
             "The measurement argument should be a str, ignoring it");
     }
     else{
@@ -90,42 +89,41 @@ let helioviewer = {
 
     return helpers.dispatch_http_get(req_url);
 },
+    getjp2header(Id){
+        "use strict";
+        /*
+         GET /api/v1/getJP2Header/
 
-getjp2header(Id){
-    "use strict";
-    /*
-     GET /api/v1/getJP2Header/
 
+         Get the XML header embedded in a JPEG2000 image. Includes the FITS header as well as a section of Helioviewer-specific metadata.
 
-     Get the XML header embedded in a JPEG2000 image. Includes the FITS header as well as a section of Helioviewer-specific metadata.
+         Request Parameters:
 
-     Request Parameters:
+         Parameter	Required	Type	Example	Description
+         id	Required	number	7654321	Unique JP2 image identifier.
+         callback	Optional	string		Wrap the response object in a function call of your choosing.
 
-     Parameter	Required	Type	Example	Description
-     id	Required	number	7654321	Unique JP2 image identifier.
-     callback	Optional	string		Wrap the response object in a function call of your choosing.
+         Example (A):
 
-     Example (A):
+         string (XML)
 
-     string (XML)
+         Example Request:
 
-     Example Request:
+         http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
-     http://helioviewer.org/api/v1/getJP2Header/?id=7654321
+         */
+        let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Header/?';
 
-     */
-    let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Header/?';
+        if (!parseInt(Id)){
+            throw "The Id argument should be an int, ignoring it";
+        }
+        else{
+            base_url += "id=" + Id.toString();
+        }
+        return helpers.dispatch_http_get(base_url);
 
-    if (!parseInt(Id)){
-        throw "The Id argument should be an int, ignoring it";
     }
-    else{
-        base_url += "id=" + Id.toString();
-    }
-    return helpers.dispatch_http_get(base_url);
-
-}
-}
+};
 module.exports = helioviewer;
 
 //helioviewer.getjp2image(date="2014-01-01T23:59:59Z", sourceId=14);

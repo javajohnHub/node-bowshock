@@ -7,7 +7,6 @@ and their own calculations.
 The database currently runs on mongodb and queries must adhere to mongo's json format for a 'find' operation.
 */
 const helpers = require('./helpers');
-const logger = require('winston');
 
 function asterank(query, limit){
     "use strict";
@@ -38,7 +37,7 @@ function asterank(query, limit){
     }
     if(limit){
         if (parseInt(limit,10) === 1){
-            logger.log('error',
+            console.log(
                 "The limit arg you provided is not the type of int, ignoring it");
         }
         base_url += "limit=" + limit;
