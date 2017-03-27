@@ -42,10 +42,6 @@ Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/
 set an environment varible NASA_API_KEY which is equal to your key string.<br/>
 rename env.example to .env
 
-
-##Usage
-
--
 #####Apod
 ```javascript
 var bowshock = require('node-bowshock');
