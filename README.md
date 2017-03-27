@@ -23,8 +23,6 @@ Here is a list of currently supported API's :
 
 ##Install
 
-Standart Procedure
-
 	npm install node-bowshock
 
 ## Do i need an API Key ?
