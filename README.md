@@ -41,7 +41,8 @@ Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/
 
 ####Setting up the API Key
 ===================
-set an environment varible NASA_API_KEY which is equal to your key string
+set an environment varible NASA_API_KEY which is equal to your key string.
+rename env.example to .env
 
 
 ##Usage
