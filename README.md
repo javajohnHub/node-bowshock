@@ -5,6 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/node-bowshock.svg)](https://img.shields.io/npm/dm/node-bowshock.svg)
 
 ===========
+<br/>
 An npm Package for Node.js based on https://github.com/emirozer/bowshock
 <br/>
 bowshock is an all-in-one wrapper for NASA API's.
@@ -13,15 +14,12 @@ Here is a list of currently supported API's :
 * NASA [Earth API](https://api.nasa.gov/api.html#earth)
 * NASA [APOD (Astronomy Picture of the Day) API](https://api.nasa.gov/api.html#apod)
 * NASA [Patents API](https://api.nasa.gov/api.html#patents)
-* NASA [Earth Temperature Anomalies API](https://api.nasa.gov/api.html#earth-temperature-anomalies)- NOT WORKING
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
 * [MAAS (Mars Weather) API](http://marsweather.ingenology.com/#get_started)
 * [MODIS (Land, Atmosphere and Ocean Data) API](http://daac.ornl.gov/MODIS/MODIS-menu/modis_webservice.html)- NOT WORKING
 * [Skymorph API](http://www.asterank.com/skymorph)
-* [Star API](http://hacktheuniverse.github.io/star-api/)- NOT WORKING
 * [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
-* [PredictTheSky API](http://predictthesky.org/developers.html) - NOT WORKING
 
 ##Install
 
