@@ -20,4 +20,4 @@ function curiosity(date){
 }
 module.exports = curiosity;
 
-curiosity("2015-06-03");
+//curiosity("2015-06-03");
