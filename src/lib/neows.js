@@ -21,7 +21,7 @@ function neows(start_date, end_date){
         }
     }
 
-    let req_url = base_url + "api_key=DEMO_KEY";//helpers.nasa_api_key();
+    let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
     return helpers.dispatch_http_get(req_url);
 
