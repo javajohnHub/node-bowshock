@@ -1,6 +1,6 @@
 ![Screenshot](https://raw.githubusercontent.com/emirozer/bowshock/master/docs/bowshock2.png)
 ===========
-[![NPM](https://nodei.co/npm/node-bowshock.png)](https://nodei.co/npm/node-bowshock/)
+[![NPM](https://nodei.co/npm/node-bowshock.png)](https://nodei.co/npm/node-bowshock/)<br/>
 [![GitHub issues](https://img.shields.io/github/issues/javajohnhub/node-bowshock.svg)](https://github.com/javajohnhub/node-bowshock/issues)
 [![Downloads](https://img.shields.io/npm/dm/node-bowshock.svg)](https://img.shields.io/npm/dm/node-bowshock.svg)
 ===========
