@@ -67,7 +67,16 @@ bowshock.curiosity("2015-06-03");
 ```javascript
 var bowshock = require('node-bowshock');
 
-bowshock.neows(start_date="2015-06-03");
+bowshock.neows.today(detailed=true);
+
+bowshock.neows.stats();
+
+bowshock.neows.feed(start_date="2015-06-03");
+
+//Lookup a specific Asteroid based on its NASA JPL small body (SPK-ID) ID
+bowshock.neows.lookup(3542519);
+
+bowshock.neows.browse();
 
 ```
 
