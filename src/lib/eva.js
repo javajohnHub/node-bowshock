@@ -5,5 +5,3 @@ function eva(){
 
 }
 module.exports = eva;
-
-eva();
