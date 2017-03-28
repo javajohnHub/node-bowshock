@@ -1,6 +1,6 @@
 ![Screenshot](https://raw.githubusercontent.com/emirozer/bowshock/master/docs/bowshock2.png)
 ===========
-<a href="https://nodei.co/npm/node-bowshock.png?downloads=true&downloadRank=true&stars=true/<package>/"><img src="https://nodei.co/npm/node-bowshock.png?downloads=true&downloadRank=true&stars=true"></a>
+<a href="https://www.npmjs.com/package/node-bowshock/"><img src="https://nodei.co/npm/node-bowshock.png?downloads=true&downloadRank=true&stars=true"></a>
 <br/>
 [![GitHub issues](https://img.shields.io/github/issues/javajohnhub/node-bowshock.svg)](https://github.com/javajohnhub/node-bowshock/issues)
 ===========
@@ -18,7 +18,6 @@ Here is a list of currently supported API's :
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
 * [MAAS (Mars Weather) API](http://marsweather.ingenology.com/#get_started)
-* [MODIS (Land, Atmosphere and Ocean Data) API](http://daac.ornl.gov/MODIS/MODIS-menu/modis_webservice.html)- NOT WORKING
 * [Skymorph API](http://www.asterank.com/skymorph)
 * [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
 
@@ -30,10 +29,15 @@ Here is a list of currently supported API's :
 
 YES    | NO
 ------   |----
-Earth  |The rest
-APOD |
-Patents |
-Earth Temperature Anomalies|
+Earth  | &#10004;
+APOD | &#10004;
+Rover | &#10004;
+EVA |
+Helioviewer |
+MAAS |
+Patents | &#10004;
+Skymorph |
+Techport | &#10004;
 
 **The rest does not require an API key for usage.**
 Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/#apply-for-an-api-key
