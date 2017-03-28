@@ -1,7 +1,7 @@
 let moment = require('moment');
 let request = require('request');
-var pd = require('pretty-data').pd;
-var fs = require('fs');
+let pd = require('pretty-data').pd;
+let fs = require('fs');
 
 require('dotenv').config();
 
@@ -51,6 +51,17 @@ let helpers = {
     nasa_api_key: function() {
         return process.env.NASA_API_KEY;
     },
+
+    format_date(date){
+        try{
+            this.vali_date(date);
+            return date.replace(/-/g, "/");
+        }
+        catch(e){
+            throw "You must provide a valid date YYYY";
+        }
+
+    }
 
 
 };
