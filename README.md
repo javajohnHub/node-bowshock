@@ -54,7 +54,6 @@ bowshock.apod(date="2017-03-11");
 
 ```
 
--
 ##### Curiosity
 ```javascript
 var bowshock = require('node-bowshock');
@@ -63,8 +62,6 @@ bowshock.curiosity("2015-06-03");
 
 ```
 
--
-
 ##### EVA
 ```javascript
 var bowshock = require('node-bowshock');
@@ -72,8 +69,6 @@ var bowshock = require('node-bowshock');
 bowshock.eva();
 
 ```
-
--
 
 ##### Asterank
 ```javascript
@@ -88,8 +83,6 @@ bowshock.asterank(
 
 ```
 
-
--
 ##### Earth
 ```javascript
 var bowshock = require('node-bowshock');
@@ -101,7 +94,6 @@ bowshock.earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
 bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
 ```
 
--
 ##### HelioViewer
 ```javascript
 var bowshock = require('node-bowshock');
@@ -114,8 +106,6 @@ bowshock.helioviewer.getjp2header(Id=7654321);
 
 ```
 
-
--
 ##### MAAS
 ```javascript
 var bowshock = require('node-bowshock');
@@ -127,7 +117,6 @@ bowshock.maas.maas_latest()
 
 ```
 
--
 ##### Patents
 ```javascript
 var bowshock = require('node-bowshock');
@@ -136,7 +125,7 @@ var bowshock = require('node-bowshock');
 bowshock.patents(query="temperature", concept_tags=True, limit=5);
 
 ```
--
+
 ##### Skymorph
 ```javascript
 var bowshock = require('node-bowshock');
@@ -147,12 +136,14 @@ bowshock.skymorph.search_target_obj("J99TS7A")
 #TODO : add search_position() , search_target_obj()
 
 ```
+
 ##### Techport
 ```javascript
 var bowshock = require('node-bowshock');
 bowshock.techport(Id="4795");
 
 ```
+
 ## Contributors
 
 * [John Edwards](https://github.com/javajohnhub)
