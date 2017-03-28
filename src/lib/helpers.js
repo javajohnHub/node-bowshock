@@ -1,5 +1,4 @@
 let moment = require('moment');
-var async = require('async');
 let request = require('request');
 var pd = require('pretty-data').pd;
 var fs = require('fs');
