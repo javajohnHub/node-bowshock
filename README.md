@@ -26,26 +26,25 @@ Here is a list of currently supported API's :
 	npm install node-bowshock
 
 ## Do i need an API Key ?
+|         | Yes    | No     |
+|---------|--------|--------|
+| Earth   |&#10004;|        |
+| Apod    |&#10004;|        |
+| Rover   |&#10004;|        |
+| EVA     |        |&#10004;|
+| Helio   |        |&#10004;|
+| Maas    |        |&#10004;|
+| Patents |&#10004;|        |
+| Skymorph|        |&#10004;|
+| Techport|&#10004;|        |
 
-YES    | NO
-------   |----
-Earth  | &#10004;
-APOD | &#10004;
-Rover | &#10004;
-EVA |
-Helioviewer |
-MAAS |
-Patents | &#10004;
-Skymorph |
-Techport | &#10004;
-
-**The rest does not require an API key for usage.**
 Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/#apply-for-an-api-key
 
 ####Setting up the API Key
+<br/>
 ===================
-set an environment varible NASA_API_KEY which is equal to your key string.<br/>
-rename env.example to .env
+**Set an environment varible NASA_API_KEY which is equal to your key string.**<br/>
+**Rename env.example to .env**
 
 #####Apod
 ```javascript
