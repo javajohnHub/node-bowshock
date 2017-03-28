@@ -14,6 +14,7 @@ Here is a list of currently supported API's :
 * [Earth API](https://api.nasa.gov/api.html#earth)
 * [APOD (Astronomy Picture of the Day) API](https://api.nasa.gov/api.html#apod)
 * [Mars Rover Photos API](https://api.nasa.gov/api.html#MarsPhotos)
+* [Extra Vehicular Activity - US and Russia](https://dev.socrata.com/foundry/data.nasa.gov/q8u9-7uq7)
 * [Patents API](https://api.nasa.gov/api.html#patents)
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
@@ -57,12 +58,22 @@ bowshock.apod(date="2017-03-11");
 ```javascript
 var bowshock = require('node-bowshock');
 
-//with specific date and tags - For apod all args are optional
 bowshock.curiosity("2015-06-03");
 
 ```
 
 -
+
+#####EVA
+```javascript
+var bowshock = require('node-bowshock');
+
+bowshock.eva();
+
+```
+
+-
+
 #####Asterank
 ```javascript
 var bowshock = require('node-bowshock');

@@ -8,6 +8,8 @@ bowshock.patents = require('./src/lib/patents.js');
 bowshock.skymorph = require('./src/lib/skymorph.js');
 bowshock.techport = require('./src/lib/techport.js');
 bowshock.helpers = require('./src/lib/helpers.js');
+bowshock.curiosity = require('./src/lib/curiosity.js');
+bowshock.eva = require('./src/lib/eva.js');
 
 
 
