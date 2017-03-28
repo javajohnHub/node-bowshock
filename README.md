@@ -12,6 +12,7 @@ Here is a list of currently supported API's :
 * [Earth API](https://api.nasa.gov/api.html#earth)
 * [APOD (Astronomy Picture of the Day) API](https://api.nasa.gov/api.html#apod)
 * [Mars Rover Photos API](https://api.nasa.gov/api.html#MarsPhotos)
+* [Asteroids - NeoWs API](https://api.nasa.gov/api.html#NeoWS)
 * [Extra Vehicular Activity - US and Russia](https://dev.socrata.com/foundry/data.nasa.gov/q8u9-7uq7)
 * [Patents API](https://api.nasa.gov/api.html#patents)
 * [Asterank API](http://www.asterank.com/api)
@@ -30,6 +31,7 @@ Here is a list of currently supported API's :
 | Earth   |&#10004;|        |
 | Apod    |&#10004;|        |
 | Rover   |&#10004;|        |
+| NeoWs   |&#10004;|        |
 | EVA     |        |&#10004;|
 | Helio   |        |&#10004;|
 | Maas    |        |&#10004;|
@@ -58,6 +60,14 @@ bowshock.apod(date="2017-03-11");
 var bowshock = require('node-bowshock');
 
 bowshock.curiosity("2015-06-03");
+
+```
+
+##### NeoWs
+```javascript
+var bowshock = require('node-bowshock');
+
+bowshock.neows(start_date="2015-06-03");
 
 ```
 

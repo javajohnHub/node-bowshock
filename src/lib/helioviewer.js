@@ -120,7 +120,7 @@ let helioviewer = {
         else{
             base_url += "id=" + Id.toString();
         }
-        return helpers.dispatch_http_get(base_url);
+        return helpers.dispatch_http_get_xml(base_url);
 
     }
 };

@@ -1,5 +1,6 @@
 let moment = require('moment');
 let request = require('request');
+var pd = require('pretty-data').pd;
 
 require('dotenv').config();
 
@@ -9,11 +10,18 @@ let helpers = {
         request(url, function (error, response, body) {
             console.log('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-            console.log('body:', body);
-            return body;
+            console.log('body:', pd.json(body));
+
         });
     },
-
+    dispatch_http_get_xml: function(url){
+        console.log("Dispatching HTTP GET Request : ", url);
+        request(url, function (error, response, body) {
+            console.log('error:', error); // Print the error if one occurred
+            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            console.log('body:', pd.xml(body));
+        });
+    },
     vali_date: function(date_text) {
         if(moment(date_text,'YYYY-MM-DD', true).isValid()){
             return date_text;
