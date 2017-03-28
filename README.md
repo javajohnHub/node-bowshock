@@ -21,7 +21,7 @@ Here is a list of currently supported API's :
 * [Skymorph API](http://www.asterank.com/skymorph)
 * [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
 
-##Install
+## Install
 
 	npm install node-bowshock
 
@@ -40,13 +40,13 @@ Here is a list of currently supported API's :
 
 Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/#apply-for-an-api-key
 
-####Setting up the API Key
+#### Setting up the API Key
 <br/>
 ===================
 **Set an environment varible NASA_API_KEY which is equal to your key string.**<br/>
 **Rename env.example to .env**
 
-#####Apod
+##### Apod
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -56,7 +56,7 @@ bowshock.apod(date="2017-03-11");
 ```
 
 -
-#####Curiosity
+##### Curiosity
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -66,7 +66,7 @@ bowshock.curiosity("2015-06-03");
 
 -
 
-#####EVA
+##### EVA
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -76,7 +76,7 @@ bowshock.eva();
 
 -
 
-#####Asterank
+##### Asterank
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -91,7 +91,7 @@ bowshock.asterank(
 
 
 -
-#####Earth
+##### Earth
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -103,7 +103,7 @@ bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
 ```
 
 -
-#####HelioViewer
+##### HelioViewer
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -117,7 +117,7 @@ bowshock.helioviewer.getjp2header(Id=7654321);
 
 
 -
-#####MAAS
+##### MAAS
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -129,7 +129,7 @@ bowshock.maas.maas_latest()
 ```
 
 -
-#####Patents
+##### Patents
 ```javascript
 var bowshock = require('node-bowshock');
 
@@ -148,16 +148,16 @@ bowshock.skymorph.search_target_obj("J99TS7A")
 #TODO : add search_position() , search_target_obj()
 
 ```
-#####techport
+##### Techport
 ```javascript
 var bowshock = require('node-bowshock');
 bowshock.techport(Id="4795");
 
 ```
-##Contributors
+## Contributors
 
 * [John Edwards](https://github.com/javajohnhub)
 <br>
 
-##BTW What is "bowshock"?
+## BTW What is "bowshock"?
 ![Screenshot](https://raw.githubusercontent.com/emirozer/bowshock/master/docs/bowshock.jpg)
