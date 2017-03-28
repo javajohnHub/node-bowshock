@@ -3,7 +3,6 @@
 <a href="https://www.npmjs.com/package/node-bowshock/"><img src="https://nodei.co/npm/node-bowshock.png?downloads=true&downloadRank=true&stars=true"></a>
 <br/>
 [![GitHub issues](https://img.shields.io/github/issues/javajohnhub/node-bowshock.svg)](https://github.com/javajohnhub/node-bowshock/issues)
-===========
 <br/>
 An npm Package for Node.js based on https://github.com/emirozer/bowshock
 <br/>
