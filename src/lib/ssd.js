@@ -113,6 +113,51 @@ let ssd = {
                     throw "Date must be a string in the format of YYYY-MM-DD";
                 }
             }
+            if(object.energy_min){
+                base_url += "energy-min=" + object.energy_min + "&";
+            }
+            if(object.energy_max){
+                base_url += "energy-max=" + object.energy_max + "&";
+            }
+            if(object.impact_e_min){
+                base_url += "impact-e-min=" + object.impact_e_min + "&";
+            }
+            if(object.impact_e_max){
+                base_url += "impact-e-max=" + object.impact_e_max + "&";
+            }
+            if(typeof object.vel_min === 'number'){
+                base_url += "vel-min=" + object.vel_min + "&";
+            }
+            if(typeof object.vel_max === 'number'){
+                base_url += "vel-max=" + object.vel_max + "&";
+            }
+            if(typeof object.alt_min === 'number'){
+                base_url += "alt-min=" + object.alt_min + "&";
+            }
+            if(typeof object.alt_max === 'number'){
+                base_url += "alt-max=" + object.alt_max + "&";
+            }
+            if(typeof object.req_loc === 'boolean'){
+                base_url += "req-loc=" + object.req_loc + "&";
+            }
+            if(typeof object.req_alt === 'boolean'){
+                base_url += "req-alt=" + object.req_alt + "&";
+            }
+            if(typeof object.req_vel === 'boolean'){
+                base_url += "req-vel=" + object.req_vel + "&";
+            }
+            if(typeof object.req_vel_comp === 'boolean'){
+                base_url += "req-vel-comp=" + object.req_vel_comp + "&";
+            }
+            if(typeof object.vel_comp === 'boolean'){
+                base_url += "vel-comp=" + object.vel_comp + "&";
+            }
+            if(typeof object.sort === 'string'){
+                base_url += "sort=" + object.sort + "&";
+            }
+            if(typeof object.limit === 'number'){
+                base_url += "limit=" + object.limit + "&";
+            }
 
         }
         req_url = base_url;

@@ -235,8 +235,26 @@ bowshock.ssd.cad({
             //fullname: true
         
         });
-
-bowshock.ssd.fireball(); -- coming soon.
+//all args are optional
+bowshock.ssd.fireballs({
+            date_min: "2016-12-01",
+            date_max: "2017-01-01",
+            //energy_min: .3,
+            //energy_max: 10,
+            //impact_e_min: .08,
+            //impact_e_max: 10,
+            //vel_min: 18.5,
+            //vel_max: 20,
+            //alt_min: 1,
+            //alt_max: 22,
+            //req_loc: false,
+            req_alt: false,
+            req_vel: false,
+            req_vel_comp: false,
+            vel_comp: false,
+            sort: "date",
+            limit: 5
+        });
 
 bowshock.ssd.nhats(); -- coming soon.
 
