@@ -261,8 +261,15 @@ bowshock.ssd.sentry(); -- coming soon.
 
 ```
 
-##### Trek WMTS -- coming soon.
+##### Trek WMTS
+```javascript
+let bowshock = require('node-bowshock');
 
+bowshock.trek.mars(); -- coming soon.
+
+bowshock.trek.vesta(); -- coming soon.
+
+```
 ## Contributors
 
 * [John Edwards](https://github.com/javajohnhub)
