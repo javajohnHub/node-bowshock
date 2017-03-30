@@ -1,4 +1,4 @@
-var bowshock = module.exports = {};
+let bowshock = module.exports = {};
 bowshock.apod = require('./src/lib/apod.js');
 bowshock.asterank = require('./src/lib/asterank.js');
 bowshock.earth = require('./src/lib/earth.js');
@@ -14,7 +14,4 @@ bowshock.neows = require('./src/lib/neows.js');
 bowshock.epic = require('./src/lib/epic.js');
 bowshock.eonet = require('./src/lib/eonet.js');
 bowshock.sounds = require('./src/lib/sounds.js');
-
-
-
-
+bowshock.ssd = require('./src/lib/ssd.js');

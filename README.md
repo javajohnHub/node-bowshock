@@ -23,6 +23,7 @@ Here is a list of currently supported API's :
 * [MAAS (Mars Weather) API](http://marsweather.ingenology.com/#get_started)
 * [Skymorph API](http://www.asterank.com/skymorph)
 * [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
+* [SSD/CNEOS API](https://api.nasa.gov/api.html#ssd_CNEOS)
 
 ## Install
 
@@ -200,6 +201,45 @@ bowshock.skymorph.search_target_obj("J99TS7A")
 ```javascript
 var bowshock = require('node-bowshock');
 bowshock.techport(Id="4795");
+
+```
+
+##### SSD/CNEOS
+```javascript
+var bowshock = require('node-bowshock');
+
+//all args are optional
+bowshock.ssd.cad({
+            date_min: "2014-03-11",
+            date_max: "2016-03-11",
+            //dist_min: 0.05,
+            //dist_max: 0.1,
+            //h_min: 22,
+            //h_max: 17.75,
+            //v_inf_min: 5,
+            //v_inf_max: 20,
+            //v_rel_min: 11.2,
+            //v_rel_max: 19,
+            //class: "ATE",
+            //pha: false,
+            //nea: false,
+            //comet: false,
+            //neo: true,
+            //kind: "a",
+            //spk: 2000433,
+            //des: 433,
+            //body: "Earth",
+            //sort: "date",
+            //limit: 5,
+            //fullname: true
+        
+        });
+
+bowshock.ssd.fireball(); -- coming soon.
+
+bowshock.ssd.nhats(); -- coming soon.
+
+bowshock.ssd.sentry(); -- coming soon.
 
 ```
 

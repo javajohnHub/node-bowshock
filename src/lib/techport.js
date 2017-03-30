@@ -39,12 +39,12 @@ function techport(Id){
             Output: The output of this query is an XML file with all field data of the TechPort record.
     */
 
-    let base_url = 'https://api.nasa.gov/techport/api/items.json?';
+    let base_url = 'https://api.nasa.gov/techport/api/items/';
     if(typeof Id !== 'string'){
         throw "The Id arg you provided is not the type of str";
     }
     else{
-        base_url += 'api_key=' + helpers.nasa_api_key();
+        base_url += Id + '.json?api_key=' + helpers.nasa_api_key();
     }
     return helpers.dispatch_http_get(base_url);
 }

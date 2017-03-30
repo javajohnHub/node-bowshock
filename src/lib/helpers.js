@@ -7,22 +7,34 @@ require('dotenv').config();
 
 let helpers = {
     dispatch_http_get: function(url){
-        let destination = fs.createWriteStream('./log.json');
         console.log("Dispatching HTTP GET Request : ", url);
-        request(url, function (error, response, body) {
+        let options = {
+            url: url,
+            headers: {
+                'User-Agent': 'request'
+            }
+        };
+        request(options, function (error, response, body) {
             console.log('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', pd.json(body));
-        }).pipe(destination);
+            fs.writeFile('./log.json', pd.json(body, null, 4) , 'utf-8');
+        })
     },
     dispatch_http_get_xml: function(url){
-        let destination = fs.createWriteStream('./log.xml');
         console.log("Dispatching HTTP GET Request : ", url);
-        request(url, function (error, response, body) {
+        let options = {
+            url: url,
+            headers: {
+                'User-Agent': 'request'
+            }
+        };
+        request(options, function (error, response, body) {
             console.log('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', pd.xml(body));
-        }).pipe(destination);
+            fs.writeFile('./log.xml', pd.xml(body, null, 4) , 'utf-8');
+        })
     },
     vali_date: function(date_text) {
         if(moment(date_text,'YYYY-MM-DD', true).isValid()){
@@ -61,6 +73,14 @@ let helpers = {
             throw "You must provide a valid date YYYY";
         }
 
+    },
+    isEmpty(obj) {
+        for(let prop in obj) {
+            if(obj.hasOwnProperty(prop))
+                return false;
+        }
+
+        return true;
     }
 
 
@@ -70,3 +90,4 @@ module.exports = helpers;
 //helpers.vali_date("2017-12-03");
 //helpers.validate_year("2017");
 //helpers.validate_iso8601("2014-01-01T23:59:59");
+
