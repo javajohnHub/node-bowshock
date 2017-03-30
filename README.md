@@ -46,6 +46,7 @@ Here is a list of currently supported API's :
 | Techport |&#10004;|        |
 | Sounds   |&#10004;|        |
 | SSD/CNEOS|&#10004;|        |
+| Trek WMTS|        |&#10004;|
 
 Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/#apply-for-an-api-key
 
