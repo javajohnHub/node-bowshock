@@ -265,9 +265,9 @@ bowshock.ssd.sentry(); -- coming soon.
 ```javascript
 let bowshock = require('node-bowshock');
 
-bowshock.trek.mars(); -- coming soon.
+bowshock.trek.mars(layer_id="curiosity_ctx_mosaic");
 
-bowshock.trek.vesta(); -- coming soon.
+bowshock.trek.vesta(layer_id="global_LAMO");
 
 ```
 ## Contributors
