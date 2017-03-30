@@ -163,7 +163,7 @@ let ssd = {
         req_url = base_url;
         return helpers.dispatch_http_get(req_url.slice(0, -1));
     },
-    nhats(){
+    nhats(object){
 
     },
     sentry(){
