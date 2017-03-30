@@ -24,6 +24,7 @@ Here is a list of currently supported API's :
 * [Skymorph API](http://www.asterank.com/skymorph)
 * [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
 * [SSD/CNEOS API](https://api.nasa.gov/api.html#ssd_CNEOS)
+* [Trek WMTS API](https://api.nasa.gov/api.html#trek)
 
 ## Install
 
