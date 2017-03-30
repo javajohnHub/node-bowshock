@@ -27,7 +27,7 @@ Here is a list of currently supported API's :
 
 	npm install node-bowshock
 
-## Do i need an API Key ?
+## Do I need an API Key ?
 |         | Yes    | No     |
 |---------|--------|--------|
 | Earth   |&#10004;|        |
@@ -110,9 +110,9 @@ bowshock.epic.enhanced("2017-02-11");
 ```javascript
 var bowshock = require('node-bowshock');
 
-bowshock.eonet.events({source="InciWeb, EO", status="open", limit=5, days=20});
+bowshock.eonet.events({source:"InciWeb, EO", status:"open", limit:5, days:20});
 
-bowshock.eonet.categories({id=8, source="InciWeb, EO", status="open", limit=5, days=20});
+bowshock.eonet.categories({id:8, source:"InciWeb, EO", status:"open", limit:5, days:20});
 
 bowshock.eonet.layers(8);
 ```
@@ -135,7 +135,7 @@ bowshock.asterank(
 var bowshock = require('node-bowshock');
 
 //imagery endpoint lon & lat mandatory, rest optional
-bowshock.earth.imagery((lon=100.75, lat=1.5, date="2014-02-04");
+bowshock.earth.imagery(lon=100.75, lat=1.5, date="2014-02-04");
 
 //assets endpoint lon & lat & begin mandatory, end optional
 bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
