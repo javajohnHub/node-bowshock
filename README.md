@@ -56,7 +56,7 @@ Rename env.example to .env
 
 ##### Apod
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //with specific date and tags - For apod all args are optional
 bowshock.apod(date="2017-03-11");
@@ -65,7 +65,7 @@ bowshock.apod(date="2017-03-11");
 
 ##### Mars Rovers
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 bowshock.mars.curiosity("2015-06-03");
 bowshock.mars.opportunity("2015-06-03");
@@ -75,7 +75,7 @@ bowshock.mars.spirit("2015-06-03");
 
 ##### NeoWs
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 bowshock.neows.today(detailed=true);
 
@@ -92,7 +92,7 @@ bowshock.neows.browse();
 
 ##### EVA
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 bowshock.eva();
 
@@ -100,7 +100,7 @@ bowshock.eva();
 
 ##### EPIC
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 bowshock.epic.natural();
 
@@ -114,7 +114,7 @@ bowshock.epic.enhanced("2017-02-11");
 
 ##### Sounds
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 bowshock.sounds("apollo", limit=10);
 
@@ -122,7 +122,7 @@ bowshock.sounds("apollo", limit=10);
 
 ##### EONET
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 bowshock.eonet.events({source:"InciWeb, EO", status:"open", limit:5, days:20});
 
@@ -133,7 +133,7 @@ bowshock.eonet.layers(8);
 
 ##### Asterank
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //all args mandatory
 bowshock.asterank(
@@ -146,7 +146,7 @@ bowshock.asterank(
 
 ##### Earth
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //imagery endpoint lon & lat mandatory, rest optional
 bowshock.earth.imagery(lon=100.75, lat=1.5, date="2014-02-04");
@@ -157,7 +157,7 @@ bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
 
 ##### HelioViewer
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //args are mandatory
 bowshock.helioviewer.getjp2image(date='2014-01-01T23:59:59', sourceId=14);
@@ -169,7 +169,7 @@ bowshock.helioviewer.getjp2header(Id=7654321);
 
 ##### MAAS
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //mandatory date begin / end
 bowshock.maas.maas_archive(begin="2015-03-19", end="2017-03-19")
@@ -180,7 +180,7 @@ bowshock.maas.maas_latest()
 
 ##### Patents
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //only query is mandatory, rest is optional
 bowshock.patents(query="temperature", concept_tags=True, limit=5);
@@ -189,25 +189,24 @@ bowshock.patents(query="temperature", concept_tags=True, limit=5);
 
 ##### Skymorph
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 // mandatory obj id
 bowshock.skymorph.search_target_obj("J99TS7A")
-
-#TODO : add search_position() , search_target_obj()
 
 ```
 
 ##### Techport
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
+
 bowshock.techport(Id="4795");
 
 ```
 
 ##### SSD/CNEOS
 ```javascript
-var bowshock = require('node-bowshock');
+let bowshock = require('node-bowshock');
 
 //all args are optional
 bowshock.ssd.cad({
@@ -261,6 +260,8 @@ bowshock.ssd.nhats(); -- coming soon.
 bowshock.ssd.sentry(); -- coming soon.
 
 ```
+
+##### Trek WMTS -- coming soon.
 
 ## Contributors
 
