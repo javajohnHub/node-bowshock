@@ -17,6 +17,7 @@ Here is a list of currently supported API's :
 * [EPIC API](https://api.nasa.gov/api.html#EPIC)
 * [EONET API](https://eonet.sci.gsfc.nasa.gov/docs/v2.1)
 * [Patents API](https://api.nasa.gov/api.html#patents)
+* [Sounds API](https://api.nasa.gov/api.html#sounds)
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
 * [MAAS (Mars Weather) API](http://marsweather.ingenology.com/#get_started)
@@ -59,11 +60,13 @@ bowshock.apod(date="2017-03-11");
 
 ```
 
-##### Curiosity
+##### Mars Rovers
 ```javascript
 var bowshock = require('node-bowshock');
 
-bowshock.curiosity("2015-06-03");
+bowshock.mars.curiosity("2015-06-03");
+bowshock.mars.opportunity("2015-06-03");
+bowshock.mars.spirit("2015-06-03");
 
 ```
 
@@ -103,6 +106,15 @@ bowshock.epic.natural("2017-02-11");
 bowshock.epic.enhanced();
 
 bowshock.epic.enhanced("2017-02-11");
+
+```
+
+##### Sounds
+```javascript
+var bowshock = require('node-bowshock');
+
+//all args mandatory
+bowshock.sounds("apollo", limit=10);
 
 ```
 
