@@ -15,6 +15,7 @@ Here is a list of currently supported API's :
 * [Asteroids - NeoWs API](https://api.nasa.gov/api.html#NeoWS)
 * [Extra Vehicular Activity - US and Russia](https://dev.socrata.com/foundry/data.nasa.gov/q8u9-7uq7)
 * [EPIC API](https://api.nasa.gov/api.html#EPIC)
+* [EONET API](https://eonet.sci.gsfc.nasa.gov/docs/v2.1)
 * [Patents API](https://api.nasa.gov/api.html#patents)
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
@@ -35,6 +36,7 @@ Here is a list of currently supported API's :
 | NeoWs   |&#10004;|        |
 | EVA     |        |&#10004;|
 | EPIC    |&#10004;|        |
+| EONET   |        |&#10004;|
 | Helio   |        |&#10004;|
 | Maas    |        |&#10004;|
 | Patents |&#10004;|        |
@@ -102,6 +104,17 @@ bowshock.epic.enhanced();
 
 bowshock.epic.enhanced("2017-02-11");
 
+```
+
+##### EONET
+```javascript
+var bowshock = require('node-bowshock');
+
+bowshock.eonet.events({source="InciWeb, EO", status="open", limit=5, days=20});
+
+bowshock.eonet.categories({id=8, source="InciWeb, EO", status="open", limit=5, days=20});
+
+bowshock.eonet.layers(8);
 ```
 
 ##### Asterank
