@@ -43,6 +43,7 @@ Here is a list of currently supported API's :
 | Patents |&#10004;|        |
 | Skymorph|        |&#10004;|
 | Techport|&#10004;|        |
+| Sounds  |&#10004;|        |
 
 Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/#apply-for-an-api-key
 
@@ -113,7 +114,6 @@ bowshock.epic.enhanced("2017-02-11");
 ```javascript
 var bowshock = require('node-bowshock');
 
-//all args mandatory
 bowshock.sounds("apollo", limit=10);
 
 ```
