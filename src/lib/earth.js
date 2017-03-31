@@ -63,7 +63,7 @@ let earth = {
             throw "Incorrect date format, should be YYYY-MM-DD";
         }
     }
-    if (cloud_score === true) {
+    if (object.cloud_score === true) {
         base_url += "cloud_score=True" + "&";
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
