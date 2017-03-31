@@ -261,7 +261,7 @@ let ssd = {
 };
 module.exports = ssd;
 
-ssd.sentry({
+/*ssd.sentry({
     spk: 2029075,
     //des: 29075,
     //h_max: 50,
@@ -270,5 +270,5 @@ ssd.sentry({
     //days: 6,
     all: false,
     removed: false
-});
+});*/
 
