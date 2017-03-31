@@ -8,7 +8,7 @@ create jobs, and improve quality of life. This endpoint provides structured, sea
 let helpers = require('./helpers');
 
 
-function patents(query, concept_tags, limit){
+function patents(object){
     /*
      HTTPs REQUEST
 
@@ -27,28 +27,28 @@ function patents(query, concept_tags, limit){
 
      */
     let base_url = "https://api.nasa.gov/patents/content?";
-    if(!query){
+    if(!object.query){
         throw "search query is missing, which is mandatory.";
     }
-    else if(typeof query !== 'string'){
+    else if(typeof object.query !== 'string'){
         try{
-            query = query.toString();
+            object.query = object.query.toString();
         }
         catch(e){
             throw "query has to be type of string";
         }
     }
     else{
-        base_url += "query=" + query + "&";
+        base_url += "query=" + object.query + "&";
     }
-    if(concept_tags){
+    if(object.concept_tags){
         base_url += "concept_tags=True" + "&";
     }
-    if(limit){
-        if(!parseInt(limit)){
+    if(object.limit){
+        if(!parseInt(object.limit)){
             helpers.logger.log('error', "The limit arg you provided is not the type of int, ignoring it");
         }
-        base_url += "limit=" + limit.toString() + "&";
+        base_url += "limit=" + object.limit + "&";
     }
     req_url = base_url + "api_key=" + helpers.nasa_api_key();
 

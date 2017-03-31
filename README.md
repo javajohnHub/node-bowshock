@@ -162,7 +162,7 @@ bowshock.earth.assets({lon: 100.75, lat: 1.5, begin: "2014-02-01"});
 let bowshock = require('node-bowshock');
 
 //args are mandatory
-bowshock.helioviewer.getjp2image({date:"2014-01-01T23:59:59Z", sourceId:14});
+bowshock.helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 
 //args are mandatory
 bowshock.helioviewer.getjp2header(Id=7654321);
@@ -185,7 +185,7 @@ bowshock.maas.maas_latest()
 let bowshock = require('node-bowshock');
 
 //only query is mandatory, rest is optional
-bowshock.patents(query="temperature", concept_tags=True, limit=5);
+bowshock.patents({query: "temperature", concept_tags: true, limit: 5});
 
 ```
 
