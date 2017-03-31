@@ -9,12 +9,7 @@ endpoint and examples of usage.
 const helpers = require('./helpers');
 
 let helioviewer = {
-    getjp2image(date,
-        sourceId,
-        observatory,
-        instrument,
-        detector,
-        measurement){
+    getjp2image(object){
     "use strict";
     /*
      Helioviewer.org and JHelioviewer operate off of JPEG2000 formatted image data generated from science-quality FITS files. Use the APIs below to interact directly with these intermediary JPEG2000 files.
@@ -41,49 +36,49 @@ let helioviewer = {
     let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Image/?';
     let req_url = '';
     try{
-        helpers.validate_iso8601(date);
-        if(date.charAt(-1) !== 'Z'){
-            date += 'Z';
+        helpers.validate_iso8601(object.date);
+        if(object.date.charAt(-1) !== 'Z'){
+            object.date += 'Z';
         }
-        base_url += 'date=' + date + '&';
+        base_url += 'date=' + object.date + '&';
     }
     catch(e){
         throw "Your date input is not in iso8601 format. ex: 2014-01-01T23:59:59";
     }
-    if(typeof parseInt(sourceId) !== 'number'){
+    if(typeof parseInt(object.sourceId) !== 'number'){
         console.log("error", "The sourceId argument should be an int, ignoring it");
 
     }
     else{
-        base_url += "sourceId=" + sourceId.toString() + "&";
+        base_url += "sourceId=" + object.sourceId + "&";
     }
-    if(typeof observatory !== 'string'){
+    if(typeof object.observatory !== 'string'){
         console.log('error', "The observatory argument should be a str, ignoring it");
 
     }
     else{
-        base_url += "observatory=" + observatory + "&";
+        base_url += "observatory=" + object.observatory + "&";
     }
-    if(typeof instrument !== 'string'){
+    if(typeof object.instrument !== 'string'){
         console.log("error",
             "The instrument argument should be a str, ignoring it");
     }
     else{
-        base_url += "instrument=" + instrument + "&";
+        base_url += "instrument=" + object.instrument + "&";
     }
-    if(typeof detector !== 'string'){
+    if(typeof object.detector !== 'string'){
         console.log("error",
             "The detector argument should be a str, ignoring it");
     }
     else{
-        base_url += "detector=" + detector + "&";
+        base_url += "detector=" + object.detector + "&";
     }
-    if(typeof measurement !== 'string'){
+    if(typeof object.measurement !== 'string'){
         console.log("error",
             "The measurement argument should be a str, ignoring it");
     }
     else{
-        base_url += "measurement=" + detector + "&";
+        base_url += "measurement=" + object.detector + "&";
     }
     req_url += base_url + "json=true&jpip=true";
 
@@ -126,5 +121,5 @@ let helioviewer = {
 };
 module.exports = helioviewer;
 
-//helioviewer.getjp2image(date="2014-01-01T23:59:59Z", sourceId=14);
+//helioviewer.getjp2image({date:"2014-01-01T23:59:59Z", sourceId:14});
 //helioviewer.getjp2header(17654321);
