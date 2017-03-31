@@ -164,7 +164,63 @@ let ssd = {
         return helpers.dispatch_http_get(req_url.slice(0, -1));
     },
     nhats(object){
+        let base_url = "https://ssd-api.jpl.nasa.gov/nhats.api?";
+        let req_url = "";
+        if(helpers.isEmpty(object)){
+            req_url = base_url;
+        }else{
+            if(object.dv){
+                base_url += "dv=" + object.dv + "&";
+            }
+            if(object.dur){
+                base_url += "dur=" + object.dur + "&";
+            }
+            if(object.stay){
+                base_url += "stay=" + object.stay + "&";
+            }
+            if(object.launch){
+                let first = object.launch.substring(0, 4);
+                let last =  object.launch.substring(5);
+                let middle = object.launch.substring(4,5);
+                if(middle === '-'){
+                    try{
+                        helpers.validate_year(first);
 
+                    }
+                    catch(e){
+                        throw "Date range must be in the format YYYY-YYYY";
+                    }
+                    try{
+                        helpers.validate_year(last);
+                    }
+                    catch(e){
+                        throw "Date range must be in the format YYYY-YYYY";
+                    }
+                    base_url += "launch=" + object.launch + "&";
+                }
+                else{
+                    throw "Date range must be in the format YYYY-YYYY";
+                }
+            }
+            if(object.h){
+                base_url += "h=" + object.h + "&";
+            }
+            if(object.occ){
+                base_url += "occ=" + object.occ + "&";
+            }
+            if(object.spk){
+                base_url += "spk=" + object.spk + "&";
+            }
+            if(object.des){
+                base_url += "des=" + object.des + "&";
+            }
+            if(object.plot){
+                base_url += "plot=" + object.plot + "&";
+            }
+        }
+
+        req_url = base_url;
+        return helpers.dispatch_http_get(req_url.slice(0, -1));
 
     },
     sentry(){
@@ -173,3 +229,4 @@ let ssd = {
 
 };
 module.exports = ssd;
+

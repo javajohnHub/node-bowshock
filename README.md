@@ -257,7 +257,18 @@ bowshock.ssd.fireballs({
             limit: 5
         });
 
-bowshock.ssd.nhats(); -- coming soon.
+bowshock.ssd.nhats({
+            dv: 12,
+            dur: 450,
+            stay: 8,
+            launch: "2015-2020",
+            //h: 16,
+            //occ: 3,
+            //spk:2000433,
+            //des: "141P",
+            plot: true
+        
+        });
 
 bowshock.ssd.sentry(); -- coming soon.
 
