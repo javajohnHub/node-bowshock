@@ -6,7 +6,7 @@ The {MAAS} API is an open source REST API built to help make it easier and more 
 This API is built on Django and Django REST Framework.
 Our implementation of the API is available at marsweather.ingenology.com.
 */
-const decimal = require('decimal');
+
 const helpers = require('./helpers')
 
 let maas = {

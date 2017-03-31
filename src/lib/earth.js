@@ -9,7 +9,6 @@ If True is supplied, then a keypair will always be returned, even if the backend
 Note that this is a rough calculation, mainly used to filter out exceedingly cloudy images.
 */
 const helpers = require('./helpers');
-const decimal = require('decimal');
 let earth = {
     imagery(lon, lat, date, dim, cloud_score) {
     "use strict";
@@ -35,7 +34,7 @@ let earth = {
     else {
         try {
             if (!parseInt(lon) || !parseInt(lat)) {
-                base_url += "lon=" + decimal(lon).toString() + "&" + "lat=" + decimal(lat).toString() + "&";
+                base_url += "lon=" + lon + "&" + "lat=" + lat + "&";
                 console.log(base_url);
             }
 
@@ -47,7 +46,7 @@ let earth = {
     if (dim) {
         try {
             if (!parseInt(dim)) {
-                base_url += "dim=" + decimal(dim).toString() + "&";
+                base_url += "dim=" + dim + "&";
             }
 
         }
