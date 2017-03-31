@@ -33,7 +33,7 @@ let earth = {
     }
     else {
         try {
-            if (!parseInt(object.lon) || !parseInt(object.lat)) {
+            if (object.lon && object.lat) {
                 base_url += "lon=" + object.lon + "&" + "lat=" + object.lat + "&";
                 console.log(base_url);
             }
