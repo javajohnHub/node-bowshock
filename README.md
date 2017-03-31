@@ -270,7 +270,16 @@ bowshock.ssd.nhats({
         
         });
 
-bowshock.ssd.sentry(); -- coming soon.
+bowshock.ssd.sentry({
+            spk: 2029075,
+            //des: 29075,
+            //h_max: 50,
+            //ps_min: 10,
+            //ip_min: 1e-3,
+            //days: 6,
+            all: false,
+            removed: false
+        });
 
 ```
 

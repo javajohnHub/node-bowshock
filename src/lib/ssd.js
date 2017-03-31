@@ -223,10 +223,52 @@ let ssd = {
         return helpers.dispatch_http_get(req_url.slice(0, -1));
 
     },
-    sentry(){
-
+    sentry(object){
+        let base_url ="https://ssd-api.jpl.nasa.gov/sentry.api?";
+        let req_url = "";
+        if(helpers.isEmpty(object)){
+            req_url = base_url;
+        }else {
+            if (object.spk) {
+                base_url += "spk=" + object.spk + "&";
+            }
+            if (object.des) {
+                base_url += "des=" + object.des + "&";
+            }
+            if (object.h_max) {
+                base_url += "h-max=" + object.h_max + "&";
+            }
+            if (parseInt(object.ps_min)) {
+                base_url += "ps-min=" + object.ps_min + "&";
+            }
+            if (object.ip_min) {
+                base_url += "ip-min=" + object.ip_min + "&";
+            }
+            if (parseInt(object.days)) {
+                base_url += "days=" + object.days + "&";
+            }
+            if (typeof object.all === 'boolean') {
+                base_url += "all=" + object.all + "&";
+            }
+            if (typeof object.removed === 'boolean') {
+                base_url += "removed=" + object.removed + "&";
+            }
+        }
+        req_url = base_url;
+        return helpers.dispatch_http_get(req_url.slice(0, -1));
     },
 
 };
 module.exports = ssd;
+
+ssd.sentry({
+    spk: 2029075,
+    //des: 29075,
+    //h_max: 50,
+    //ps_min: 10,
+    //ip_min: 1e-3,
+    //days: 6,
+    all: false,
+    removed: false
+});
 
