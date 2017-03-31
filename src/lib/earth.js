@@ -10,7 +10,7 @@ Note that this is a rough calculation, mainly used to filter out exceedingly clo
 */
 const helpers = require('./helpers');
 let earth = {
-    imagery(lon, lat, date, dim, cloud_score) {
+    imagery(object) {
     "use strict";
     /*
      ----------QUERY PARAMETERS----------
@@ -28,13 +28,13 @@ let earth = {
      */
 
     let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
-    if (!lon || !lat) {
+    if (!object.lon || !object.lat) {
         throw "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
     }
     else {
         try {
-            if (!parseInt(lon) || !parseInt(lat)) {
-                base_url += "lon=" + lon + "&" + "lat=" + lat + "&";
+            if (!parseInt(object.lon) || !parseInt(object.lat)) {
+                base_url += "lon=" + object.lon + "&" + "lat=" + object.lat + "&";
                 console.log(base_url);
             }
 
@@ -43,10 +43,10 @@ let earth = {
             throw "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
         }
     }
-    if (dim) {
+    if (object.dim) {
         try {
-            if (!parseInt(dim)) {
-                base_url += "dim=" + dim + "&";
+            if (!parseInt(object.dim)) {
+                base_url += "dim=" + object.dim + "&";
             }
 
         }
@@ -54,10 +54,10 @@ let earth = {
             throw "imagery endpoint expects dim to be a float";
         }
     }
-    if (date) {
+    if (object.date) {
         try {
-            helpers.vali_date(date);
-            base_url += "date=" + date + "&";
+            helpers.vali_date(object.date);
+            base_url += "date=" + object.date + "&";
         }
         catch (e) {
             throw "Incorrect date format, should be YYYY-MM-DD";
@@ -77,7 +77,7 @@ let earth = {
  This is an amazing visualization of the acquisition pattern for Landsat 8 imagery.
  The objective of this endpoint is primarily to support the use of the imagery endpoint.
  */
-assets(lon, lat, begin, end){
+assets(object){
     /*
      HTTP REQUEST
 
@@ -96,35 +96,35 @@ assets(lon, lat, begin, end){
      https://api.data.gov/nasa/planetary/earth/assets?lon=100.75&lat=1.5&begin=2014-02-01&api_key=DEMO_KEY
      */
     let base_url = "https://api.nasa.gov/planetary/earth/assets?";
-    if(!lon || !lat){
+    if(!object.lon || !object.lat){
         throw "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
     }
     else{
         try{
-            if (!parseInt(lon) && !parseInt(lat)) {
-                base_url += "lon=" + decimal(lon).toString() + "&" + "lat=" + decimal(lat).toString() + "&";
+            if (!parseInt(object.lon) && !parseInt(object.lat)) {
+                base_url += "lon=" + object.lon + "&" + "lat=" + object.lat + "&";
             }
         }
         catch(e){
             throw "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
         }
     }
-    if(!begin){
+    if(!object.begin){
         throw "Begin date is missing, which is mandatory. Format : YYYY-MM-DD";
     }
     else{
         try{
-            helpers.vali_date(begin);
-            base_url += "begin=" + begin + "&";
+            helpers.vali_date(object.begin);
+            base_url += "begin=" + object.begin + "&";
         }
         catch(e){
             throw "Incorrect date format, should be YYYY-MM-DD";
         }
     }
-    if(end){
+    if(object.end){
         try{
-            helpers.vali_date(end);
-            base_url += "end=" + end + "&";
+            helpers.vali_date(object.end);
+            base_url += "end=" + object.end + "&";
         }
         catch(e){
             throw "Incorrect date format, should be YYYY-MM-DD";

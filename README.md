@@ -151,10 +151,10 @@ bowshock.asterank(
 let bowshock = require('node-bowshock');
 
 //imagery endpoint lon & lat mandatory, rest optional
-bowshock.earth.imagery(lon=100.75, lat=1.5, date="2014-02-04");
+bowshock.earth.imagery({lon: 100.75, lat: 1.5, date: "2014-02-04"});
 
 //assets endpoint lon & lat & begin mandatory, end optional
-bowshock.earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
+bowshock.earth.assets({lon: 100.75, lat: 1.5, begin: "2014-02-01"});
 ```
 
 ##### HelioViewer
