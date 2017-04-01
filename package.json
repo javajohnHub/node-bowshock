@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/javajohnhub/node-bowshock.git"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "mocha"
+  },
   "keywords": [
     "node",
     "nasa",
