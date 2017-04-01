@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "coverage": "istanbul cover _mocha test --recursive -- -u      exports -R spec && open coverage/lcov-report/index.html"
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [
     "node",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "coveralls": "^2.13.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0"
   }
