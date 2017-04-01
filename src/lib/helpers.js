@@ -19,6 +19,7 @@ let helpers = {
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', pd.json(body));
             fs.writeFile('./log.json', pd.json(body, null, 4) , 'utf-8');
+            return response
         })
     },
     dispatch_http_get_xml: function(url){
@@ -34,6 +35,7 @@ let helpers = {
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', pd.xml(body));
             fs.writeFile('./log.xml', pd.xml(body, null, 4) , 'utf-8');
+            return response;
         })
     },
     vali_date: function(date_text) {

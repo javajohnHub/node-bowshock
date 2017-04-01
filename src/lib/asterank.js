@@ -36,7 +36,7 @@ function asterank(query, limit){
         throw "query= param is missing, expecting json data format.";
     }
     if(limit){
-        if (parseInt(limit,10) === 1){
+        if (parseInt(limit)){
             console.log(
                 "The limit arg you provided is not the type of int, ignoring it");
         }
