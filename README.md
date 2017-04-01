@@ -4,6 +4,8 @@
 <br/>
 [![GitHub issues](https://img.shields.io/github/issues/javajohnhub/node-bowshock.svg)](https://github.com/javajohnhub/node-bowshock/issues)
 <br/>
+[![Build Status](https://travis-ci.org/javajohnHub/node-bowshock.svg?branch=master)](https://travis-ci.org/javajohnHub/node-bowshock)
+<br/>
 An npm Package for Node.js based on https://github.com/emirozer/bowshock
 <br/>
 bowshock is an all-in-one wrapper for NASA API's.
