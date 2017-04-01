@@ -3,7 +3,7 @@ const helpers = require('./helpers');
 let eonet = {
     events(object) {
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events?";
-        if (!object.source && !object.status && !object.limit && !object.days) {
+        if (!object) {
             return helpers.dispatch_http_get(base_url.slice(0, -1));
         }
         if (object.source) {
@@ -32,15 +32,15 @@ let eonet = {
     categories(object) {
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories/";
 
-        if (!object.id) {
+        if (!object) {
+            return helpers.dispatch_http_get(base_url.slice(0, -1));
+        }
+        if (object && !object.id ) {
             throw "An id is required";
         }else{
             base_url += object.id + "?";
         }
-        if (!object.source && !object.status && !object.limit && !object.days) {
 
-            return helpers.dispatch_http_get(base_url.slice(0, -1));
-        }
 
         if (object.source) {
             if (typeof object.source === 'string') {

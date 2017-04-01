@@ -121,5 +121,5 @@ let helioviewer = {
 };
 module.exports = helioviewer;
 
-//helioviewer.getjp2image({date:"2014-01-01T23:59:59Z", sourceId:14});
+//helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 //helioviewer.getjp2header(17654321);
