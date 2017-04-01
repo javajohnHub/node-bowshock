@@ -1,3 +1,4 @@
+"use strict";
 let helpers = require('./helpers');
 
 function apod(date, concept_tags){

@@ -1,3 +1,4 @@
+"use strict";
 const helpers = require('./helpers');
 
 let trek = {

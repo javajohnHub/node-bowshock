@@ -1,3 +1,4 @@
+"use strict";
 //http://asterank.com/api/skymorph/search?<params>
 
 //This API wraps NASA's SkyMorph archive in a RESTful JSON interface. Currently, it provides observation and image data from the NEAT survey.
@@ -5,7 +6,6 @@ var helpers = require('./helpers');
 
 let skymorph = {
     search_target_obj(target){
-    "use strict";
     /*
      Query for a specific target:
 

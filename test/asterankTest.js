@@ -1,5 +1,5 @@
-let asterank = require('../index.js').asterank;
-let chai = require('chai');
+var asterank = require('../index.js').asterank;
+var chai = require('chai');
 
 var assert = chai.assert;
 
@@ -9,7 +9,7 @@ describe('Asterank', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = asterank(
+                var r = asterank(
                     query={"e": {"$lt": 0.1},
                         "i": {"$lt": 4},
                         "a": {"$lt": 1.5}},

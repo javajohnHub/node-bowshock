@@ -1,3 +1,4 @@
+"use strict";
 let bowshock = module.exports = {};
 bowshock.apod = require('./src/lib/apod.js');
 bowshock.asterank = require('./src/lib/asterank.js');

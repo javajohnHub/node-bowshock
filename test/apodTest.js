@@ -1,5 +1,5 @@
-let apod = require('../index.js').apod;
-let chai = require('chai');
+var apod = require('../index.js').apod;
+var chai = require('chai');
 
 var assert = chai.assert;
 
@@ -9,7 +9,7 @@ describe('Apod', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = apod("2015-02-02", concept_tags=true);
+                var r = apod("2015-02-02", concept_tags=true);
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -26,7 +26,7 @@ describe('Apod', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = apod();
+                var r = apod();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -42,7 +42,7 @@ describe('Apod', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = apod("2015-02-02");
+                var r = apod("2015-02-02");
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -59,7 +59,7 @@ describe('Apod', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = apod("2015-02-02", concept_tags=true);
+                var r = apod("2015-02-02", concept_tags=true);
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed

@@ -1,3 +1,4 @@
+"use strict";
 let moment = require('moment');
 let request = require('request');
 let pd = require('pretty-data').pd;

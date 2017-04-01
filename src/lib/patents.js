@@ -1,3 +1,4 @@
+"use strict";
 /*
 The NASA patent portfolio is available to benefit US citizens.
 
@@ -50,7 +51,7 @@ function patents(object){
         }
         base_url += "limit=" + object.limit + "&";
     }
-    req_url = base_url + "api_key=" + helpers.nasa_api_key();
+    let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
     return helpers.dispatch_http_get(req_url);
 }

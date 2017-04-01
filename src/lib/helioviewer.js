@@ -1,3 +1,4 @@
+"use strict";
 //TODO: Complete helioviewer sdk
 
 /*
@@ -10,7 +11,6 @@ const helpers = require('./helpers');
 
 let helioviewer = {
     getjp2image(object){
-    "use strict";
     /*
      Helioviewer.org and JHelioviewer operate off of JPEG2000 formatted image data generated from science-quality FITS files. Use the APIs below to interact directly with these intermediary JPEG2000 files.
 
@@ -85,7 +85,6 @@ let helioviewer = {
     return helpers.dispatch_http_get(req_url);
 },
     getjp2header(Id){
-        "use strict";
         /*
          GET /api/v1/getJP2Header/
 

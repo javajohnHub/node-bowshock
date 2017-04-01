@@ -1,5 +1,5 @@
-let eva = require('../index.js').eva;
-let chai = require('chai');
+var eva = require('../index.js').eva;
+var chai = require('chai');
 
 var assert = chai.assert;
 
@@ -9,7 +9,7 @@ describe('EVA', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eva();
+                var r = eva();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed

@@ -1,5 +1,5 @@
-let eonet = require('../index.js').eonet;
-let chai = require('chai');
+var eonet = require('../index.js').eonet;
+var chai = require('chai');
 
 var assert = chai.assert;
 
@@ -9,7 +9,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.events();
+                var r = eonet.events();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -26,7 +26,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.events({source: "InciWeb,EO"});
+                var r = eonet.events({source: "InciWeb,EO"});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -43,7 +43,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.events({status: "closed" });
+                var r = eonet.events({status: "closed" });
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -60,7 +60,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.events({limit: 5});
+                var r = eonet.events({limit: 5});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -77,7 +77,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.events({days: 20});
+                var r = eonet.events({days: 20});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -95,7 +95,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.categories({id: 8});
+                var r = eonet.categories({id: 8});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -111,7 +111,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.categories();
+                var r = eonet.categories();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -128,7 +128,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.categories({id: 8, source: "InciWeb"});
+                var r = eonet.categories({id: 8, source: "InciWeb"});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -145,7 +145,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.categories({id: 8, status: "closed"});
+                var r = eonet.categories({id: 8, status: "closed"});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -162,7 +162,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.categories({id: 8, limit: 5});
+                var r = eonet.categories({id: 8, limit: 5});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -180,7 +180,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.categories({id: 8, days:25});
+                var r = eonet.categories({id: 8, days:25});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -199,7 +199,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.layers();
+                var r = eonet.layers();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -217,7 +217,7 @@ describe('EONET', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = eonet.layers(8);
+                var r = eonet.layers(8);
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed

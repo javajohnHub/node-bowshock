@@ -1,11 +1,12 @@
+"use strict";
 let helpers = require('./helpers');
 
 let neows = {
-    today(detailed=false){
+    today(detailed){
         let base_url = "https://api.nasa.gov/neo/rest/v1/feed/today?";
         let req_url = '';
         if(typeof detailed === 'boolean'){
-            req_url = base_url + "detailed=" + detailed + "&api_key=" + helpers.nasa_api_key();
+            req_url += base_url + "detailed=" + detailed + "&api_key=" + helpers.nasa_api_key();
         }else{
             throw "detailed=true or true are the only arguments you can pass. Default value = false;";
         }

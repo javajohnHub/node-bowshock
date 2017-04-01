@@ -1,5 +1,5 @@
-let epic = require('../index.js').epic;
-let chai = require('chai');
+var epic = require('../index.js').epic;
+var chai = require('chai');
 
 var assert = chai.assert;
 
@@ -9,7 +9,7 @@ describe('EPIC', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = epic.natural();
+                var r = epic.natural();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -26,7 +26,7 @@ describe('EPIC', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = epic.natural("2015-03-11");
+                var r = epic.natural("2015-03-11");
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -43,7 +43,7 @@ describe('EPIC', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = epic.enhanced();
+                var r = epic.enhanced();
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -60,7 +60,7 @@ describe('EPIC', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = epic.enhanced("2015-03-11");
+                var r = epic.enhanced("2015-03-11");
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed

@@ -1,3 +1,4 @@
+"use strict";
 /*
 http://www.asterank.com/api
 

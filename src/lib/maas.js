@@ -1,3 +1,4 @@
+"use strict";
 /*
 http://marsweather.ingenology.com/#get_started
 

@@ -1,5 +1,5 @@
-let helioviewer = require('../index.js').helioviewer;
-let chai = require('chai');
+var helioviewer = require('../index.js').helioviewer;
+var chai = require('chai');
 
 var assert = chai.assert;
 
@@ -9,7 +9,7 @@ describe('Helioviewer', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                let r = helioviewer.getjp2image({date:"2014-01-01T23:59:59"});
+                var r = helioviewer.getjp2image({date:"2014-01-01T23:59:59"});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed

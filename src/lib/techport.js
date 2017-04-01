@@ -1,3 +1,4 @@
+"use strict";
 //https://data.nasa.gov/developer/external/techport/techport-api.pdf
 
 /*
@@ -18,7 +19,6 @@ var helpers = require('./helpers');
 
 
 function techport(Id){
-    "use strict";
     /*
     In order to use this capability, queries can be issued to the system with the following URI
     format:

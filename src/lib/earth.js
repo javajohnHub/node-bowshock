@@ -1,3 +1,4 @@
+"use strict";
 /*
 This endpoint retrieves the Landsat 8 image for the supplied location and date.
 The response will include the date and URL to the image that is closest to the supplied date.
