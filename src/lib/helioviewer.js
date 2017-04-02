@@ -33,7 +33,7 @@ let helioviewer = {
 
      EXAMPLE: http://helioviewer.org/api/v1/getJP2Image/?date=2014-01-01T23:59:59Z&sourceId=14&jpip=true
      */
-    let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Image/?';
+    let base_url = 'https://api.helioviewer.org/v2/getJP2Image/?';
     let req_url = '';
     if(object.date){
         helpers.validate_iso8601(object.date);
@@ -75,12 +75,64 @@ let helioviewer = {
          http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
          */
-        let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Header/?';
-        base_url += "id=" + id;
-
+        let base_url = 'https://api.helioviewer.org/v2/getJP2Header/?id=' + id;
         return helpers.dispatch_http_get_xml(base_url);
 
-    }
+    },/*
+    getJPX(){
+      //TODO
+    },
+    getJPXClosestToMidPoint(){
+       //TODO
+    },
+    queueMovie(){
+        //TODO
+    },
+    reQueueMovie(){
+        //TODO
+    },
+    getMovieStatus(){
+        //TODO
+    },
+    downloadMovie(){
+        //TODO
+    },
+    playMovie(){
+        //TODO
+    },
+    takeScreenshot(){
+        //TODO
+    },
+    downloadScreenshot(){
+        //TODO
+    },
+    checkYouTubeAuth(){
+        //TODO
+    },
+    getYouTubeAuth(){
+        //TODO
+    },
+    uploadMovieToYouTube(){
+        //TODO
+    },
+    getUserVideos(){
+        //TODO
+    },
+    getClosestImage(){
+        //TODO
+    },
+    getDataSources(){
+        //TODO
+    },
+    getTile(){
+        //TODO
+    },
+    shortenURL(){
+        //TODO
+    },
+    getNewsFeed(){
+        //TODO
+    }*/
 };
 module.exports = helioviewer;
 
