@@ -383,4 +383,302 @@ describe('SSD', function() {
         // so it() can no longer catch
 
     });
+
+    //END of CAD
+
+
+    it('should return response code 200 with no args fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with date_min provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({date_min:"2014-01-01"});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with date_min and date_max provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({date_min:"2014-01-01", date_max: "2017-03-11"});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with energy_min provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ energy_min: 0.05});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with energy_max provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ energy_max: 10});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with impact_e_min provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ impact_e_min: .08});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with impact_e_max provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ impact_e_max: 10});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with vel_min provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ vel_min: 18});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with vel_max provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ vel_max: 20});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with alt_min provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ alt_min: 5});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with alt_max provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ alt_max: 5});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with req_loc provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ req_loc: true});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with req_alt provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ req_alt: true});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with req_vel provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ req_vel: true});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with req_vel_comp provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ req_vel_comp: true});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with vel_comp provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ vel_comp: true});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000);
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with sort provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ sort: "date"});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000);
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with limit provided fireballs', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = ssd.fireballs({ limit: 5});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 1000);
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
 });
