@@ -51,7 +51,9 @@ let earth = {
         }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        })
 },
 
 /*
@@ -96,7 +98,9 @@ assets(object){
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.dispatch_http_get(req_url)
+    return helpers.dispatch_http_get(req_url, function(data){
+        return data;
+    })
 
 }
 };

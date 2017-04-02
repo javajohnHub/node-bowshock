@@ -25,11 +25,10 @@
     "dotenv": "^4.0.0",
     "moment": "^2.18.1",
     "pretty-data": "^0.40.0",
-    "request": "^2.81.0"
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-http": "^3.0.0",
     "coveralls": "^2.13.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0"

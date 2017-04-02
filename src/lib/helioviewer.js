@@ -53,8 +53,11 @@ let helioviewer = {
 
 
 
-    return helpers.dispatch_http_get(req_url);
-},
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
+
+    },
     getjp2header(id){
         /*
          GET /api/v1/getJP2Header/
@@ -77,7 +80,9 @@ let helioviewer = {
          http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
          */
-        return helpers.dispatch_http_get_xml('https://api.helioviewer.org/v2/getJP2Header/?id=' + id);
+        return helpers.dispatch_http_get_xml('https://api.helioviewer.org/v2/getJP2Header/?id=' + id, function(data){
+            return data;
+        });
 
     },/*
     getJPX(){

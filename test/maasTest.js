@@ -4,7 +4,7 @@ var chai = require('chai');
 var assert = chai.assert;
 
 describe('MAAS', function() {
-    /*it('should return response code 200 with no args maas_latest()', function(done) {
+    it('should return response code 200 with no args maas_latest()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -19,8 +19,8 @@ describe('MAAS', function() {
         // returns immediately after setting timeout
         // so it() can no longer catch
 
-    });*/
-    /*it('should return response code 200 with begin date and end date maas_archive()', function(done) {
+    });
+    it('should return response code 200 with begin date and end date maas_archive()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -35,6 +35,6 @@ describe('MAAS', function() {
         // returns immediately after setting timeout
         // so it() can no longer catch
 
-    });*/
+    });
 
 });

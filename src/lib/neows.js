@@ -2,41 +2,35 @@
 let helpers = require('./helpers');
 
 let neows = {
-    today(detailed){
+    today(){
         let base_url = "https://api.nasa.gov/neo/rest/v1/feed/today?";
-        let req_url = '';
-        if(typeof detailed === 'boolean'){
-            req_url += base_url + "detailed=" + detailed + "&api_key=" + helpers.nasa_api_key();
-        }else{
-            throw "detailed=true or true are the only arguments you can pass. Default value = false;";
-        }
-        return helpers.dispatch_http_get(req_url);
+
+        let req_url = base_url + "detailed=True&api_key=" + helpers.nasa_api_key();
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
+
     },
     feed(start_date, end_date) {
 
         let base_url = "https://api.nasa.gov/neo/rest/v1/feed?";
         if (start_date) {
-            try {
                 helpers.vali_date(start_date);
-                base_url += "start_date=" + start_date + "&"
-            }
-            catch (e) {
-                throw "Incorrect date format, should be YYYY-MM-DD";
-            }
+                base_url += "start_date=" + start_date + "&";
+
         }
         if (end_date) {
-            try {
+
                 helpers.vali_date(end_date);
-                base_url += "end_date=" + end_date + "&"
-            }
-            catch (e) {
-                throw "Incorrect date format, should be YYYY-MM-DD";
-            }
+                base_url += "end_date=" + end_date + "&";
         }
 
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-        return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
+
 
 
     },
@@ -57,7 +51,9 @@ let neows = {
     },
     stats(){
         let req_url = "https://api.nasa.gov/neo/rest/v1/stats?api_key=" + helpers.nasa_api_key();
-        return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
 
     }
 

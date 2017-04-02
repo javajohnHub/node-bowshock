@@ -42,7 +42,9 @@ function asterank(query, limit){
     else{
         throw "limit= param is missing, expecting int";
     }
-    return helpers.dispatch_http_get(base_url)
+    return helpers.dispatch_http_get(base_url, function(data){
+        return data;
+    })
 }
 module.exports = asterank;
 //asterank({"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, 10);

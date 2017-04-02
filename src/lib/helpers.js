@@ -1,47 +1,63 @@
 "use strict";
 let moment = require('moment');
-let request = require('request');
+var request = require('superagent');
 let pd = require('pretty-data').pd;
 let fs = require('fs');
 
 require('dotenv').config();
 
 let helpers = {
-    dispatch_http_get: function(url){
-        console.log("Dispatching HTTP GET Request : ", url);
+    dispatch_http_get: function(url, callback){
         let options = {
             url: url,
             headers: {
                 'User-Agent': 'request'
             }
         };
-        request(options, function (error, response, body) {
-            console.log('error:', error); // Print the error if one occurred
-            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-            console.log('body:', pd.json(body));
-            fs.writeFile('./log.json', pd.json(body), (err) => {
-                if(err) throw err;
-            });
-            return response
-        })
+        request
+            .get(url, {options})
+            .end(function(err, res){
+                if(!err){
+                    var data = res.body;
+                    console.log("Dispatching HTTP GET Request : ", url);
+                    console.log('error:', err); // Print the error if one occurred
+                    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
+                    console.log('body:', pd.json(data));
+                    fs.writeFile('./log.json', pd.json(data), (err) => {
+                        if(err) throw err;
+                    });
+                    callback(null, data);
+                }else{
+                    callback('Error Occurred!');
+                }
+            })
+
     },
-    dispatch_http_get_xml: function(url){
-        console.log("Dispatching HTTP GET Request : ", url);
+    dispatch_http_get_xml: function(url, callback){
         let options = {
             url: url,
             headers: {
                 'User-Agent': 'request'
             }
         };
-        request(options, function (error, response, body) {
-            console.log('error:', error); // Print the error if one occurred
-            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-            console.log('body:', pd.xml(body));
-            fs.writeFile('./log.xml', pd.xml(body), (err) => {
-                if(err) throw err;
-            });
-            return response;
-        })
+        request
+            .get(url, {options})
+            .end(function(err, res){
+                if(!err){
+                    var data = res.body;
+                    console.log("Dispatching HTTP GET Request : ", url);
+                    console.log('error:', err); // Print the error if one occurred
+                    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
+                    console.log('body:', pd.xml(data));
+                    fs.writeFile('./log.json', pd.xml(data), (err) => {
+                        if(err) throw err;
+                    });
+                    callback(null, data);
+                }else{
+                    callback('Error Occurred!');
+                }
+            })
+
     },
     vali_date: function(date_text) {
         if(moment(date_text,'YYYY-MM-DD', true).isValid()){

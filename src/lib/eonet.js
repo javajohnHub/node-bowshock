@@ -5,7 +5,9 @@ let eonet = {
     events(object) {
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events?";
         if (!object) {
-            return helpers.dispatch_http_get(base_url.slice(0, -1));
+            return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+                return data;
+            });
         }
         if (object.source) {
             if (typeof object.source === 'string') {
@@ -28,13 +30,17 @@ let eonet = {
             }
         }
 
-        return helpers.dispatch_http_get(base_url.slice(0, -1));
+        return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     },
     categories(object) {
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories/";
 
         if (!object) {
-            return helpers.dispatch_http_get(base_url.slice(0, -1));
+            return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+                return data;
+            });
         }
         if (object && !object.id ) {
             throw "An id is required";
@@ -66,7 +72,9 @@ let eonet = {
                 }
             }
 
-            return helpers.dispatch_http_get(base_url.slice(0, -1));
+        return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
 
 
     },
@@ -75,7 +83,9 @@ let eonet = {
         if(parseInt(id)){
             base_url += id;
         }
-        return helpers.dispatch_http_get(base_url)
+        return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     }
 };
 module.exports = eonet;

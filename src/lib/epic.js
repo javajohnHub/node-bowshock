@@ -13,7 +13,9 @@ let epic = {
         }else{
             req_url = base_url + "images?api_key=" + helpers.nasa_api_key();
         }
-        return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
     },
     enhanced(date){
         let base_url = "https://api.nasa.gov/EPIC/api/enhanced/";
@@ -24,7 +26,9 @@ let epic = {
         }else{
             req_url = base_url + "images?api_key=" + helpers.nasa_api_key();
         }
-        return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
     },
     /*
     ------CURRENTLY 404-------
