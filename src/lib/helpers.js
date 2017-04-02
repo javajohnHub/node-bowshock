@@ -4,8 +4,8 @@ var request = require('superagent');
 let pd = require('pretty-data').pd;
 let fs = require('fs');
 
-let config = require('dotenv').config();
-let logger = config.parsed.LOGGER || 'false';
+require('dotenv').config();
+
 
 let helpers = {
     dispatch_http_get: function(url, callback){
@@ -23,7 +23,7 @@ let helpers = {
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                    if(logger === 'true'){
+                    if(helpers.logging() === 'true'){
                         console.log('body:', pd.json(data));
                     }
                         fs.writeFile('./log.json', pd.json(data), (err) => {
@@ -54,7 +54,7 @@ let helpers = {
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                    if(logger === 'true'){
+                    if(helpers.logging() === 'true'){
                         console.log('body:', pd.xml(data));
 
                     }
@@ -100,7 +100,7 @@ let helpers = {
     },
 
     logging: function() {
-        return process.env.LOGGING;
+        return process.env.LOGGER || 'false';
     },
     format_date(date){
         try{
