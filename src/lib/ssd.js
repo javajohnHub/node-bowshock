@@ -90,22 +90,16 @@ let ssd = {
             req_url = base_url;
         }else {
             if (object.date_min) {
-                try {
+
                     helpers.vali_date(object.date_min);
                     base_url += "date-min=" + object.date_min + "&";
-                }
-                catch (e) {
-                    throw "Date must be a string in the format of YYYY-MM-DD";
-                }
+
             }
             if (object.date_max) {
-                try {
+
                     helpers.vali_date(object.date_max);
                     base_url += "date-max=" + object.date_max + "&";
-                }
-                catch (e) {
-                    throw "Date must be a string in the format of YYYY-MM-DD";
-                }
+
             }
             if(object.energy_min){
                 base_url += "energy-min=" + object.energy_min + "&";
@@ -179,19 +173,8 @@ let ssd = {
                 let last =  object.launch.substring(5);
                 let middle = object.launch.substring(4,5);
                 if(middle === '-'){
-                    try{
-                        helpers.validate_year(first);
-
-                    }
-                    catch(e){
-                        throw "Date range must be in the format YYYY-YYYY";
-                    }
-                    try{
-                        helpers.validate_year(last);
-                    }
-                    catch(e){
-                        throw "Date range must be in the format YYYY-YYYY";
-                    }
+                    helpers.validate_year(first);
+                    helpers.validate_year(last);
                     base_url += "launch=" + object.launch + "&";
                 }
                 else{
