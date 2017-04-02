@@ -37,24 +37,7 @@ describe('Helioviewer', function() {
 
     });
 
-    it('should throw an error if date parameter is missing', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.throws(function () { helioviewer.getjp2image({sourceId: 14}); }, Error, "date is a required parameter");
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
-
-    });
-
-    it('should return response code 200 with id provided and sourceId getjp2Header', function(done) {
+    it('should return response code 200 with id provided getjp2Header', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here

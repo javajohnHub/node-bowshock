@@ -35,17 +35,19 @@ let helioviewer = {
      */
     let base_url = 'https://api.helioviewer.org/v2/getJP2Image/?';
     let req_url = '';
-    if(object.date){
-        helpers.validate_iso8601(object.date);
-        if(object.date.charAt(-1) !== 'Z'){
-            object.date += 'Z';
-        }
-        base_url += 'date=' + object.date + '&';
-        if(object.sourceId){
-            base_url += "sourceId=" + object.sourceId + "&";
-        }
-    } else{
+    try {
+
+            helpers.validate_iso8601(object.date);
+            if (object.date.charAt(-1) !== 'Z') {
+                object.date += 'Z';
+            }
+            base_url += 'date=' + object.date + '&';
+    }
+        catch(e){
             throw "date is a required parameter";
+        }
+        if (object.sourceId) {
+            base_url += "sourceId=" + object.sourceId + "&";
         }
         req_url += base_url + "json=true&jpip=true";
 
@@ -75,8 +77,7 @@ let helioviewer = {
          http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
          */
-        let base_url = 'https://api.helioviewer.org/v2/getJP2Header/?id=' + id;
-        return helpers.dispatch_http_get_xml(base_url);
+        return helpers.dispatch_http_get_xml('https://api.helioviewer.org/v2/getJP2Header/?id=' + id);
 
     },/*
     getJPX(){

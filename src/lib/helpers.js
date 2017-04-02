@@ -40,7 +40,7 @@ let helpers = {
             fs.writeFile('./log.xml', pd.xml(body), (err) => {
                 if(err) throw err;
             });
-            console.log(response);
+            return response;
         })
     },
     vali_date: function(date_text) {
