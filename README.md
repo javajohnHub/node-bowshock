@@ -4,6 +4,7 @@
 <br/>
 [![GitHub issues](https://img.shields.io/github/issues/javajohnhub/node-bowshock.svg)](https://github.com/javajohnhub/node-bowshock/issues)
 [![Build Status](https://travis-ci.org/javajohnHub/node-bowshock.svg?branch=master)](https://travis-ci.org/javajohnHub/node-bowshock)
+[![Coverage Status](https://coveralls.io/repos/github/javajohnHub/node-bowshock/badge.svg?branch=master)](https://coveralls.io/github/javajohnHub/node-bowshock?branch=master)
 <br/>
 An npm Package for Node.js based on https://github.com/emirozer/bowshock
 <br/>
