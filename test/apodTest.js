@@ -71,4 +71,21 @@ describe('Apod', function() {
 
     });
 
+    it('should throw an error if date format is incorrect', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.throws(function () { apod("2015-02") }, Error, "Incorrect date format, should be YYYY-MM-DD");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
 });

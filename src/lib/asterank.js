@@ -25,14 +25,9 @@ function asterank(query, limit){
     */
     let base_url = "http://www.asterank.com/api/asterank?";
     if(query){
-        try{
 
-            query = JSON.stringify(query);
-            base_url += "query=" + query + "&"
-        }
-        catch(e){
-            throw "query= param is not valid json.";
-        }
+        base_url += "query=" + query + "&"
+
     }else{
         throw "query= param is missing, expecting json data format.";
     }

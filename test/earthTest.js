@@ -24,7 +24,39 @@ describe('Earth', function() {
         // so it() can no longer catch
 
     });
+    it('should throw an error if lat parameter is missing', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
 
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.throws(function () { earth.imagery({lon: 1.75}) }, Error, "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should throw an error if lon parameter is missing', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.throws(function () { earth.imagery({lat: 100.75}) }, Error, "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
     it('should return response code 200 with no dim imagery endpoint', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
@@ -87,7 +119,7 @@ describe('Earth', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                var r = earth.assets({lon:100.75, lat:1.6, begin:"2015-02-02"})
+                var r = earth.assets({lon:100.75, lat:1.6, begin:"2015-02-02"});
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
@@ -110,6 +142,40 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should throw an error if lat parameter is missing', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.throws(function () { earth.assets({lon: 1.75}) }, Error, "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should throw an error if lon parameter is missing', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.throws(function () { earth.assets({lat: 100.75}) }, Error, "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
         }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch

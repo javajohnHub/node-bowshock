@@ -35,56 +35,25 @@ let helioviewer = {
      */
     let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Image/?';
     let req_url = '';
-    try{
+    if(object.date){
         helpers.validate_iso8601(object.date);
         if(object.date.charAt(-1) !== 'Z'){
             object.date += 'Z';
         }
         base_url += 'date=' + object.date + '&';
-    }
-    catch(e){
-        throw "Your date input is not in iso8601 format. ex: 2014-01-01T23:59:59";
-    }
-    if(typeof parseInt(object.sourceId) !== 'number'){
-        console.log("error", "The sourceId argument should be an int, ignoring it");
+        if(object.sourceId){
+            base_url += "sourceId=" + object.sourceId + "&";
+        }
+    } else{
+            throw "date is a required parameter";
+        }
+        req_url += base_url + "json=true&jpip=true";
 
-    }
-    else{
-        base_url += "sourceId=" + object.sourceId + "&";
-    }
-    if(typeof object.observatory !== 'string'){
-        console.log('error', "The observatory argument should be a str, ignoring it");
 
-    }
-    else{
-        base_url += "observatory=" + object.observatory + "&";
-    }
-    if(typeof object.instrument !== 'string'){
-        console.log("error",
-            "The instrument argument should be a str, ignoring it");
-    }
-    else{
-        base_url += "instrument=" + object.instrument + "&";
-    }
-    if(typeof object.detector !== 'string'){
-        console.log("error",
-            "The detector argument should be a str, ignoring it");
-    }
-    else{
-        base_url += "detector=" + object.detector + "&";
-    }
-    if(typeof object.measurement !== 'string'){
-        console.log("error",
-            "The measurement argument should be a str, ignoring it");
-    }
-    else{
-        base_url += "measurement=" + object.detector + "&";
-    }
-    req_url += base_url + "json=true&jpip=true";
 
     return helpers.dispatch_http_get(req_url);
 },
-    getjp2header(Id){
+    getjp2header(id){
         /*
          GET /api/v1/getJP2Header/
 
@@ -107,13 +76,8 @@ let helioviewer = {
 
          */
         let base_url = 'https://legacy.helioviewer.org/api/v1/getJP2Header/?';
+        base_url += "id=" + id;
 
-        if (!parseInt(Id)){
-            throw "The Id argument should be an int, ignoring it";
-        }
-        else{
-            base_url += "id=" + Id.toString();
-        }
         return helpers.dispatch_http_get_xml(base_url);
 
     }

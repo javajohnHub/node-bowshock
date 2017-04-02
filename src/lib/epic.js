@@ -6,13 +6,10 @@ let epic = {
         let base_url = "https://api.nasa.gov/EPIC/api/natural/";
         let req_url = '';
         if (date) {
-            try {
+
                 helpers.vali_date(date);
                 req_url += base_url + "date/" + date + "?api_key=" + helpers.nasa_api_key();
-            }
-            catch (e) {
-                throw "Incorrect date format, should be YYYY-MM-DD";
-            }
+
         }else{
             req_url = base_url + "images?api_key=" + helpers.nasa_api_key();
         }
@@ -22,13 +19,8 @@ let epic = {
         let base_url = "https://api.nasa.gov/EPIC/api/enhanced/";
         let req_url = '';
         if (date) {
-            try {
-                helpers.vali_date(date);
-                req_url += base_url + "date/" + date + "?api_key=" + helpers.nasa_api_key();
-            }
-            catch (e) {
-                throw "Incorrect date format, should be YYYY-MM-DD";
-            }
+            helpers.vali_date(date);
+            req_url += base_url + "date/" + date + "?api_key=" + helpers.nasa_api_key();
         }else{
             req_url = base_url + "images?api_key=" + helpers.nasa_api_key();
         }
