@@ -4,7 +4,7 @@ var request = require('superagent');
 let pd = require('pretty-data').pd;
 let fs = require('fs');
 
-require('dotenv').config();
+let config = require('dotenv').config();
 
 let helpers = {
     dispatch_http_get: function(url, callback){
@@ -22,18 +22,27 @@ let helpers = {
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                    //console.log('body:', pd.json(data));
-                    fs.writeFile('./log.json', pd.json(data), (err) => {
-                        if(err) throw err;
-                    });
-                    callback(null, data);
+                    if(config.parsed.LOGGER === 'true'){
+                        console.log('body:', pd.json(data));
+                        fs.writeFile('./log.json', pd.json(data), (err) => {
+                            if(err) throw err;
+                        });
+                        callback(null, data);
+                    }
+                        fs.writeFile('./log.json', pd.json(data), (err) => {
+                            if(err) throw err;
+                        });
+                        callback(null, data);
+
+
+
                 }else{
                     callback('Error Occurred!');
                 }
             })
 
     },
-    dispatch_http_get_xml: function(url){
+    dispatch_http_get_xml: function(url, callback){
         let options = {
             url: url,
             headers: {
@@ -43,15 +52,27 @@ let helpers = {
         request
             .get(url, {options})
             .end(function(err, res){
-                if(!err) {
+                if(!err){
                     var data = res.text;
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
-                    console.log('statusCode:', data && data.statusCode); // Print the response status code if a response was received
-                    //console.log('body:', pd.xml(data));
-                    fs.writeFile('./log.xml', pd.xml(data), (err) => {
-                        if (err) throw err;
+                    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
+                    if(config.parsed.LOGGER === 'true'){
+                        console.log('body:', pd.xml(data));
+                        fs.writeFile('./log.json', pd.xml(data), (err) => {
+                            if(err) throw err;
+                        });
+                        callback(null, data);
+                    }
+                    fs.writeFile('./log.json', pd.json(data), (err) => {
+                        if(err) throw err;
                     });
+                    callback(null, data);
+
+
+
+                }else{
+                    callback('Error Occurred!');
                 }
             })
 
@@ -84,6 +105,9 @@ let helpers = {
         return process.env.NASA_API_KEY;
     },
 
+    logging: function() {
+        return process.env.LOGGING;
+    },
     format_date(date){
         try{
             this.vali_date(date);
