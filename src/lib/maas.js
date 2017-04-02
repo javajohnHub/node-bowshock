@@ -40,7 +40,7 @@ let maas = {
      */
     let base_url = 'http://marsweather.ingenology.com/v1/latest/';
 
-    return helpers.dispatch_http_get(base_url)
+    return helpers.dispatch_http_get(base_url);
 },
 
 
@@ -66,7 +66,7 @@ maas_archive(begin, end){
         helpers.vali_date(end);
         base_url += 'terrestrial_date_start=' + begin + "&" + 'terrestrial_date_end=' + end;
 
-    return helpers.dispatch_http_get(base_url)
+    return helpers.dispatch_http_get(base_url);
 }
 };
 module.exports = maas;
