@@ -61,14 +61,11 @@ maas_archive(begin, end){
      }
      */
     let base_url = 'http://marsweather.ingenology.com/v1/archive/?';
-    try{
+
         helpers.vali_date(begin);
         helpers.vali_date(end);
         base_url += 'terrestrial_date_start=' + begin + "&" + 'terrestrial_date_end=' + end;
-    }
-    catch(e){
-        throw "Incorrect date format, should be YYYY-MM-DD";
-    }
+
     return helpers.dispatch_http_get(base_url)
 }
 };
@@ -76,4 +73,4 @@ module.exports = maas;
 
 
 //maas_latest();
-//maas_archive(begin="2015-03-19", end="2017-03-19");
+//maas.maas_archive("2015-03-19", "2017-03-19");
