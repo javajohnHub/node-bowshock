@@ -11,29 +11,24 @@ let helpers = {
         let options = {
             url: url,
             headers: {
-                'User-Agent': 'request',
-                'Accept': '*/*'
+                'User-Agent': 'request'
             }
         };
         request
             .get(url, {options})
             .end(function(err, res){
                 if(!err){
-                    let data = res.body;
-                    /*
-
-                        console.log("Dispatching HTTP GET Request : ", url);
-                        console.log('error:', err); // Print the error if one occurred
-                        console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                        console.log('body:', pd.json(data));
-
-*/
+                    var data = res.body;
+                    console.log("Dispatching HTTP GET Request : ", url);
+                    console.log('error:', err); // Print the error if one occurred
+                    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
+                    //console.log('body:', pd.json(data));
                     fs.writeFile('./log.json', pd.json(data), (err) => {
                         if(err) throw err;
                     });
                     callback(null, data);
                 }else{
-                    callback('Error Occurred!', err);
+                    callback('Error Occurred!');
                 }
             })
 
@@ -42,27 +37,21 @@ let helpers = {
         let options = {
             url: url,
             headers: {
-                'User-Agent': 'request',
+                'User-Agent': 'request'
             }
         };
         request
             .get(url, {options})
             .end(function(err, res){
-                if(!err){
-                    var data = res.text;
-
-                        console.log("Dispatching HTTP GET Request : ", url);
-                        console.log('error:', err); // Print the error if one occurred
-                        console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                      /*
-                    console.log('body:', pd.xml(data));
-                  */
-
-                    fs.writeFile('./log.xml', pd.xml(data), (err) => {
-                        if(err) throw err;
+                if(!err) {
+                    var data = res;
+                    console.log("Dispatching HTTP GET Request : ", url);
+                    console.log('error:', err); // Print the error if one occurred
+                    console.log('statusCode:', data && data.statusCode); // Print the response status code if a response was received
+                    //console.log('body:', data.body);
+                    fs.writeFile('./log.xml', data.body, (err) => {
+                        if (err) throw err;
                     });
-                }else{
-                    throw ('Error Occurred!', err);
                 }
             })
 
