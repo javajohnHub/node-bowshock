@@ -26,7 +26,6 @@ let helpers = {
                     if(logger === 'true'){
                         console.log('body:', pd.json(data));
                     }
-                    callback(null, data);
                         fs.writeFile('./log.json', pd.json(data), (err) => {
                             if(err) throw err;
                         });
@@ -59,7 +58,6 @@ let helpers = {
                         console.log('body:', pd.xml(data));
 
                     }
-                    callback(null, data);
                     fs.writeFile('./log.json', pd.json(data), (err) => {
                         if(err) throw err;
                     });
