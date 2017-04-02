@@ -33,7 +33,7 @@ let helpers = {
             })
 
     },
-    dispatch_http_get_xml: function(url, callback){
+    dispatch_http_get_xml: function(url){
         let options = {
             url: url,
             headers: {
@@ -43,18 +43,15 @@ let helpers = {
         request
             .get(url, {options})
             .end(function(err, res){
-                if(!err){
-                    var data = res.body;
+                if(!err) {
+                    var data = res;
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                    console.log('body:', pd.xml(data));
-                    fs.writeFile('./log.json', pd.xml(data), (err) => {
-                        if(err) throw err;
+                    console.log('body:', res.body);
+                    fs.writeFile('./log.xml', res.body, (err) => {
+                        if (err) throw err;
                     });
-                    callback(null, data);
-                }else{
-                    callback('Error Occurred!');
                 }
             })
 

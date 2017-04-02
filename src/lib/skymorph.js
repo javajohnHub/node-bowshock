@@ -13,13 +13,10 @@ let skymorph = {
      target	Target object (lookup in MPC).
      */
     let base_url = "http://www.asterank.com/api/skymorph/search?";
-    if(typeof target !== 'string'){
-        throw "The target arg you provided is not the type of str";
-    }
-    else{
-        base_url += "target=" + target;
-    }
-    return helpers.dispatch_http_get(base_url);
+    base_url += "target=" + target;
+    return helpers.dispatch_http_get(base_url, function(data){
+        return data;
+    });
 }
 
 };

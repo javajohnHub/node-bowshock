@@ -28,32 +28,22 @@ function patents(object){
 
      */
     let base_url = "https://api.nasa.gov/patents/content?";
-    if(!object.query){
-        throw "search query is missing, which is mandatory.";
-    }
-    else if(typeof object.query !== 'string'){
-        try{
-            object.query = object.query.toString();
-        }
-        catch(e){
-            throw "query has to be type of string";
-        }
-    }
-    else{
+    if(object.query){
         base_url += "query=" + object.query + "&";
     }
+
     if(object.concept_tags){
         base_url += "concept_tags=True" + "&";
     }
     if(object.limit){
-        if(!parseInt(object.limit)){
-            helpers.logger.log('error', "The limit arg you provided is not the type of int, ignoring it");
-        }
         base_url += "limit=" + object.limit + "&";
+
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.dispatch_http_get(req_url);
+    return helpers.dispatch_http_get(req_url, function(data){
+        return data;
+    });
 }
 
 module.exports = patents;

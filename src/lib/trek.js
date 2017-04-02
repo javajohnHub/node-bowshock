@@ -7,7 +7,9 @@ let trek = {
 
         let req_url = base_url + layer_id + "/1.0.0/WMTSCapabilities.xml";
 
-        return helpers.dispatch_http_get_xml(req_url);
+        return helpers.dispatch_http_get_xml(req_url, function(data){
+            return data;
+        });
     },
 
     vesta(layer_id){
@@ -15,7 +17,9 @@ let trek = {
 
         let req_url = base_url + layer_id + "/1.0.0/WMTSCapabilities.xml";
 
-        return helpers.dispatch_http_get_xml(req_url);
+        return helpers.dispatch_http_get_xml(req_url, function(data){
+            return data;
+        });
     }
 };
 module.exports = trek;

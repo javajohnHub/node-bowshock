@@ -18,7 +18,7 @@ which can be further processed and analyzed.
 var helpers = require('./helpers');
 
 
-function techport(Id){
+function techport(id){
     /*
     In order to use this capability, queries can be issued to the system with the following URI
     format:
@@ -39,15 +39,13 @@ function techport(Id){
             Output: The output of this query is an XML file with all field data of the TechPort record.
     */
 
-    let base_url = 'https://api.nasa.gov/techport/api/items/';
-    if(typeof Id !== 'string'){
-        throw "The Id arg you provided is not the type of str";
-    }
-    else{
-        base_url += Id + '.json?api_key=' + helpers.nasa_api_key();
-    }
-    return helpers.dispatch_http_get(base_url);
+    let base_url = 'https://techport.nasa.gov/xml-api/';
+    base_url += id + '?api_key=' + helpers.nasa_api_key();
+
+    return helpers.dispatch_http_get_xml(base_url, function(data){
+        return data
+    });
 }
 
 module.exports = techport;
-//techport('111');
+techport('4795');

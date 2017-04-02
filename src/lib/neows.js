@@ -43,11 +43,15 @@ let neows = {
         if (parseInt(Id)) {
             req_url += base_url + Id + "?api_key=" + helpers.nasa_api_key();
         }
-        return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
     },
     browse() {
         let req_url = "https://api.nasa.gov/neo/rest/v1/neo/browse/?api_key=" + helpers.nasa_api_key();
-        return helpers.dispatch_http_get(req_url);
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
     },
     stats(){
         let req_url = "https://api.nasa.gov/neo/rest/v1/stats?api_key=" + helpers.nasa_api_key();
