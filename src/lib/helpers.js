@@ -44,12 +44,12 @@ let helpers = {
             .get(url, {options})
             .end(function(err, res){
                 if(!err) {
-                    var data = res;
+                    var data = res.text;
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', data && data.statusCode); // Print the response status code if a response was received
-                    //console.log('body:', data.body);
-                    fs.writeFile('./log.xml', data.body, (err) => {
+                    //console.log('body:', pd.xml(data));
+                    fs.writeFile('./log.xml', pd.xml(data), (err) => {
                         if (err) throw err;
                     });
                 }
