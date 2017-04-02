@@ -5,6 +5,7 @@ let pd = require('pretty-data').pd;
 let fs = require('fs');
 
 let config = require('dotenv').config();
+let logger = config.parsed.LOGGER || 'false';
 
 let helpers = {
     dispatch_http_get: function(url, callback){
