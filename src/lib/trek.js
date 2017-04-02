@@ -17,9 +17,7 @@ let trek = {
 
         let req_url = base_url + layer_id + "/1.0.0/WMTSCapabilities.xml";
 
-        return helpers.dispatch_http_get_xml(req_url, function(data){
-            return data;
-        });
+        return helpers.dispatch_http_get_xml(req_url);
     }
 };
 module.exports = trek;
