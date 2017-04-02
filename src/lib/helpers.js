@@ -22,7 +22,7 @@ let helpers = {
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                    console.log('body:', pd.json(data));
+                    //console.log('body:', pd.json(data));
                     fs.writeFile('./log.json', pd.json(data), (err) => {
                         if(err) throw err;
                     });
@@ -48,7 +48,7 @@ let helpers = {
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
                     console.log('statusCode:', data && data.statusCode); // Print the response status code if a response was received
-                    console.log('body:', data.body);
+                    //console.log('body:', data.body);
                     fs.writeFile('./log.xml', data.body, (err) => {
                         if (err) throw err;
                     });
