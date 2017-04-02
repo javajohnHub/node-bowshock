@@ -42,7 +42,7 @@ describe('Helioviewer', function() {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
             try {
-                var r = helioviewer.getjp2header(7654321);
+                var r = helioviewer.getjp2header(76565);
                 done(); // success: call done with no parameter to indicate that it() is done()
             } catch( e ) {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
