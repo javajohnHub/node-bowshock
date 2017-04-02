@@ -15,7 +15,7 @@ describe('Helioviewer', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -31,7 +31,7 @@ describe('Helioviewer', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -46,7 +46,7 @@ describe('Helioviewer', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.throws(function () { helioviewer.getjp2image({source: "InciWeb"}) }, Error, "date is a required parameter");
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -63,7 +63,7 @@ describe('Helioviewer', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200 );
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 

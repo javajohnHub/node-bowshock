@@ -15,7 +15,7 @@ describe('Apod', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -32,7 +32,7 @@ describe('Apod', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -48,7 +48,7 @@ describe('Apod', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -65,7 +65,7 @@ describe('Apod', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -83,7 +83,7 @@ describe('Apod', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.throws(function () { apod("2015-02") }, Error, "Incorrect date format, should be YYYY-MM-DD");
-        }, 100 );
+        }, 1000 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 

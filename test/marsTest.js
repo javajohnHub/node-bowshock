@@ -16,7 +16,7 @@ describe('Mars Rovers', function () {
                 done(e); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1500);
+        }, 1000);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -33,7 +33,7 @@ describe('Mars Rovers', function () {
                 done(e); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1500);
+        }, 1000);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -50,7 +50,7 @@ describe('Mars Rovers', function () {
                 done(e); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 404);
-        }, 1500);
+        }, 1000);
         // returns immediately after setting timeout
         // so it() can no longer catch
 

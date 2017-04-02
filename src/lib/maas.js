@@ -12,35 +12,7 @@ const helpers = require('./helpers')
 
 let maas = {
     maas_latest(){
-    "use strict";
-    /*
-     will return a JSON object for the latest report:
-
-     {
-     "report": {
-     "terrestrial_date": "2013-05-01",
-     "sol": 261,
-     "ls": 310.5,
-     "min_temp": -69.75,
-     "min_temp_fahrenheit": -93.55,
-     "max_temp": -4.48,
-     "max_temp_fahrenheit": 23.94,
-     "pressure": 868.05,
-     "pressure_string": "Higher",
-     "abs_humidity": null,
-     "wind_speed": null,
-     "wind_direction": "--",
-     "atmo_opacity": "Sunny",
-     "season": "Month 11",
-     "sunrise": "2013-05-01T11:00:00Z",
-     "sunset": "2013-05-01T22:00:00Z"
-     }
-     }
-
-     */
-    let base_url = 'http://marsweather.ingenology.com/v1/latest/';
-
-    return helpers.dispatch_http_get(base_url, function(data){
+    return helpers.dispatch_http_get("http://marsweather.ingenology.com/v1/latest", function(data){
         return data;
     });
 },
