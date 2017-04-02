@@ -47,9 +47,9 @@ let helpers = {
                     var data = res;
                     console.log("Dispatching HTTP GET Request : ", url);
                     console.log('error:', err); // Print the error if one occurred
-                    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
-                    console.log('body:', res.body);
-                    fs.writeFile('./log.xml', res.body, (err) => {
+                    console.log('statusCode:', data && data.statusCode); // Print the response status code if a response was received
+                    console.log('body:', data.body);
+                    fs.writeFile('./log.xml', data.body, (err) => {
                         if (err) throw err;
                     });
                 }

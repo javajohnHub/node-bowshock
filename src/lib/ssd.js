@@ -8,23 +8,14 @@ let ssd = {
         if(helpers.isEmpty(object)){
             req_url = base_url;
         }else{
-            if(object.date_min){
-                try{
-                    helpers.vali_date(object.date_min);
-                    base_url += "date-min=" + object.date_min + "&";
-                }
-                catch(e){
-                    throw "Date must be a string in the format of YYYY-MM-DD";
-                }
+            if(object.date_min) {
+                helpers.vali_date(object.date_min);
+                base_url += "date-min=" + object.date_min + "&";
             }
             if(object.date_max){
-                try{
-                    helpers.vali_date(object.date_max);
-                    base_url += "date-max=" + object.date_max + "&";
-                }
-                catch(e){
-                    throw "Date must be a string in the format of YYYY-MM-DD";
-                }
+                helpers.vali_date(object.date_max);
+                base_url += "date-max=" + object.date_max + "&";
+
             }
             if(object.dist_min){
                 base_url += "dist-min=" + object.dist_min+ "&";
@@ -88,7 +79,9 @@ let ssd = {
             }
             }
             req_url = base_url;
-        return helpers.dispatch_http_get(req_url.slice(0,-1));
+        return helpers.dispatch_http_get(req_url.slice(0,-1), function(data){
+            return data;
+        });
     },
     fireballs(object){
         let base_url = "https://ssd-api.jpl.nasa.gov/fireball.api?";
@@ -256,7 +249,9 @@ let ssd = {
             }
         }
         req_url = base_url;
-        return helpers.dispatch_http_get(req_url.slice(0, -1));
+        return helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+            return data;
+        });
     },
 
 };

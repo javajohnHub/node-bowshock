@@ -48,4 +48,4 @@ function techport(id){
 }
 
 module.exports = techport;
-techport('4795');
+//techport('4795');
