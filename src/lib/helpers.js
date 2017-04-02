@@ -25,11 +25,8 @@ let helpers = {
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
                     if(logger === 'true'){
                         console.log('body:', pd.json(data));
-                        fs.writeFile('./log.json', pd.json(data), (err) => {
-                            if(err) throw err;
-                        });
-                        callback(null, data);
                     }
+                    callback(null, data);
                         fs.writeFile('./log.json', pd.json(data), (err) => {
                             if(err) throw err;
                         });
@@ -60,11 +57,9 @@ let helpers = {
                     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
                     if(logger === 'true'){
                         console.log('body:', pd.xml(data));
-                        fs.writeFile('./log.json', pd.xml(data), (err) => {
-                            if(err) throw err;
-                        });
-                        callback(null, data);
+
                     }
+                    callback(null, data);
                     fs.writeFile('./log.json', pd.json(data), (err) => {
                         if(err) throw err;
                     });
