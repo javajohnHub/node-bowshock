@@ -19,7 +19,7 @@ describe('Asterank', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -37,7 +37,7 @@ describe('Asterank', function() {
             }
             assert.throws(function () { asterank(query="hello") }, Error, "limit= param is missing, expecting int")
 
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -53,7 +53,7 @@ describe('Asterank', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
     assert.throws(function () { asterank() }, Error, "query= param is missing, expecting json data format.");
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 

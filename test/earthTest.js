@@ -19,7 +19,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -36,7 +36,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.throws(function () { earth.imagery({lon: 1.75}) }, Error, "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
-        }, 1000);
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -52,7 +52,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.throws(function () { earth.imagery({lat: 100.75}) }, Error, "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -71,7 +71,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -90,7 +90,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -108,7 +108,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -125,7 +125,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -142,7 +142,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -160,7 +160,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.throws(function () { earth.assets({lon: 1.75}) }, Error, "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -176,7 +176,7 @@ describe('Earth', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.throws(function () { earth.assets({lat: 100.75}) }, Error, "assets endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5");
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 

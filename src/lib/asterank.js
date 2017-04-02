@@ -10,17 +10,38 @@ The database currently runs on mongodb and queries must adhere to mongo's json f
 const helpers = require('./helpers');
 
 function asterank(query, limit){
+    "use strict";
+    /*
+    Format
+    Requests are of the form:
+
+        http://asterank.com/api/asterank?query={query}&limit={limit}
+            Response data formats are largely derived from NASA/JPL's Small Body Database query browser. Exceptions to this are the delta-v field (dv), the mass field (GM), and the normalized spectral type field (spec). Additional Asterank scores are included: closeness, price ($), and overall score.
+
+    Sample Request
+    This request returns an asteroid with a roughly circular orbit, low inclination, and semi-major axis less than 1.5 AU:
+
+        /api/asterank?query={"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}&limit=1
+    */
     let base_url = "http://www.asterank.com/api/asterank?";
     if(query){
 
         base_url += "query=" + query + "&"
 
+    }else{
+        throw "query= param is missing, expecting json data format.";
     }
     if(limit){
+        if (parseInt(limit)){
+            console.log(
+                "The limit arg you provided is not the type of int, ignoring it");
+        }
         base_url += "limit=" + limit;
 
     }
-
+    else{
+        throw "limit= param is missing, expecting int";
+    }
     return helpers.dispatch_http_get(base_url, function(data){
         return data;
     })
