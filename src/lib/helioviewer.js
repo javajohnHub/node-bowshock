@@ -116,11 +116,35 @@ let helioviewer = {
             return data;
         });
     },
+    getJPXClosestToMidPoint(object){
+        let base_url = 'https://api.helioviewer.org/v2/getJPXClosestToMidPoint/?';
+        let req_url = '';
+
+        base_url += 'startTimes=';
+        for(let x in object.startTimes){
+            base_url += object.startTimes[x] + ',';
+        }
+        base_url = base_url.slice(0, -1) + "&";
+
+        base_url += 'endTimes=';
+        for(let x in object.endTimes){
+            base_url += object.endTimes[x] + ',';
+        }
+        base_url = base_url.slice(0, -1) + "&";
+
+        base_url += "sourceId=" + object.sourceId + "&";
+
+        if (object.linked) {
+            base_url += "linked=" + object.linked + "&";
+        }
+        req_url += base_url + "verbose=true&jpip=true";
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
+    },
     /*
 
-    getJPXClosestToMidPoint(){
-       //TODO
-    },
+
     queueMovie(){
         //TODO
     },
@@ -174,9 +198,17 @@ module.exports = helioviewer;
 
 //helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 //helioviewer.getjp2header(17654321);
-helioviewer.getJPX({
+/*helioviewer.getJPX({
     startTime: "2014-01-01T00:00:00",
     endTime: "2014-01-01T00:45:00" ,
     sourceId: 14,
     cadence: 12
 });
+*/
+/*helioviewer.getJPXClosestToMidPoint({
+    startTimes: [1306886400,1306887000,1306887600],
+    endTimes: [1306886700,1306887300,1306887900] ,
+    sourceId: 14,
+    linked: true
+});
+    */

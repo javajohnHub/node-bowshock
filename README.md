@@ -170,7 +170,7 @@ bowshock.helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 bowshock.helioviewer.getjp2header(Id=7654321);
 
 //startTime, endTime and sourceId are required
-helioviewer.getJPX({
+bowshock.helioviewer.getJPX({
     startTime: "2014-01-01T00:00:00",
     endTime: "2014-01-01T00:45:00" ,
     sourceId: 14,
@@ -178,6 +178,21 @@ helioviewer.getJPX({
     //cadence: 12
 });
 
+//startTime, endTime and sourceId are required
+bowshock.helioviewer.getJPXClosestToMidPoint({
+    startTime: "2014-01-01T00:00:00",
+    endTime: "2014-01-01T00:45:00" ,
+    sourceId: 14,
+    //linked: true
+});
+
+//startTime, endTime and sourceId are required
+bowshock.helioviewer.getJPXClosestToMidPoint({
+             startTimes: [1306886400,1306887000,1306887600],
+             endTimes: [1306886700,1306887300,1306887900] ,
+             sourceId: 14,
+             //linked: true
+         });
 ```
 
 ##### MAAS

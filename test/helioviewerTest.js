@@ -128,4 +128,46 @@ describe('Helioviewer', function() {
         // so it() can no longer catch
 
     });
+    it('should return response code 200 with startTimes, endTimes, and sourceId provided getJPXCloststToMidPoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getJPXClosestToMidPoint({
+                    startTimes: [1306886400,1306887000,1306887600],
+                    endTimes: [1306886700,1306887300,1306887900] ,
+                    sourceId: 14
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with startTimes, endTimes, sourceId, and linked provided getJPXCloststToMidPoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getJPXClosestToMidPoint({
+                    startTimes: [1306886400,1306887000,1306887600],
+                    endTimes: [1306886700,1306887300,1306887900] ,
+                    sourceId: 14,
+                    linked: true
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
 });
