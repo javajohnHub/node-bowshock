@@ -169,6 +169,15 @@ bowshock.helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 //args are mandatory
 bowshock.helioviewer.getjp2header(Id=7654321);
 
+//startTime, endTime and sourceId are required
+helioviewer.getJPX({
+    startTime: "2014-01-01T00:00:00",
+    endTime: "2014-01-01T00:45:00" ,
+    sourceId: 14,
+    //linked: true,
+    //cadence: 12
+});
+
 ```
 
 ##### MAAS

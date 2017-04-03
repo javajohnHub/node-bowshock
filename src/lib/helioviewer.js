@@ -84,10 +84,40 @@ let helioviewer = {
             return data;
         });
 
-    },/*
-    getJPX(){
-      //TODO
     },
+    getJPX(object){
+        let base_url = 'https://api.helioviewer.org/v2/getJPX/?';
+        let req_url = '';
+        helpers.validate_iso8601(object.startTime);
+        if (object.startTime.charAt(-1) !== 'Z') {
+                object.startTime += 'Z';
+        }
+
+            base_url += 'startTime=' + object.startTime + '&';
+
+        helpers.validate_iso8601(object.endTime);
+            if (object.endTime.charAt(-1) !== 'Z') {
+                object.endTime += 'Z';
+            }
+
+            base_url += 'endTime=' + object.endTime + '&';
+
+        if (object.sourceId) {
+            base_url += "sourceId=" + object.sourceId + "&";
+        }
+        if (object.linked) {
+            base_url += "linked=" + object.linked + "&";
+        }
+        if (object.cadence) {
+            base_url += "cadence=" + object.cadence + "&";
+        }
+        req_url += base_url + "verbose=true&jpip=true";
+        return helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        });
+    },
+    /*
+
     getJPXClosestToMidPoint(){
        //TODO
     },
@@ -144,3 +174,9 @@ module.exports = helioviewer;
 
 //helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 //helioviewer.getjp2header(17654321);
+helioviewer.getJPX({
+    startTime: "2014-01-01T00:00:00",
+    endTime: "2014-01-01T00:45:00" ,
+    sourceId: 14,
+    cadence: 12
+});
