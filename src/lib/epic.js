@@ -52,3 +52,5 @@ let epic = {
 
 };
 module.exports = epic;
+
+//epic.natural();

@@ -92,4 +92,4 @@ module.exports = eonet;
 
 //eonet.events({source: "InciWeb,EO",status: "closed",limit: 5, days:25});
 //eonet.layers(8);
-//eonet.categories({id:8, source: "InciWeb,EO",status: "closed",limit: 5, days:25});
+//eonet.categories({id:8, source: "InciWeb,EO",status: "open",limit: 5, days:25});

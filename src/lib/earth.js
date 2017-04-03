@@ -12,42 +12,20 @@ Note that this is a rough calculation, mainly used to filter out exceedingly clo
 const helpers = require('./helpers');
 let earth = {
     imagery(object) {
-    "use strict";
-    /*
-     ----------QUERY PARAMETERS----------
-
-     Parameter	Type	Default	Description
-     lat	float	n/a	Latitude
-     lon	float	n/a	Longitude
-     dim	float	0.025	width and height of image in degrees
-     date	YYYY-MM-DD  today	date of image ----if not supplied, then the most recent image (i.e., closest to today) is returned
-     cloud_score	bool	False	calculate the percentage of the image covered by clouds
-     api_key	string	vDEMO_KEY	api.data.gov key for expanded usage
-
-     ---------EXAMPLE QUERY--------
-     https://api.data.gov/nasa/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-04&cloud_score=True&api_key=DEMO_KEY
-     */
-
     let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
         if (object.lon && object.lat) {
-            base_url += "lon=" + object.lon + "&" + "lat=" + object.lat + "&";
-
+            base_url += "lon=" + parseFloat(object.lon) + "&" + "lat=" + parseFloat(object.lat) + "&";
             if (object.dim) {
-
-                if (!parseInt(object.dim)) {
-                    base_url += "dim=" + object.dim + "&";
-                }
+                base_url += "dim=" + object.dim + "&";
             }
             if (object.date) {
                 helpers.vali_date(object.date);
                 base_url += "date=" + object.date + "&";
+
             }
             if (object.cloud_score === true) {
                 base_url += "cloud_score=True" + "&";
             }
-        }
-        else{
-            throw "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
         }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
@@ -105,5 +83,5 @@ assets(object){
 }
 };
 module.exports = earth;
-//earth.imagery(lon=100.75, lat=1.5, date="2014-02-04");
-//earth.assets(lon=100.75, lat=1.5, begin="2014-02-01");
+//earth.imagery({lon:100.75, lat:1.5, date:"2014-02-04"});
+//earth.assets({lon:100.75, lat:1.5, begin:"2014-02-01"});

@@ -9,15 +9,11 @@ require('dotenv').config();
 
 let helpers = {
     dispatch_http_get: function(url, callback){
-        let options = {
-            url: url,
-            headers: {
-                'User-Agent': 'request'
-            }
-        };
+
         request
-            .get(url, {options})
+            .get(url)
             .end(function(err, res){
+                console.error(err);
                 if(!err){
                     var data = res.body;
                     console.log("Dispatching HTTP GET Request : ", url);
@@ -34,20 +30,14 @@ let helpers = {
 
 
                 }else{
-                    callback('Error Occurred!');
+                    callback('Error Occurred!', err);
                 }
             })
 
     },
     dispatch_http_get_xml: function(url, callback){
-        let options = {
-            url: url,
-            headers: {
-                'User-Agent': 'request'
-            }
-        };
         request
-            .get(url, {options})
+            .get(url)
             .end(function(err, res){
                 if(!err){
                     var data = res.text;

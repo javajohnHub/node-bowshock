@@ -9,7 +9,7 @@ The database currently runs on mongodb and queries must adhere to mongo's json f
 */
 const helpers = require('./helpers');
 
-function asterank(query, limit){
+function asterank(object){
     "use strict";
     /*
     Format
@@ -24,28 +24,18 @@ function asterank(query, limit){
         /api/asterank?query={"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}&limit=1
     */
     let base_url = "http://www.asterank.com/api/asterank?";
-    if(query){
+    if(object.query){
 
-        base_url += "query=" + query + "&"
-
-    }else{
-        throw "query= param is missing, expecting json data format.";
+        base_url += "query=" + JSON.stringify(object.query) + "&"
+        console.log(base_url);
     }
-    if(limit){
-        if (parseInt(limit)){
-            console.log(
-                "The limit arg you provided is not the type of int, ignoring it");
-        }
-        base_url += "limit=" + limit;
-
-    }
-    else{
-        throw "limit= param is missing, expecting int";
+    if(object.limit){
+        base_url += "limit=" + object.limit;
     }
     return helpers.dispatch_http_get(base_url, function(data){
         return data;
     })
 }
 module.exports = asterank;
-//asterank({"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, 10);
+//asterank({query: {"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, limit: 10});
 

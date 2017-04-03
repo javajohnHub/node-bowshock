@@ -144,11 +144,7 @@ bowshock.eonet.layers(8);
 let bowshock = require('node-bowshock');
 
 //all args mandatory
-bowshock.asterank(
-            	query={"e": {"$lt": 0.1},
-               	       "i": {"$lt": 4},
-                       "a": {"$lt": 1.5}},
-                  limit=1)
+bowshock.asterank({query: {"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, limit: 10});
 
 ```
 
