@@ -174,7 +174,7 @@ let bowshock = require('node-bowshock');
 bowshock.helioviewer.getjp2image({date:"2014-01-01T23:59:59", sourceId:14});
 
 //args are mandatory
-bowshock.helioviewer.getjp2header(Id=7654321);
+bowshock.helioviewer.getjp2header(7654321);
 
 //startTime, endTime and sourceId are required
 bowshock.helioviewer.getJPX({
@@ -192,6 +192,44 @@ bowshock.helioviewer.getJPXClosestToMidPoint({
              sourceId: 14,
              //linked: true
          });
+
+//startTime, endTime, layers, events, eventsLabels, and imageScale are required
+bowshock.helioviewer.queueMovie({
+             startTime: "2010-03-01T12:12:12",
+             endTime: "2010-03-04T12:12:12",
+             layers: "[3,1,100],[4,1,100]",
+             events: "[AR,HMI_HARP;,SPoCA,1],[CH,all,1]",
+             eventsLabels: false,
+             imageScale: 21.04,
+             format: "mp4",
+             frameRate: 15,
+             maxFrames: 300,
+             scale: true,
+             scaleType: "earth",
+             scaleX: -1000,
+             scaleY: -500,
+             movieLength: 4.3333,
+             watermark: true,
+             width: 1920,
+             height: 1200,
+             x0: 0,
+             y0: 0,
+             x1: -5000,
+             y1: -5000,
+             x2: 5000,
+             y2: 5000,
+             //callback: "Wrap the response object in a function call of your choosing."
+         });
+         
+// id and format required         
+bowshock.helioviewer.getMovieStatus({
+             id: "VXvX5",
+             format: "mp4",
+             verbose: true,
+             //callback: "callback",
+             //token: "4673d6db4e2a3365ab361267f2a9a112"
+         });
+         
 ```
 
 ##### MAAS

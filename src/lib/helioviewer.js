@@ -93,14 +93,14 @@ let helioviewer = {
                 object.startTime += 'Z';
         }
 
-            base_url += 'startTime=' + object.startTime + '&';
+        base_url += 'startTime=' + object.startTime + '&';
 
         helpers.validate_iso8601(object.endTime);
             if (object.endTime.charAt(-1) !== 'Z') {
                 object.endTime += 'Z';
             }
 
-            base_url += 'endTime=' + object.endTime + '&';
+        base_url += 'endTime=' + object.endTime + '&';
 
         if (object.sourceId) {
             base_url += "sourceId=" + object.sourceId + "&";
@@ -142,18 +142,111 @@ let helioviewer = {
             return data;
         });
     },
+    queueMovie(object){
+        let base_url = 'https://api.helioviewer.org/v2/queueMovie/?';
+        let req_url = '';
+        helpers.validate_iso8601(object.startTime);
+        if (object.startTime.charAt(-1) !== 'Z') {
+            object.startTime += 'Z';
+        }
+        base_url += 'startTime=' + object.startTime + '&';
+
+        helpers.validate_iso8601(object.endTime);
+        if (object.endTime.charAt(-1) !== 'Z') {
+            object.endTime += 'Z';
+        }
+        base_url += 'endTime=' + object.endTime + '&';
+        base_url += 'layers=' + object.layers + '&';
+        base_url += 'events=' + object.events + '&';
+        base_url += 'eventsLabels=' + object.eventsLabels + '&';
+        base_url += 'imageScale=' + object.imageScale + '&';
+
+        if(object.format){
+            base_url += 'format=' + object.format + '&';
+        }
+        if(object.frameRate){
+            base_url += 'frameRate=' + object.frameRate + '&';
+        }
+        if(object.maxFrames){
+            base_url += 'maxFrames=' + object.maxFrames + '&';
+        }
+        if(object.scale){
+            base_url += 'scale=' + object.scale + '&';
+        }
+        if(object.scaleType){
+            base_url += 'scaleType=' + object.scaleType + '&';
+        }
+        if(object.scaleX){
+            base_url += 'scaleX=' + object.scaleX + '&';
+        }
+        if(object.scaleY){
+            base_url += 'scaleY=' + object.scaleY + '&';
+        }
+        if(object.movieLength){
+            base_url += 'movieLength=' + object.movieLength + '&';
+        }
+        if(object.watermark){
+            base_url += 'watermark=' + object.watermark + '&';
+        }
+        if(object.width){
+            base_url += 'width=' + object.width + '&';
+        }
+        if(object.height){
+            base_url += 'height=' + object.height + '&';
+        }
+        if(object.x0){
+            base_url += 'x0=' + object.x0 + '&';
+        }
+        if(object.y0){
+            base_url += 'y0=' + object.y0 + '&';
+        }
+        if(object.x1){
+            base_url += 'x1=' + object.x1 + '&';
+        }
+        if(object.y1){
+            base_url += 'y1=' + object.y1 + '&';
+        }
+        if(object.x2){
+            base_url += 'x2=' + object.x2 + '&';
+        }
+        if(object.y2){
+            base_url += 'y2=' + object.y2 + '&';
+        }
+        if(object.callback){
+            base_url += 'callback=' + object.callback + '&';
+        }
+
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
+
+        },
+    reQueueMovie(id){
+        helpers.dispatch_http_get("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id, function(data){
+            return data;
+        });
+    },
+    getMovieStatus(object){
+        let base_url = 'https://api.helioviewer.org/v2/getMovieStatus/?';
+        base_url += 'id=' + object.id + '&';
+        base_url += 'format=' + object.format + '&';
+        if(object.verbose){
+            base_url += 'verbose=' + object.verbose + '&';
+        }
+        if(object.callback){
+            base_url += 'callback=' + object.callback + "&";
+        }
+        if(object.token){
+            base_url += 'token=' + object.token + "&";
+        }
+
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
+    },
     /*
 
 
-    queueMovie(){
-        //TODO
-    },
-    reQueueMovie(){
-        //TODO
-    },
-    getMovieStatus(){
-        //TODO
-    },
     downloadMovie(){
         //TODO
     },
@@ -212,3 +305,40 @@ module.exports = helioviewer;
     linked: true
 });
     */
+
+/*helioviewer.queueMovie({
+    startTime: "2010-03-01T12:12:12",
+    endTime: "2010-03-04T12:12:12",
+    layers: "[3,1,100],[4,1,100]",
+    events: "[AR,HMI_HARP;,SPoCA,1],[CH,all,1]",
+    eventsLabels: false,
+    imageScale: 21.04,
+    format: "mp4",
+    frameRate: 15,
+    maxFrames: 300,
+    scale: true,
+    scaleType: "earth",
+    scaleX: -1000,
+    scaleY: -500,
+    movieLength: 4.3333,
+    watermark: true,
+    width: 1920,
+    height: 1200,
+    x0: 0,
+    y0: 0,
+    x1: -5000,
+    y1: -5000,
+    x2: 5000,
+    y2: 5000,
+    //callback: "Wrap the response object in a function call of your choosing."
+});*/
+
+//helioviewer.reQueueMovie("VXvX5");
+
+helioviewer.getMovieStatus({
+    id: "VXvX5",
+    format: "mp4",
+    verbose: true,
+    //callback: "callback",
+    //token: "4673d6db4e2a3365ab361267f2a9a112"
+});
