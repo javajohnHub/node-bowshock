@@ -180,14 +180,6 @@ bowshock.helioviewer.getJPX({
 
 //startTime, endTime and sourceId are required
 bowshock.helioviewer.getJPXClosestToMidPoint({
-    startTime: "2014-01-01T00:00:00",
-    endTime: "2014-01-01T00:45:00" ,
-    sourceId: 14,
-    //linked: true
-});
-
-//startTime, endTime and sourceId are required
-bowshock.helioviewer.getJPXClosestToMidPoint({
              startTimes: [1306886400,1306887000,1306887600],
              endTimes: [1306886700,1306887300,1306887900] ,
              sourceId: 14,
