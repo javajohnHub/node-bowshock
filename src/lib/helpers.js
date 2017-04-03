@@ -13,7 +13,6 @@ let helpers = {
         request
             .get(url)
             .end(function(err, res){
-                console.error(err);
                 if(!err){
                     var data = res.body;
                     console.log("Dispatching HTTP GET Request : ", url);
@@ -48,7 +47,7 @@ let helpers = {
                         console.log('body:', pd.xml(data));
 
                     }
-                    fs.writeFile('./log.json', pd.json(data), (err) => {
+                    fs.writeFile('./log.xml', pd.xml(data), (err) => {
                         if(err) throw err;
                     });
                     callback(null, data);
