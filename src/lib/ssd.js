@@ -79,7 +79,7 @@ let ssd = {
             }
             }
             req_url = base_url;
-        return helpers.dispatch_http_get(req_url.slice(0,-1), function(data){
+        helpers.dispatch_http_get(req_url.slice(0,-1), function(data){
             return data;
         });
     },
@@ -149,7 +149,7 @@ let ssd = {
 
         }
         req_url = base_url;
-        return helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+        helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
             return data;
         });
     },
@@ -199,7 +199,7 @@ let ssd = {
         }
 
         req_url = base_url;
-        return helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+        helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
             return data;
         });
 
@@ -236,7 +236,7 @@ let ssd = {
             }
         }
         req_url = base_url;
-        return helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+        helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
             return data;
         });
     },
@@ -244,14 +244,14 @@ let ssd = {
 };
 module.exports = ssd;
 
-/*ssd.sentry({
+ssd.sentry({
     spk: 2029075,
     //des: 29075,
     //h_max: 50,
     //ps_min: 10,
     //ip_min: 1e-3,
     //days: 6,
-    all: false,
-    removed: false
-});*/
+    //all: false,
+    //removed: false
+});
 

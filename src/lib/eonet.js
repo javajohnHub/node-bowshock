@@ -30,7 +30,7 @@ let eonet = {
             }
         }
 
-        return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
             return data;
         });
     },
@@ -72,7 +72,7 @@ let eonet = {
                 }
             }
 
-        return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
             return data;
         });
 
@@ -83,7 +83,7 @@ let eonet = {
         if(parseInt(id)){
             base_url += id;
         }
-        return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
             return data;
         });
     }

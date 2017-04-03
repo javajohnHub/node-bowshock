@@ -32,7 +32,7 @@ function asterank(object){
     if(object.limit){
         base_url += "limit=" + object.limit;
     }
-    return helpers.dispatch_http_get(base_url, function(data){
+    helpers.dispatch_http_get(base_url, function(data){
         return data;
     })
 }

@@ -10,7 +10,7 @@ function sounds(query, limit){
 
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.dispatch_http_get(req_url, function(data){
+    helpers.dispatch_http_get(req_url, function(data){
         return data;
     })
 

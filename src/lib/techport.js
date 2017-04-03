@@ -38,14 +38,10 @@ function techport(id){
         http://techport.nasa.gov/xml-api/4795
             Output: The output of this query is an XML file with all field data of the TechPort record.
     */
-
-    let base_url = 'https://techport.nasa.gov/xml-api/';
-    base_url += id + '?api_key=' + helpers.nasa_api_key();
-
-    return helpers.dispatch_http_get_xml(base_url, function(data){
+    helpers.dispatch_http_get_xml('http://techport.nasa.gov/xml-api/', function(data){
         return data
     });
 }
 
 module.exports = techport;
-//techport('4795');
+techport(4795);

@@ -53,7 +53,7 @@ let helioviewer = {
 
 
 
-        return helpers.dispatch_http_get(req_url, function(data){
+        helpers.dispatch_http_get(req_url, function(data){
             return data;
         });
 
@@ -80,7 +80,7 @@ let helioviewer = {
          http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
          */
-        return helpers.dispatch_http_get_xml('https://api.helioviewer.org/v2/getJP2Header/?id=' + id, function(data){
+        helpers.dispatch_http_get_xml('https://api.helioviewer.org/v2/getJP2Header/?id=' + id, function(data){
             return data;
         });
 
@@ -112,7 +112,7 @@ let helioviewer = {
             base_url += "cadence=" + object.cadence + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        return helpers.dispatch_http_get(req_url, function(data){
+        helpers.dispatch_http_get(req_url, function(data){
             return data;
         });
     },
@@ -138,7 +138,7 @@ let helioviewer = {
             base_url += "linked=" + object.linked + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        return helpers.dispatch_http_get(req_url, function(data){
+        helpers.dispatch_http_get(req_url, function(data){
             return data;
         });
     },
@@ -335,10 +335,10 @@ module.exports = helioviewer;
 
 //helioviewer.reQueueMovie("VXvX5");
 
-helioviewer.getMovieStatus({
+/*helioviewer.getMovieStatus({
     id: "VXvX5",
     format: "mp4",
     verbose: true,
     //callback: "callback",
     //token: "4673d6db4e2a3365ab361267f2a9a112"
-});
+});*/
