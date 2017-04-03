@@ -67,7 +67,7 @@ LOGGER=true
 let bowshock = require('node-bowshock');
 
 //with specific date and tags - For apod all args are optional
-bowshock.apod(date="2017-03-11");
+bowshock.apod("2017-03-11");
 
 ```
 
@@ -85,11 +85,11 @@ bowshock.mars.spirit("2015-06-03");
 ```javascript
 let bowshock = require('node-bowshock');
 
-bowshock.neows.today(detailed=true);
+bowshock.neows.today(true);
 
 bowshock.neows.stats();
 
-bowshock.neows.feed(start_date="2015-06-03");
+bowshock.neows.feed("2015-06-03");
 
 //Lookup a specific Asteroid based on its NASA JPL small body (SPK-ID) ID
 bowshock.neows.lookup(3542519);
@@ -123,8 +123,8 @@ bowshock.epic.enhanced("2017-02-11");
 ##### Sounds
 ```javascript
 let bowshock = require('node-bowshock');
-
-bowshock.sounds("apollo", limit=10);
+//query , limit
+bowshock.sounds("apollo", 10);
 
 ```
 
@@ -192,7 +192,7 @@ bowshock.helioviewer.getJPXClosestToMidPoint({
 let bowshock = require('node-bowshock');
 
 //mandatory date begin / end
-bowshock.maas.maas_archive(begin="2015-03-19", end="2017-03-19")
+bowshock.maas.maas_archive("2015-03-19", "2017-03-19")
 
 bowshock.maas.maas_latest()
 
@@ -220,7 +220,7 @@ bowshock.skymorph.search_target_obj("J99TS7A")
 ```javascript
 let bowshock = require('node-bowshock');
 
-bowshock.techport(Id="4795");
+bowshock.techport(4795);
 
 ```
 
@@ -305,9 +305,9 @@ bowshock.ssd.sentry({
 ```javascript
 let bowshock = require('node-bowshock');
 
-bowshock.trek.mars(layer_id="curiosity_ctx_mosaic");
+bowshock.trek.mars("curiosity_ctx_mosaic");
 
-bowshock.trek.vesta(layer_id="global_LAMO");
+bowshock.trek.vesta("global_LAMO");
 
 ```
 ## Contributors
