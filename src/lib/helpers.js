@@ -103,9 +103,13 @@ let helpers = {
         return process.env.LOGGER || 'false';
     },
     format_date(date){
-        this.vali_date(date);
-        return date.replace(/-/g, "/");
-
+        try{
+            this.vali_date(date);
+            return date.replace(/-/g, "/");
+        }
+        catch(e){
+            throw "You must provide a valid date YYYY";
+        }
 
     },
     isEmpty(obj) {
