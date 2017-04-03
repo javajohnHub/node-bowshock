@@ -56,11 +56,15 @@ Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/
 #### Setting up the API Key
 <br/>
 Set an environment varible NASA_API_KEY which is equal to your key string.<br/>
-Rename env.example to .env
+Create a .env file in the root of the project.
 Logging to console can be enabled or disabled.<br/>
-.env<br/>
+#####.env<br/>
+
+```bash
 NASA_API_KEY=########################
 LOGGER=true
+
+```
 
 ##### Apod
 ```javascript
