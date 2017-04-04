@@ -1088,4 +1088,26 @@ describe('Helioviewer', function() {
         // so it() can no longer catch
 
     });
+    it('should return file exists with hq provided downloadMovie()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.downloadMovie({
+                    id: "F3Dh5",
+                    format: "mp4",
+                    hq: true
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            var file = fs.readFileSync("./F3Dh5.mp4");
+            assert.pathExists(file.toString(), "File exists");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
 });
