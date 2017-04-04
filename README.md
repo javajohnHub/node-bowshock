@@ -24,7 +24,6 @@ Here is a list of currently supported API's :
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
 * [MAAS (Mars Weather) API](http://marsweather.ingenology.com/#get_started)
 * [Skymorph API](http://www.asterank.com/skymorph)
-* [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
 * [SSD/CNEOS API](https://api.nasa.gov/api.html#ssd_CNEOS)
 * [Trek WMTS API](https://api.nasa.gov/api.html#trek)
 
@@ -46,7 +45,6 @@ Here is a list of currently supported API's :
 | Maas     |        |&#10004;|
 | Patents  |&#10004;|        |
 | Skymorph |        |&#10004;|
-| Techport |&#10004;|        |
 | Sounds   |&#10004;|        |
 | SSD/CNEOS|&#10004;|        |
 | Trek WMTS|        |&#10004;|
@@ -328,14 +326,6 @@ let bowshock = require('node-bowshock');
 
 // mandatory obj id
 bowshock.skymorph.search_target_obj("J99TS7A")
-
-```
-
-##### Techport
-```javascript
-let bowshock = require('node-bowshock');
-
-bowshock.techport(4795);
 
 ```
 
