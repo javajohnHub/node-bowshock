@@ -266,13 +266,16 @@ let helioviewer = {
                     width: 20,
                     total: len
                 });
+
                 res.pipe(file);
                 res.on('data', function (chunk) {
                     bar.tick(chunk.length);
+
                 });
             res.on('end', function () {
                 console.log('\n');
             });
+            return res;
         });
 
         req.end();
@@ -495,28 +498,30 @@ module.exports = helioviewer;
 
 //helioviewer.reQueueMovie("VXvX5");
 
-/*helioviewer.getMovieStatus({
-    id: "VXvX5",
-    format: "mp4",
-    verbose: true,
-    //callback: "callback",
-    //token: "4673d6db4e2a3365ab361267f2a9a112"
-});*/
+/*
+ helioviewer.getMovieStatus({
+ id: "F3Dh5",
+ format: "mp4",
+ verbose: true,
+ //callback: "callback",
+ //token: "4673d6db4e2a3365ab361267f2a9a112"
+ });
+*/
 
 /*helioviewer.downloadMovie({
     id: "VXvX5",
     format: "mp4",
     hq: true
-});*/
-/*
-helioviewer.playMovie({
- id: "VXvX5",
+});
+*/
+/*helioviewer.playMovie({
+ id: "F3Dh5",
  format: "mp4",
  height: 820,
  //hq: true,
  //width: 846
- });
- */
+ });*/
+
 
 /*helioviewer.takeScreenshot({
     date: "2014-01-01T23:59:59",

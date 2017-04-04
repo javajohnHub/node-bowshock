@@ -1,10 +1,11 @@
 var helioviewer = require('../index.js').helioviewer;
 var chai = require('chai');
-
+var fs = require('fs');
 var assert = chai.assert;
+chai.use(require('chai-fs'));
 
 describe('Helioviewer', function() {
-    it('should return response code 200 with date provided getjp2image', function(done) {
+   it('should return response code 200 with date provided getjp2image', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -982,7 +983,7 @@ describe('Helioviewer', function() {
 
     });
 
-    it('should return response code 200 with id and format provided reQueueMovie()', function(done) {
+    it('should return response code 200 with id and format provided getMovieStatus()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -1002,7 +1003,7 @@ describe('Helioviewer', function() {
 
     });
 
-    it('should return response code 200 with verbose provided reQueueMovie()', function(done) {
+    it('should return response code 200 with verbose provided getMovieStatus()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -1022,7 +1023,7 @@ describe('Helioviewer', function() {
         // so it() can no longer catch
 
     });
-    it('should return response code 200 with callback provided reQueueMovie()', function(done) {
+    it('should return response code 200 with callback provided getMovieStatus()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -1044,7 +1045,7 @@ describe('Helioviewer', function() {
 
     });
 
-    it('should return response code 200 with token provided reQueueMovie()', function(done) {
+    it('should return response code 200 with token provided getMovieStatus()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -1052,8 +1053,8 @@ describe('Helioviewer', function() {
                 var r = helioviewer.getMovieStatus({
                     id: "VXvX5",
                     format: "mp4",
-                    //verbose: true,
-                    //callback: "callback",
+                    verbose: true,
+                    callback: "callback",
                     token: "4673d6db4e2a3365ab361267f2a9a112"
                 });
                 done(); // success: call done with no parameter to indicate that it() is done()
@@ -1061,6 +1062,27 @@ describe('Helioviewer', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return file exists with id and format provided downloadMovie()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.downloadMovie({
+                    id: "VXvX5",
+                    format: "mp4",
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            var file = fs.readFileSync("./VXvX5.mp4");
+            assert.pathExists(file.toString(), "File exists");
         }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
