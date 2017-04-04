@@ -245,7 +245,33 @@ bowshock.helioviewer.playMovie({
           //hq: true,
           //width: 846
           });
-         
+
+
+//date, imageScale, layers, eventLabels, and height are required
+bowshock.helioviewer.takeScreenshot({
+             date: "2014-01-01T23:59:59",
+             imageScale: 2.4204409,
+             layers: "[SDO,AIA,AIA,335,1,100]",
+             eventLabels: false,
+             height: 1200,
+             //events: "[AR,HMI_HARP;SPoCA,1],[CH,all,1]"
+             //scale: false,
+             //scaleType: "earth",
+             //scaleX: -1000,
+             //scaleY: -500,
+             //width: 1920,
+             //x0: 1,
+             //y0: 1,
+             x1: -5000,
+             y1: -5000,
+             x2: 5000,
+             y2: 5000,
+             display: true,
+             watermark: false
+         });
+
+      
+bowshock.helioviewer.downloadScreenshot(3240748);
 ```
 
 ##### MAAS
