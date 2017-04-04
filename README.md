@@ -219,6 +219,10 @@ bowshock.helioviewer.queueMovie({
              //callback: "Wrap the response object in a function call of your choosing."
          });
          
+         
+bowshock.helioviewer.reQueueMovie("VXvX5");
+
+
 // id and format required         
 bowshock.helioviewer.getMovieStatus({
              id: "VXvX5",
