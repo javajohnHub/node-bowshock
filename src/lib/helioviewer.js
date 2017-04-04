@@ -3,6 +3,8 @@
 var https = require('https');
 var fs = require('fs');
 var opn = require('opn');
+var ProgressBar = require('progress');
+
 /*
 http://helioviewer.org/api/docs/v1/
 The Helioviewer Project maintains a set of Public APIs with the goal of improving access to solar and heliospheric
@@ -254,14 +256,26 @@ let helioviewer = {
             base_url += 'hq=' + object.hq;
         }
         var file = fs.createWriteStream(object.id + "." + object.format);
-        https.get(base_url, function(response) {
-            response.pipe(file);
-            console.log('Writing file! Be patient....');
-            file.on('finish', function() {
-                file.close();
-                console.log('Download complete!')
+        var req = https.get(base_url);
+        req.on('response', function(res){
+                var len = parseInt(res.headers['content-length'], 10);
+                console.log();
+                var bar = new ProgressBar('  downloading [:bar] :rate/bps :percent :etas', {
+                    complete: '=',
+                    incomplete: ' ',
+                    width: 20,
+                    total: len
+                });
+                res.pipe(file);
+                res.on('data', function (chunk) {
+                    bar.tick(chunk.length);
+                });
+            res.on('end', function () {
+                console.log('\n');
             });
         });
+
+        req.end();
     },
     playMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/playMovie/?';
@@ -347,28 +361,28 @@ let helioviewer = {
     downloadScreenshot(id){
         let base_url = 'https://api.helioviewer.org/v2/downloadScreenshot/?id=' + id;
         var file = fs.createWriteStream(id + ".png");
-        https.get(base_url, function(response) {
-            response.pipe(file);
-            console.log('Writing file! Be patient....');
-            file.on('finish', function() {
-                file.close();
-                console.log('Download complete!')
+        var req = https.get(base_url);
+        req.on('response', function(res){
+            var len = parseInt(res.headers['content-length'], 10);
+            console.log();
+            var bar = new ProgressBar('  downloading [:bar] :rate/bps :percent :etas', {
+                complete: '=',
+                incomplete: ' ',
+                width: 20,
+                total: len
+            });
+            res.pipe(file);
+            res.on('data', function (chunk) {
+                bar.tick(chunk.length);
+            });
+            res.on('end', function () {
+                console.log('\n');
             });
         });
+
+        req.end();
     },
     /*
-    checkYouTubeAuth(){
-        //TODO
-    },
-    getYouTubeAuth(){
-        //TODO
-    },
-    uploadMovieToYouTube(){
-        //TODO
-    },
-    getUserVideos(){
-        //TODO
-    },
     getClosestImage(){
         //TODO
     },
@@ -479,4 +493,4 @@ helioviewer.playMovie({
 });
     */
 
-//helioviewer.downloadScreenshot(3240748);
+helioviewer.downloadScreenshot(3240748);
