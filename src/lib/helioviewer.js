@@ -254,7 +254,7 @@ let helioviewer = {
             base_url += 'hq=' + object.hq;
         }
         var file = fs.createWriteStream(object.id + "." + object.format);
-        var request = https.get(base_url, function(response) {
+        https.get(base_url, function(response) {
             response.pipe(file);
             console.log('Writing file! Be patient....');
             file.on('finish', function() {
@@ -277,17 +277,86 @@ let helioviewer = {
         let req_url = base_url.slice(0, -1);
         opn(req_url);
     },
+    takeScreenshot(object){
+        /*You must specify values for either `x1`, `y1`, `x2`, and `y2`
+         or `x0`, `y0`, `width` and `height`.
+         date, imageScale, layers, and eventsLabels are required
+         */
+
+        let base_url = 'https://api.helioviewer.org/v2/takeScreenshot/?';
+        helpers.validate_iso8601(object.date);
+        if (object.date.charAt(-1) !== 'Z') {
+            object.date += 'Z';
+        }
+        base_url += 'date=' + object.date + '&';
+        base_url += 'imageScale=' + object.imageScale + '&';
+        base_url += 'layers=' + object.layers + '&';
+        base_url += 'height=' + object.height + '&';
+        if(object.events){
+            base_url += 'events=' + object.events + '&';
+        }
+        if(object.scale){
+            base_url += 'scale=' + object.scale + '&';
+        }
+        if(object.scaleType){
+            base_url += 'events=' + object.scaleType + '&';
+        }
+        if(object.scaleX){
+            base_url += 'scaleX=' + object.scaleX + '&';
+        }
+        if(object.scaleY){
+            base_url += 'scaleY=' + object.scaleY + '&';
+        }
+        if(object.width){
+            base_url += 'width=' + object.width + '&';
+        }
+        if(object.x0){
+            base_url += 'x0=' + object.x0 + '&';
+        }
+        if(object.y0){
+            base_url += 'y0=' + object.y0 + '&';
+        }
+        if(object.x1){
+            base_url += 'x1=' + object.x1 + '&';
+        }
+        if(object.y1){
+            base_url += 'y1=' + object.y1 + '&';
+        }
+        if(object.x2){
+            base_url += 'x2=' + object.x2 + '&';
+        }
+        if(object.y2){
+            base_url += 'y2=' + object.y2 + '&';
+        }
+        if(object.watermark){
+            base_url += 'watermark=' + object.watermark + '&';
+        }
+        if(object.callback){
+            base_url += 'callback=' + object.callback + '&';
+        }
+        if(object.display){
+            base_url += 'display=' + object.display + '&';
+            if(object.display === true){
+                return opn(base_url.slice(0, -1));
+            }
+        }
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
+    },
+    downloadScreenshot(id){
+        let base_url = 'https://api.helioviewer.org/v2/downloadScreenshot/?id=' + id;
+        var file = fs.createWriteStream(id + ".png");
+        https.get(base_url, function(response) {
+            response.pipe(file);
+            console.log('Writing file! Be patient....');
+            file.on('finish', function() {
+                file.close();
+                console.log('Download complete!')
+            });
+        });
+    },
     /*
-
-
-
-
-    takeScreenshot(){
-        //TODO
-    },
-    downloadScreenshot(){
-        //TODO
-    },
     checkYouTubeAuth(){
         //TODO
     },
@@ -386,3 +455,28 @@ helioviewer.playMovie({
  //width: 846
  });
  */
+
+/*helioviewer.takeScreenshot({
+    date: "2014-01-01T23:59:59",
+    imageScale: 2.4204409,
+    layers: "[SDO,AIA,AIA,335,1,100]",
+    eventLabels: false,
+    height: 1200,
+    //events: "[AR,HMI_HARP;SPoCA,1],[CH,all,1]"
+    //scale: false,
+    //scaleType: "earth",
+    //scaleX: -1000,
+    //scaleY: -500,
+    //width: 1920,
+    //x0: 1,
+    //y0: 1,
+    x1: -5000,
+    y1: -5000,
+    x2: 5000,
+    y2: 5000,
+    display: true,
+    watermark: false
+});
+    */
+
+//helioviewer.downloadScreenshot(3240748);
