@@ -560,4 +560,4 @@ helioviewer.playMovie({
 
 //helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue");
 
-helioviewer.getNewsFeed();
+//helioviewer.getNewsFeed();
