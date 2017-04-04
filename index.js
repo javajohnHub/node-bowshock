@@ -7,7 +7,6 @@ bowshock.helioviewer = require('./src/lib/helioviewer.js');
 bowshock.maas = require('./src/lib/maas.js');
 bowshock.patents = require('./src/lib/patents.js');
 bowshock.skymorph = require('./src/lib/skymorph.js');
-bowshock.techport = require('./src/lib/techport.js');
 bowshock.helpers = require('./src/lib/helpers.js');
 bowshock.mars = require('./src/lib/mars.js');
 bowshock.eva = require('./src/lib/eva.js');
