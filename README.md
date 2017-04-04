@@ -230,6 +230,22 @@ bowshock.helioviewer.getMovieStatus({
              //token: "4673d6db4e2a3365ab361267f2a9a112"
          });
          
+// id and format are required - saves movie to root directory      
+bowshock.helioviewer.downloadMovie({
+             id: "VXvX5",
+             format: "mp4",
+             hq: true
+         });
+         
+//id, format, and height are required --opens movie in default web browser
+bowshock.helioviewer.playMovie({
+          id: "VXvX5",
+          format: "mp4",
+          height: 820,
+          //hq: true,
+          //width: 846
+          });
+         
 ```
 
 ##### MAAS

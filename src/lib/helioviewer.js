@@ -1,6 +1,8 @@
 "use strict";
 //TODO: Complete helioviewer sdk
-
+var https = require('https');
+var fs = require('fs');
+var opn = require('opn');
 /*
 http://helioviewer.org/api/docs/v1/
 The Helioviewer Project maintains a set of Public APIs with the goal of improving access to solar and heliospheric
@@ -244,15 +246,42 @@ let helioviewer = {
             return data;
         });
     },
+    downloadMovie(object){
+        let base_url = 'https://api.helioviewer.org/v2/downloadMovie/?';
+        base_url += 'id=' + object.id + '&';
+        base_url += 'format=' + object.format + '&';
+        if(object.hq){
+            base_url += 'hq=' + object.hq;
+        }
+        var file = fs.createWriteStream(object.id + "." + object.format);
+        var request = https.get(base_url, function(response) {
+            response.pipe(file);
+            console.log('Writing file! Be patient....');
+            file.on('finish', function() {
+                file.close();
+                console.log('Download complete!')
+            });
+        });
+    },
+    playMovie(object){
+        let base_url = 'https://api.helioviewer.org/v2/playMovie/?';
+        base_url += 'id=' + object.id + '&';
+        base_url += 'format=' + object.format + '&';
+        base_url += 'height=' + object.height + '&';
+        if(object.hq){
+            base_url += 'hq=' + object.hq + '&';
+        }
+        if(object.width){
+            base_url += 'width=' + object.width + '&';
+        }
+        let req_url = base_url.slice(0, -1);
+        opn(req_url);
+    },
     /*
 
 
-    downloadMovie(){
-        //TODO
-    },
-    playMovie(){
-        //TODO
-    },
+
+
     takeScreenshot(){
         //TODO
     },
@@ -342,3 +371,18 @@ module.exports = helioviewer;
     //callback: "callback",
     //token: "4673d6db4e2a3365ab361267f2a9a112"
 });*/
+
+/*helioviewer.downloadMovie({
+    id: "VXvX5",
+    format: "mp4",
+    hq: true
+});*/
+/*
+helioviewer.playMovie({
+ id: "VXvX5",
+ format: "mp4",
+ height: 820,
+ //hq: true,
+ //width: 846
+ });
+ */
