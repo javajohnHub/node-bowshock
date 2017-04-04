@@ -1552,7 +1552,7 @@ describe('Helioviewer', function() {
 
     });
 
-    it('should return response code 200 with display provided takeScreenshot()', function(done) {
+    it('should return req_url with display provided takeScreenshot()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
@@ -1590,6 +1590,206 @@ describe('Helioviewer', function() {
             }
             var file = fs.readFileSync("./3240748.png");
             assert.pathExists(file.toString(), "File exists");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with date and sourceId provided getClosestImage()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getClosestImage({date: "2014-01-01T23:59:59", sourceId: 14});
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with callback provided getClosestImage()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getClosestImage({date: "2014-01-01T23:59:59", sourceId: 14, callback: "callback"});
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with no args provided getDataSources()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getDataSources();
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with verbose provided getDataSources()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getDataSources({verbose: true});
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with enable provided getDataSources()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getDataSources({enable: "[Yohkoh,STEREO_A,STEREO_B]"});
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should rreturn response code 200 with callback provided getDataSources()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getDataSources({callback: "callback"});
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with id, x, y, and imageScale provided getTile()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getTile({
+                    id: 36275490,
+                    x: -1,
+                    y: -1,
+                    imageScale: 2.42044088
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with query provided shortenUrl()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue");
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with callback provided shortenUrl()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue", "callback");
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with no args provided shortenUrl()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getNewsFeed();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with callback provided shortenUrl()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getNewsFeed("callback");
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
         }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
