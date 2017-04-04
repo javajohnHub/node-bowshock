@@ -1110,4 +1110,470 @@ describe('Helioviewer', function() {
         // so it() can no longer catch
 
     });
+
+    it('should return req_url with id, format, and height provided playMovie()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.playMovie({
+                    id: "F3Dh5",
+                    format: "mp4",
+                    height: 1920
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/playMovie/?id=F3Dh5&format=mp4&height=1920" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return req_url with hq provided playMovie()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.playMovie({
+                    id: "F3Dh5",
+                    format: "mp4",
+                    height: 1920,
+                    hq: true
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/playMovie/?id=F3Dh5&format=mp4&height=1920&hq=true" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return req_url with width provided playMovie()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.playMovie({
+                    id: "F3Dh5",
+                    format: "mp4",
+                    height: 1920,
+                    hq: true,
+                    width: 1200
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/playMovie/?id=F3Dh5&format=mp4&height=1920&hq=true&width=1200" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with date, imageScale, layers, eventLabels, and height provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with events provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    events: "[AR,HMI_HARP;SPoCA,1],[CH,all,1]"
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with scale provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    scale: true
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with scaleType provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    scaleType: "earth"
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with scaleX provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    scaleX: -1000
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with scaleX provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    scaleY: -500
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with width provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    width: 1920
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with x0 provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    x0: 1
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with y0 provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    y0: 1
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with x1 provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    x1: -5000
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with y1 provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    y1: -5000
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with x2 provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    x2: 5000
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with y2 provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    y2: 5000
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with watermark provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    watermark: true
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with callback provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    callback: "callback"
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with display provided takeScreenshot()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.takeScreenshot({
+                    date: "2014-01-01T23:59:59",
+                    imageScale: 2.4204409,
+                    layers: "[SDO,AIA,AIA,335,1,100]",
+                    eventLabels: false,
+                    height: 1200,
+                    display: true
+                });
+
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/takeScreenshot/?date=014-01-01T23:59:59Z&imageScale=.4204409&layers=[SDO,AIA,AIA,335,1,100]&eventLabels=false&height=1200&display=true" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
 });

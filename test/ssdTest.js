@@ -15,7 +15,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -31,7 +31,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -47,7 +47,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -63,7 +63,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -79,7 +79,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -95,7 +95,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -111,7 +111,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -127,7 +127,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -143,7 +143,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -160,7 +160,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -176,7 +176,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -192,7 +192,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -208,7 +208,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -225,7 +225,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -242,7 +242,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -259,7 +259,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -276,7 +276,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -293,7 +293,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -310,7 +310,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -327,7 +327,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -344,7 +344,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -361,7 +361,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -378,7 +378,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -398,7 +398,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -414,7 +414,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -430,7 +430,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -446,7 +446,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -462,7 +462,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -478,7 +478,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -494,7 +494,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -510,7 +510,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -526,7 +526,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -543,7 +543,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -559,7 +559,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -575,7 +575,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -591,7 +591,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -608,7 +608,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -625,7 +625,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -642,7 +642,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -659,7 +659,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -676,7 +676,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -695,7 +695,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -711,7 +711,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -727,7 +727,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -743,7 +743,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -760,7 +760,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -777,7 +777,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -794,7 +794,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -811,7 +811,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -828,7 +828,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -848,7 +848,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -864,7 +864,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -880,7 +880,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -897,7 +897,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -914,7 +914,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000 );
+        }, 100 );
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -931,7 +931,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -948,7 +948,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 
@@ -965,7 +965,7 @@ describe('SSD', function() {
                 done( e ); // failure: call done with an error Object to indicate that it() failed
             }
             assert.equal(r.statusCode, 200);
-        }, 1000);
+        }, 100);
         // returns immediately after setting timeout
         // so it() can no longer catch
 

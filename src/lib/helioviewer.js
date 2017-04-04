@@ -293,6 +293,7 @@ let helioviewer = {
         }
         let req_url = base_url.slice(0, -1);
         opn(req_url);
+        return req_url;
     },
     takeScreenshot(object){
         /*You must specify values for either `x1`, `y1`, `x2`, and `y2`
@@ -316,7 +317,7 @@ let helioviewer = {
             base_url += 'scale=' + object.scale + '&';
         }
         if(object.scaleType){
-            base_url += 'events=' + object.scaleType + '&';
+            base_url += 'scaleType=' + object.scaleType + '&';
         }
         if(object.scaleX){
             base_url += 'scaleX=' + object.scaleX + '&';
@@ -354,7 +355,8 @@ let helioviewer = {
         if(object.display){
             base_url += 'display=' + object.display + '&';
             if(object.display === true){
-                return opn(base_url.slice(0, -1));
+                opn(base_url.slice(0, -1));
+                return base_url.slice(0, -1);
             }
         }
         helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
