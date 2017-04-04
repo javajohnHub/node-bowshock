@@ -382,22 +382,70 @@ let helioviewer = {
 
         req.end();
     },
-    /*
-    getClosestImage(){
-        //TODO
+    getClosestImage(object){
+        let base_url = "https://api.helioviewer.org/v2/getClosestImage/?";
+        helpers.validate_iso8601(object.date);
+        if (object.date.charAt(-1) !== 'Z') {
+            object.date += 'Z';
+        }
+        base_url += "date=" + object.date + "&";
+        base_url += "sourceId=" + object.sourceId + "&";
+        if(object.callback){
+            base_url += "callback=" + object.callback + "&";
+        }
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     },
-    getDataSources(){
-        //TODO
+    getDataSources(object){
+        let base_url = "https://api.helioviewer.org/v2/getDataSources/?";
+        if (!object) {
+            return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+                return data;
+            });
+        }
+        if(object.verbose){
+            base_url += "verbose=" + object.verbose + "&";
+        }
+        if(object.enable){
+            base_url += "enable=" + object.enable + "&";
+        }
+        if(object.callback){
+            base_url += "callback=" + object.callback + "&";
+        }
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     },
-    getTile(){
-        //TODO
+    getTile(object){
+        let base_url = "https://api.helioviewer.org/v2/getTile/?";
+        base_url += "id=" + object.id + "&";
+        base_url += "x=" + object.x + "&";
+        base_url += "y=" + object.y + "&";
+        base_url += "imageScale=" + object.imageScale + "&";
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     },
-    shortenURL(){
-        //TODO
+    shortenURL(query, callback){
+        let base_url = "https://api.helioviewer.org/v2/shortenURL/?";
+        base_url += "queryString=" + query + "&";
+        if(callback){
+            base_url += "callback=" + callback + "&";
+        }
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     },
-    getNewsFeed(){
-        //TODO
-    }*/
+    getNewsFeed(callback){
+        let base_url = "https://api.helioviewer.org/v2/getNewsFeed/?";
+        if(callback){
+            base_url += "callback=" + callback;
+        }
+        helpers.dispatch_http_get_xml(base_url, function(data){
+            return data;
+        });
+    }
 };
 module.exports = helioviewer;
 
@@ -493,4 +541,23 @@ helioviewer.playMovie({
 });
     */
 
-helioviewer.downloadScreenshot(3240748);
+//helioviewer.downloadScreenshot(3240748);
+//helioviewer.getClosestImage({date: "2014-01-01T23:59:59", sourceId: 14});
+
+/*helioviewer.getDataSources({
+    verbose: true,
+    enable: "[Yohkoh,STEREO_A,STEREO_B]",
+    //callback: "callback
+ });
+ */
+
+/*helioviewer.getTile({
+    id: 36275490,
+    x: -1,
+    y: -1,
+    imageScale: 2.42044088
+});*/
+
+//helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue");
+
+helioviewer.getNewsFeed();

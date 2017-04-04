@@ -272,6 +272,34 @@ bowshock.helioviewer.takeScreenshot({
 
       
 bowshock.helioviewer.downloadScreenshot(3240748);
+
+//date and sourceId are required
+bowshock.helioviewer.getClosestImage({
+             date: "2014-01-01T23:59:59", 
+             sourceId: 14,
+             //callback: "callback"
+             });
+             
+// all args are optional
+bowshock.helioviewer.getDataSources({
+             verbose: true,
+             enable: "[Yohkoh,STEREO_A,STEREO_B]",
+             //callback: "callback
+          });
+          
+//all args are required      
+bowshock.helioviewer.getTile({
+             id: 36275490,
+             x: -1,
+             y: -1,
+             imageScale: 2.42044088
+         });
+         
+       
+bowshock.helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue");
+
+
+bowshock.helioviewer.getNewsFeed();
 ```
 
 ##### MAAS
