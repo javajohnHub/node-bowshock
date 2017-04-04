@@ -1577,7 +1577,7 @@ describe('Helioviewer', function() {
 
     });
 
-    it('should return response code 200 with display provided downloadScreenshot()', function(done) {
+    it('should return file exists with id provided downloadScreenshot()', function(done) {
         setTimeout( function () {
             // Called from the event loop, not it()
             // So only the event loop could capture uncaught exceptions from here
