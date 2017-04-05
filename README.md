@@ -302,6 +302,30 @@ bowshock.helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScal
 
 
 bowshock.helioviewer.getNewsFeed();
+
+
+bowshock.helioviewer.checkYouTubeAuth();
+ 
+ 
+bowshock.helioviewer.getYouTubeAuth({
+    id: "F3Dh5",
+    title: "Test",
+    description: "This movie was produced by Helioviewer.org. See the original at http://helioviewer.org/?movieId=F3Dh5 or download a high-quality version from http://api.helioviewer.org/v2/downloadMovie/?id=F3Dh5&format=mp4&hq=true",
+    tags: "test",
+    share: true
+});
+
+
+bowshock.helioviewer.checkYouTubeAuth();
+
+bowshock.helioviewer.uploadMovieToYouTube({
+    id: "F3Dh5",
+    share: true
+});
+
+helioviewer.getUserVideos();
+
+
 ```
 
 ##### MAAS

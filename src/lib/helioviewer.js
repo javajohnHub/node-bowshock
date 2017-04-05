@@ -1,6 +1,7 @@
 "use strict";
 //TODO: Complete helioviewer sdk
 var https = require('https');
+var request = require('superagent');
 var fs = require('fs');
 var opn = require('opn');
 var ProgressBar = require('progress');
@@ -450,6 +451,80 @@ let helioviewer = {
         helpers.dispatch_http_get_xml(base_url, function(data){
             return data;
         });
+    },
+
+    checkYouTubeAuth(callback){
+        let base_url = "https://api.helioviewer.org/v2/checkYouTubeAuth/?";
+        if (callback) {
+            base_url += "callback=" + callback;
+        }
+        opn(base_url);
+        return base_url;
+    },
+    getYouTubeAuth(object){
+        let base_url = "https://api.helioviewer.org/v2/getYouTubeAuth/?";
+        base_url += "id=" + object.id + "&";
+        base_url += "title=" + object.title + "&";
+        base_url += "description=" + object.description + "&";
+        base_url += "tags=" + object.tags + "&";
+        if(object.share){
+            base_url += "share=" + object.share + "&";
+        }
+        opn(base_url.slice(0, -1));
+        return base_url.slice(0, -1);
+    },
+
+    uploadMovieToYouTube(object){
+        let base_url = "https://api.helioviewer.org/v2/uploadMovieToYouTube/?";
+        base_url += "id=" + object.id + "&";
+        if(object.title){
+            base_url += "title=" + object.title + "&";
+        }
+        if(object.description){
+            base_url += "description=" + object.description + "&";
+        }
+        if(object.tags){
+            base_url += "tags=" + object.tags + "&";
+        }
+        if(object.share){
+            base_url += "share=" + object.share + "&";
+        }
+        if(object.html){
+            base_url += "html=" + object.html + "&";
+        }
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
+    },
+
+    getUserVideos(object){
+        let base_url = "https://api.helioviewer.org/v2/getUserVideos/?";
+        if(!object){
+            return helpers.dispatch_http_get(base_url, function(data){
+                return data;
+            });
+        }
+        if(object.num){
+            base_url += "num=" + object.num + "&";
+        }
+
+
+        if(object.since){
+            helpers.validate_iso8601(object.since);
+            if (object.since.charAt(-1) !== 'Z') {
+                object.since += 'Z';
+            }
+            base_url += "since=" + object.since + "&";
+        }
+        if(object.force){
+            base_url += "force=" + object.force + "&";
+        }
+        if(object.callback){
+            base_url += "callback=" + object.callback + "&";
+        }
+        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
+            return data;
+        });
     }
 };
 module.exports = helioviewer;
@@ -570,3 +645,21 @@ module.exports = helioviewer;
 //helioviewer.getNewsFeed();
 
 //helioviewer.reQueueMovie("VXvX5");
+
+/*helioviewer.checkYouTubeAuth();
+    */
+/*helioviewer.getYouTubeAuth({
+    id: "F3Dh5",
+    title: "Test",
+    description: "This movie was produced by Helioviewer.org. See the original at http://helioviewer.org/?movieId=F3Dh5 or download a high-quality version from http://api.helioviewer.org/v2/downloadMovie/?id=F3Dh5&format=mp4&hq=true",
+    tags: "test",
+    share: true
+});*/
+//helioviewer.checkYouTubeAuth();
+
+/*helioviewer.uploadMovieToYouTube({
+    id: "F3Dh5",
+    share: true
+});*/
+
+//helioviewer.getUserVideos();

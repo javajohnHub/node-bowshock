@@ -1795,5 +1795,297 @@ describe('Helioviewer', function() {
         // so it() can no longer catch
 
     });
+
+    it('should return req_url with no args provided checkYouTubeAuth()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.checkYouTubeAuth();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/checkYouTubeAuth/?" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return req_url with callback provided checkYouTubeAuth()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.checkYouTubeAuth("callback");
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/checkYouTubeAuth/?callback=callback" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return req_url with id, title, description, and tags provided get YouTubeAuth()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getYouTubeAuth({
+                    id: "F3Dh5",
+                    title: "Test",
+                    description: "This movie was produced by Helioviewer.org. See the original at http://helioviewer.org/?movieId=F3Dh5 or download a high-quality version from http://api.helioviewer.org/v2/downloadMovie/?id=F3Dh5&format=mp4&hq=true",
+                    tags: "test",
+                    //share: true
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/getYouTubeAuth/?id=F3Dh5&title=Test&description=This movie was produced by Helioviewer.org. See the original at http://helioviewer.org/?movieId=F3Dh5 or download a high-quality version from http://api.helioviewer.org/v2/downloadMovie/?id=F3Dh5&format=mp4&hq=true&tags=test" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return req_url with share provided get YouTubeAuth()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getYouTubeAuth({
+                    id: "F3Dh5",
+                    title: "Test",
+                    description: "This movie was produced by Helioviewer.org. See the original at http://helioviewer.org/?movieId=F3Dh5 or download a high-quality version from http://api.helioviewer.org/v2/downloadMovie/?id=F3Dh5&format=mp4&hq=true",
+                    tags: "test",
+                    share: true
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r, "https://api.helioviewer.org/v2/getYouTubeAuth/?id=F3Dh5&title=Test&description=This movie was produced by Helioviewer.org. See the original at http://helioviewer.org/?movieId=F3Dh5 or download a high-quality version from http://api.helioviewer.org/v2/downloadMovie/?id=F3Dh5&format=mp4&hq=true&tags=test&share=true" );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with id provided uploadMovieToYouTube()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.uploadMovieToYouTube({
+                    id: "F3Dh5"
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with title provided uploadMovieToYouTube()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.uploadMovieToYouTube({
+                    id: "F3Dh5",
+                    title: "Test title"
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with description provided uploadMovieToYouTube()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.uploadMovieToYouTube({
+                    id: "F3Dh5",
+                    description: "Test description"
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with tags provided uploadMovieToYouTube()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.uploadMovieToYouTube({
+                    id: "F3Dh5",
+                    tags: "Test tags"
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with share provided uploadMovieToYouTube()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.uploadMovieToYouTube({
+                    id: "F3Dh5",
+                    share: true
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with html provided uploadMovieToYouTube()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.uploadMovieToYouTube({
+                    id: "F3Dh5",
+                    html: true
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with no args provided getUserVideos()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getUserVideos();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with num provided getUserVideos()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getUserVideos({
+                    num: 5
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with since provided getUserVideos()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getUserVideos({
+                    since: "2014-01-01T23:59:59"
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with force provided getUserVideos()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getUserVideos({
+                    force: true
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with callback provided getUserVideos()', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = helioviewer.getUserVideos({
+                    callback: "callback"
+                });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200 );
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
 });
 
