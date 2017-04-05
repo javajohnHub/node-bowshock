@@ -315,9 +315,6 @@ bowshock.helioviewer.getYouTubeAuth({
     share: true
 });
 
-
-bowshock.helioviewer.checkYouTubeAuth();
-
 bowshock.helioviewer.uploadMovieToYouTube({
     id: "F3Dh5",
     share: true
