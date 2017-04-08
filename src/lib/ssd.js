@@ -5,7 +5,7 @@ let ssd = {
     cad(object){
         let base_url = "https://ssd-api.jpl.nasa.gov/cad.api?";
         let req_url = "";
-        if(!object){
+        if(helpers.isEmpty(object)){
             req_url = base_url;
         }else{
             if(object.date_min) {
@@ -79,13 +79,14 @@ let ssd = {
             }
             }
             req_url = base_url;
-        return helpers.getJSON(req_url.slice(0,-1));
-
+        helpers.dispatch_http_get(req_url.slice(0,-1), function(data){
+            return data;
+        });
     },
     fireballs(object){
         let base_url = "https://ssd-api.jpl.nasa.gov/fireball.api?";
         let req_url = "";
-        if(!object){
+        if(helpers.isEmpty(object)){
             req_url = base_url;
         }else {
             if (object.date_min) {
@@ -148,12 +149,14 @@ let ssd = {
 
         }
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0,-1));
+        helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+            return data;
+        });
     },
     nhats(object){
         let base_url = "https://ssd-api.jpl.nasa.gov/nhats.api?";
         let req_url = "";
-        if(!object){
+        if(helpers.isEmpty(object)){
             req_url = base_url;
         }else{
             if(object.dv){
@@ -196,13 +199,15 @@ let ssd = {
         }
 
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0,-1));
+        helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+            return data;
+        });
 
     },
     sentry(object){
         let base_url ="https://ssd-api.jpl.nasa.gov/sentry.api?";
         let req_url = "";
-        if(!object){
+        if(helpers.isEmpty(object)){
             req_url = base_url;
         }else {
             if (object.spk) {
@@ -231,7 +236,9 @@ let ssd = {
             }
         }
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0,-1));
+        helpers.dispatch_http_get(req_url.slice(0, -1), function(data){
+            return data;
+        });
     },
 
 };
@@ -246,5 +253,5 @@ module.exports = ssd;
     //days: 6,
     //all: false,
     //removed: false
-});
-*/
+});*/
+

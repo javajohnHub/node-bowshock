@@ -9,13 +9,15 @@ If False is supplied to the cloud_score parameter, then no keypair is returned.
 If True is supplied, then a keypair will always be returned, even if the backend algorithm is not able to calculate a score.
 Note that this is a rough calculation, mainly used to filter out exceedingly cloudy images.
 */
-
 const helpers = require('./helpers');
 let earth = {
     imagery(object) {
     let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
         if (object.lon && object.lat) {
             base_url += "lon=" + parseFloat(object.lon) + "&" + "lat=" + parseFloat(object.lat) + "&";
+            if (object.dim) {
+                base_url += "dim=" + object.dim + "&";
+            }
             if (object.date) {
                 helpers.vali_date(object.date);
                 base_url += "date=" + object.date + "&";
@@ -26,7 +28,10 @@ let earth = {
             }
         }
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url);
+
+        helpers.dispatch_http_get(req_url, function(data){
+            return data;
+        })
 },
 
 /*
@@ -66,9 +71,14 @@ assets(object){
             base_url += "end=" + object.end + "&";
         }
     }
+    else{
+        throw "imagery endpoint expects lat and lon, type has to be float. Call the method with keyword args. Ex : lon=100.75, lat=1.5";
+    }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.getJSON(req_url);
+    helpers.dispatch_http_get(req_url, function(data){
+        return data;
+    })
 
 }
 };

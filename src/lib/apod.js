@@ -4,8 +4,14 @@ let helpers = require('./helpers');
 function apod(date, concept_tags){
     let base_url = "https://api.nasa.gov/planetary/apod?";
     if (date) {
-        helpers.vali_date(date);
-        base_url += "date=" + date + "&"
+        try {
+            helpers.vali_date(date);
+            base_url += "date=" + date + "&"
+        }
+        catch (e) {
+            throw "Incorrect date format, should be YYYY-MM-DD";
+        }
+
     }
     if (concept_tags === true){
         base_url += "concept_tags=True" + "&"
@@ -13,7 +19,9 @@ function apod(date, concept_tags){
 
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.getJSON(req_url);
+    helpers.dispatch_http_get(req_url, function(data){
+        return data;
+    })
 
 }
 module.exports = apod;

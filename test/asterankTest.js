@@ -4,10 +4,22 @@ var chai = require('chai');
 var assert = chai.assert;
 
 describe('Asterank', function() {
-    it('should return json data', function (done) {
-        asterank({query: {"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, limit: 10}).then(function (data) {
-            assert.containSubset(JSON.parse(data)[0], {id: "a0138911"});
-            done();
-        }).catch(done);
+    it('should return response code 200 with full args', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = asterank({query: {"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, limit: 10});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
     });
+
+
 });

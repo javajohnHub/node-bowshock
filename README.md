@@ -16,6 +16,7 @@ Here is a list of currently supported API's :
 * [Mars Rover Photos API](https://api.nasa.gov/api.html#MarsPhotos)
 * [Asteroids - NeoWs API](https://api.nasa.gov/api.html#NeoWS)
 * [Extra Vehicular Activity - US and Russia](https://dev.socrata.com/foundry/data.nasa.gov/q8u9-7uq7)
+* [EPIC API](https://api.nasa.gov/api.html#EPIC)
 * [EONET API](https://eonet.sci.gsfc.nasa.gov/docs/v2.1)
 * [Patents API](https://api.nasa.gov/api.html#patents)
 * [Sounds API](https://api.nasa.gov/api.html#sounds)
@@ -38,6 +39,7 @@ Here is a list of currently supported API's :
 | Rover    |&#10004;|        |
 | NeoWs    |&#10004;|        |
 | EVA      |        |&#10004;|
+| EPIC     |&#10004;|        |
 | EONET    |        |&#10004;|
 | Helio    |        |&#10004;|
 | Maas     |        |&#10004;|
@@ -106,6 +108,20 @@ bowshock.neows.browse();
 let bowshock = require('node-bowshock');
 
 bowshock.eva();
+
+```
+
+##### EPIC
+```javascript
+let bowshock = require('node-bowshock');
+
+bowshock.epic.natural();
+
+bowshock.epic.natural("2017-02-11");
+
+bowshock.epic.enhanced();
+
+bowshock.epic.enhanced("2017-02-11");
 
 ```
 

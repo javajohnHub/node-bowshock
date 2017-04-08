@@ -29,7 +29,7 @@ function patents(object){
      */
     let base_url = "https://api.nasa.gov/patents/content?";
     let req_url = '';
-    if(!object){
+    if(helpers.isEmpty(object)){
         req_url = base_url;
     }else{
         if(object.query){
@@ -46,7 +46,9 @@ function patents(object){
 
     req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.getJSON(req_url);
+    helpers.dispatch_http_get(req_url, function(data){
+        return data;
+    });
 }
 
 module.exports = patents;

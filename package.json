@@ -26,14 +26,12 @@
     "moment": "^2.18.1",
     "opn": "^4.0.2",
     "pretty-data": "^0.40.0",
-    "progress": "^2.0.0"
+    "progress": "^2.0.0",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-files": "^1.4.0",
     "chai-fs": "^1.0.0",
-    "chai-subset": "^1.5.0",
-    "chai-xml": "^0.3.1",
     "coveralls": "^2.13.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0"

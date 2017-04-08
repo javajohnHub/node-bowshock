@@ -1,51 +1,247 @@
-"use strict";
-let eonet = require('../index.js').eonet;
-let chai = require('chai');
-let assert = chai.assert;
+var eonet = require('../index.js').eonet;
+var chai = require('chai');
+
+var assert = chai.assert;
 
 describe('EONET', function() {
-    it('should return json with no args events endpoint', function(done) {
-        eonet.events().then(function(data) {
-            assert.containSubset(JSON.parse(data), {description: "Natural events from EONET."});
-            done()
-        })
-        .catch(done);
-
-    });
-    it('should return json with full args events endpoint', function(done) {
-        eonet.events({source: "InciWeb,EO",status: "closed",limit: 5, days:25}).then(function(data) {
-            assert.containSubset(JSON.parse(data), {description: "Natural events from EONET."});
-            done()
-        })
-            .catch(done);
-
-    });
-    it('should return json with no args categories endpoint', function(done) {
-        eonet.categories()
-            .then(function(data){
-                assert.containSubset(JSON.parse(data), {title: "EONET Event Categories"});
-                done();
-
-            }).catch(done);
-
-    });
-    it('should return json with full args categories endpoint', function(done) {
-        eonet.categories({id:8, source: "InciWeb,EO",status: "open",limit: 5, days:25})
-            .then(function(data){
-                assert.containSubset(JSON.parse(data), {description: "Wildfires includes all nature of fire, including forest and plains fires, as well as urban and industrial fire events. Fires may be naturally caused or manmade."});
-                done();
-
-            }).catch(done);
+    it('should return response code 200 with no args events endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.events();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
 
     });
 
-    it('should return json with id provided layers endpoint', function(done) {
-        eonet.layers(8)
-            .then(function(data){
-                assert.containSubset(JSON.parse(data), {title: "EONET Web Service Layers"});
-                done();
-
-            }).catch(done);
+    it('should return response code 200 with source provided events endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.events({source: "InciWeb,EO"});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
 
     });
+
+    it('should return response code 200 with status provided events endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.events({status: "closed" });
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with limit provided events endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.events({limit: 5});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with days provided events endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.events({days: 20});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+
+    it('should return response code 200 with id provided categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.categories({id: 8});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should return response code 200 with no args provided categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.categories();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+    it('should throw an error with source provided but no id categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.throws(function () { eonet.categories({source: "InciWeb"}) }, Error, "An id is required");
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with source provided categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.categories({id: 8, source: "InciWeb"});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with status provided categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.categories({id: 8, status: "closed"});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+    it('should return response code 200 with limit provided categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.categories({id: 8, limit: 5});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+
+    it('should return response code 200 with days provided categories endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.categories({id: 8, days:25});
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+
+
+    it('should return response code 200 with no args provided layers endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.layers();
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
+
+    it('should return response code 200 with id provided layers endpoint', function(done) {
+        setTimeout( function () {
+            // Called from the event loop, not it()
+            // So only the event loop could capture uncaught exceptions from here
+            try {
+                var r = eonet.layers(8);
+                done(); // success: call done with no parameter to indicate that it() is done()
+            } catch( e ) {
+                done( e ); // failure: call done with an error Object to indicate that it() failed
+            }
+            assert.equal(r.statusCode, 200);
+        }, 100 );
+        // returns immediately after setting timeout
+        // so it() can no longer catch
+
+    });
+
 });
