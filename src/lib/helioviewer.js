@@ -1,6 +1,7 @@
 "use strict";
 //TODO: Complete helioviewer sdk
 var https = require('https');
+var request = require('superagent');
 var fs = require('fs');
 var opn = require('opn');
 var ProgressBar = require('progress');
