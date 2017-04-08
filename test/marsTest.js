@@ -1,58 +1,31 @@
 var mars = require('../index.js').mars;
 var chai = require('chai');
-
+var chaiSubset = require('chai-subset');
 var assert = chai.assert;
+chai.use(chaiSubset);
 
-describe('Mars Rovers', function () {
-    it('should return response code 200 with date provided curiosity()', function (done) {
-        setTimeout(function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = mars.curiosity("2015-06-03");
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch (e) {
-                done(e); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100);
-        // returns immediately after setting timeout
-        // so it() can no longer catch
-
+describe('Mars', function() {
+    it('should return json data with date provided curiosity', function (done) {
+        mars.curiosity("2017-12-03").then(function (data) {
+            assert.containSubset(JSON.parse(data), {
+                photos: []})
+            done();
+        }).catch(done);
     });
 
-    it('should return response code 200 with date provided opportunity()', function (done) {
-        setTimeout(function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = mars.opportunity("2015-06-03");
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch (e) {
-                done(e); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100);
-        // returns immediately after setting timeout
-        // so it() can no longer catch
-
+    it('should return json data with date provided opportunity', function (done) {
+        mars.opportunity("2017-12-03").then(function (data) {
+            assert.containSubset(JSON.parse(data), {
+                photos: []})
+            done();
+        }).catch(done);
     });
 
-   it('should return response code 200 with date provided spirit()', function (done) {
-        setTimeout(function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = mars.spirit("2015-06-03");
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch (e) {
-                done(e); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 404);
-        }, 100);
-        // returns immediately after setting timeout
-        // so it() can no longer catch
-
+    it('should return json data with date provided opportunity', function (done) {
+        mars.spirit("2017-12-03").then(function (data) {
+            assert.containSubset(JSON.parse(data), {
+                photos: []})
+            done();
+        }).catch(done);
     });
-
 });

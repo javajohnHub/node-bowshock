@@ -14,9 +14,7 @@ let skymorph = {
      */
     let base_url = "http://www.asterank.com/api/skymorph/search?";
     base_url += "target=" + target;
-    helpers.dispatch_http_get(base_url, function(data){
-        return data;
-    });
+    return helpers.getJSON(base_url);
 }
 
 };
