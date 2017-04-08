@@ -5,17 +5,13 @@ let trek = {
     mars(layer_id) {
         let base_url = "https://api.nasa.gov/mars-wmts/catalog/";
         let req_url = base_url + layer_id + "/1.0.0/WMTSCapabilities.xml";
-        helpers.dispatch_http_get_xml(req_url, function(data){
-            return data;
-        });
+        return helpers.getXML(req_url);
     },
 
     vesta(layer_id){
         let base_url = "https://api.nasa.gov/vesta-wmts/catalog/";
         let req_url = base_url + layer_id + "/1.0.0/WMTSCapabilities.xml";
-        helpers.dispatch_http_get_xml(req_url, function(data){
-            return data;
-        });
+        return helpers.getXML(req_url);
     }
 };
 module.exports = trek;

@@ -1,40 +1,27 @@
 var trek = require('../index.js').trek;
 var chai = require('chai');
+var expect = chai.expect;
 
-var assert = chai.assert;
+var chaiXml = require('chai-xml');
+chai.use(chaiXml);
 
-describe('Trek', function() {
-    it('should return response code 200 with id provided mars', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = trek.mars("curiosity_ctx_mosaic");
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
+describe('Sounds', function() {
+    it('should return json with no args ', function(done) {
+        trek.mars("curiosity_ctx_mosaic")
+            .then(function(data){
+                expect(data).xml.to.be.valid();
+                done();
+
+            }).catch(done);
 
     });
-        it('should return response code 200 with id provided vesta', function(done) {
-            setTimeout( function () {
-                // Called from the event loop, not it()
-                // So only the event loop could capture uncaught exceptions from here
-                try {
-                    var r = trek.vesta("global_LAMO");
-                    done(); // success: call done with no parameter to indicate that it() is done()
-                } catch( e ) {
-                    done( e ); // failure: call done with an error Object to indicate that it() failed
-                }
-                assert.equal(r.statusCode, 200);
-            }, 100 );
-            // returns immediately after setting timeout
-            // so it() can no longer catch
+    it('should return json with no args ', function(done) {
+        trek.vesta("global_LAMO")
+            .then(function(data){
+                expect(data).xml.to.be.valid();
+                done();
 
-        });
+            }).catch(done);
 
+    });
 });

@@ -38,29 +38,23 @@ let helioviewer = {
 
      EXAMPLE: http://helioviewer.org/api/v1/getJP2Image/?date=2014-01-01T23:59:59Z&sourceId=14&jpip=true
      */
-    let base_url = 'https://api.helioviewer.org/v2/getJP2Image/?';
-    let req_url = '';
-    try {
+        let base_url = 'https://api.helioviewer.org/v2/getJP2Image/?';
+        let req_url = '';
 
-            helpers.validate_iso8601(object.date);
-            if (object.date.charAt(-1) !== 'Z') {
-                object.date += 'Z';
-            }
-            base_url += 'date=' + object.date + '&';
-    }
-        catch(e){
-            throw "date is a required parameter";
+
+        helpers.validate_iso8601(object.date);
+        if (object.date.charAt(-1) !== 'Z') {
+            object.date += 'Z';
         }
+        base_url += 'date=' + object.date + '&';
+
         if (object.sourceId) {
             base_url += "sourceId=" + object.sourceId + "&";
         }
         req_url += base_url + "json=true&jpip=true";
 
 
-
-        helpers.dispatch_http_get(req_url, function(data){
-            return data;
-        });
+        return helpers.getJSON(req_url);
 
     },
     getjp2header(id){
@@ -85,9 +79,7 @@ let helioviewer = {
          http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
          */
-        helpers.dispatch_http_get_xml('https://api.helioviewer.org/v2/getJP2Header/?id=' + id, function(data){
-            return data;
-        });
+        return helpers.getXML('https://api.helioviewer.org/v2/getJP2Header/?id=' + id);
 
     },
     getJPX(object){
@@ -117,9 +109,7 @@ let helioviewer = {
             base_url += "cadence=" + object.cadence + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        helpers.dispatch_http_get(req_url, function(data){
-            return data;
-        });
+        return helpers.getJSON(req_url);
     },
     getJPXClosestToMidPoint(object){
         let base_url = 'https://api.helioviewer.org/v2/getJPXClosestToMidPoint/?';
@@ -143,9 +133,7 @@ let helioviewer = {
             base_url += "linked=" + object.linked + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        helpers.dispatch_http_get(req_url, function(data){
-            return data;
-        });
+        return helpers.getJSON(req_url);
     },
     queueMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/queueMovie/?';
@@ -221,16 +209,12 @@ let helioviewer = {
             base_url += 'callback=' + object.callback + '&';
         }
 
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
-
+        return helpers.getJSON(base_url.slice(0, -1));
         },
     reQueueMovie(id){
-        helpers.dispatch_http_get("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id, function(data){
-            return data;
-        });
+        return helpers.getJSON("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id);
     },
+
     getMovieStatus(object){
         let base_url = 'https://api.helioviewer.org/v2/getMovieStatus/?';
         base_url += 'id=' + object.id + '&';
@@ -245,9 +229,7 @@ let helioviewer = {
             base_url += 'token=' + object.token + "&";
         }
 
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     },
     downloadMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/downloadMovie/?';
@@ -360,14 +342,12 @@ let helioviewer = {
                 return base_url.slice(0, -1);
             }
         }
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     },
     downloadScreenshot(id){
         let base_url = 'https://api.helioviewer.org/v2/downloadScreenshot/?id=' + id;
-        var file = fs.createWriteStream(id + ".png");
-        var req = https.get(base_url);
+        let file = fs.createWriteStream(id + ".png");
+        let req = https.get(base_url);
         req.on('response', function(res){
             var len = parseInt(res.headers['content-length'], 10);
             console.log();
@@ -399,16 +379,12 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     },
     getDataSources(object){
         let base_url = "https://api.helioviewer.org/v2/getDataSources/?";
         if (!object) {
-            return helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-                return data;
-            });
+            return helpers.getJSON(base_url.slice(0, -1));
         }
         if(object.verbose){
             base_url += "verbose=" + object.verbose + "&";
@@ -419,9 +395,7 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     },
     getTile(object){
         let base_url = "https://api.helioviewer.org/v2/getTile/?";
@@ -429,9 +403,8 @@ let helioviewer = {
         base_url += "x=" + object.x + "&";
         base_url += "y=" + object.y + "&";
         base_url += "imageScale=" + object.imageScale + "&";
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        opn(base_url.slice(0, -1));
+        return base_url.slice(0, -1);
     },
     shortenURL(query, callback){
         let base_url = "https://api.helioviewer.org/v2/shortenURL/?";
@@ -439,18 +412,14 @@ let helioviewer = {
         if(callback){
             base_url += "callback=" + callback + "&";
         }
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     },
     getNewsFeed(callback){
         let base_url = "https://api.helioviewer.org/v2/getNewsFeed/?";
         if(callback){
             base_url += "callback=" + callback;
         }
-        helpers.dispatch_http_get_xml(base_url, function(data){
-            return data;
-        });
+        return helpers.getXML(base_url);
     },
 
     checkYouTubeAuth(callback){
@@ -458,8 +427,8 @@ let helioviewer = {
         if (callback) {
             base_url += "callback=" + callback;
         }
-        opn(base_url);
-        return base_url;
+        return helpers.getJSON(base_url);
+
     },
     getYouTubeAuth(object){
         let base_url = "https://api.helioviewer.org/v2/getYouTubeAuth/?";
@@ -492,17 +461,13 @@ let helioviewer = {
         if(object.html){
             base_url += "html=" + object.html + "&";
         }
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     },
 
     getUserVideos(object){
         let base_url = "https://api.helioviewer.org/v2/getUserVideos/?";
         if(!object){
-            return helpers.dispatch_http_get(base_url, function(data){
-                return data;
-            });
+            return helpers.getJSON(base_url.slice(0, -1));
         }
         if(object.num){
             base_url += "num=" + object.num + "&";
@@ -522,9 +487,7 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        helpers.dispatch_http_get(base_url.slice(0, -1), function(data){
-            return data;
-        });
+        return helpers.getJSON(base_url.slice(0, -1));
     }
 };
 module.exports = helioviewer;

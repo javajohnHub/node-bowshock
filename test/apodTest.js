@@ -1,91 +1,49 @@
-var apod = require('../index.js').apod;
-var chai = require('chai');
-
-var assert = chai.assert;
+"use strict";
+let apod = require('../index.js').apod;
+let chai = require('chai');
+let assert = chai.assert;
+let chaiSubset = require('chai-subset');
+chai.use(chaiSubset);
 
 describe('Apod', function() {
-    it('should return response code 200 with full args', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = apod("2015-02-02", concept_tags=true);
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
+    it('should return json data with no args passed', function (done) {
+        var today = new Date();
+        var dd = today.getDate()+1;
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if(dd<10) {
+            dd='0'+dd
+        }
+
+        if(mm<10) {
+            mm='0'+mm
+        }
+
+        today = yyyy+'-'+mm+'-'+dd;
+        apod().then(function(data){
+            assert.containSubset(JSON.parse(data), {date: today});
+            done();
+
+        }).catch(done);
 
     });
 
-    it('should return response code 200 with no args', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = apod();
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
+    it('should return json data with date passed', function (done) {
+        apod("2017-03-11").then(function(data){
+            assert.containSubset(JSON.parse(data), {date: "2017-03-11"});
+            done();
 
-    });
-    it('should return response code 200 with just date', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = apod("2015-02-02");
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
+        }).catch(done);
 
     });
 
-    it('should return response code 200 with full args', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-                var r = apod("2015-02-02", concept_tags=true);
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.equal(r.statusCode, 200);
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
+    it('should return json data with date and concept_tags passed', function (done) {
+        apod("2017-03-11", true).then(function(data){
+            assert.containSubset(JSON.parse(data), {date: "2017-03-11"});
+            done();
 
-    });
-
-    it('should throw an error if date format is incorrect', function(done) {
-        setTimeout( function () {
-            // Called from the event loop, not it()
-            // So only the event loop could capture uncaught exceptions from here
-            try {
-
-                done(); // success: call done with no parameter to indicate that it() is done()
-            } catch( e ) {
-
-                done( e ); // failure: call done with an error Object to indicate that it() failed
-            }
-            assert.throws(function () { apod("2015-02") }, Error, "Incorrect date format, should be YYYY-MM-DD");
-        }, 100 );
-        // returns immediately after setting timeout
-        // so it() can no longer catch
+        }).catch(done);
 
     });
 });
