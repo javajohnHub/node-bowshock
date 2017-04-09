@@ -5,8 +5,6 @@ let chaiSubset = require('chai-subset');
 let assert = chai.assert;
 chai.use(chaiSubset);
 
-let assert = chai.assert;
-
 describe('Sounds', function() {
     it('should return json with no args ', function(done) {
         sounds("Apollo", 10)

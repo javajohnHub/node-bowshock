@@ -2,7 +2,6 @@
 let trek = require('../index.js').trek;
 let chai = require('chai');
 let expect = chai.expect;
-
 let chaiXml = require('chai-xml');
 chai.use(chaiXml);
 
