@@ -5,8 +5,6 @@ let chaiSubset = require('chai-subset');
 let assert = chai.assert;
 chai.use(chaiSubset);
 
-let assert = chai.assert;
-
 describe('Skymorph', function() {
     it('should return json with no args ', function(done) {
         skymorph.search_target_obj("J99TS7A")
