@@ -13,7 +13,6 @@ describe('Apod', function() {
             done();
 
         }).catch(done);
-
     });
 
     it('should return json data with date passed', function (done) {
