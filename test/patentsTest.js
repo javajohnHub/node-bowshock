@@ -1,10 +1,11 @@
-var patents = require('../index.js').patents;
-var chai = require('chai');
-var chaiSubset = require('chai-subset');
-var assert = chai.assert;
+"use strict";
+let patents = require('../index.js').patents;
+let chai = require('chai');
+let chaiSubset = require('chai-subset');
+let assert = chai.assert;
 chai.use(chaiSubset);
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('Patents', function() {
     it('should return json with no args ', function(done) {

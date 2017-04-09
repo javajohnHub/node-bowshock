@@ -1,10 +1,10 @@
 "use strict";
-var helpers = require('../src/lib/helpers.js');
-var chai = require('chai');
+let helpers = require('../src/lib/helpers.js');
+let chai = require('chai');
 let pd = require('pretty-data').pd;
-var expect = chai.expect;
-var assert = chai.assert;
-var chaiXml = require('chai-xml');
+let expect = chai.expect;
+let assert = chai.assert;
+let chaiXml = require('chai-xml');
 chai.use(chaiXml);
 
 

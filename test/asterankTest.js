@@ -1,7 +1,8 @@
-var asterank = require('../index.js').asterank;
-var chai = require('chai');
+"use strict";
+let asterank = require('../index.js').asterank;
+let chai = require('chai');
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('Asterank', function() {
     it('should return json data', function (done) {

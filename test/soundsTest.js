@@ -1,10 +1,11 @@
-var sounds = require('../index.js').sounds;
-var chai = require('chai');
-var chaiSubset = require('chai-subset');
-var assert = chai.assert;
+"use strict";
+let sounds = require('../index.js').sounds;
+let chai = require('chai');
+let chaiSubset = require('chai-subset');
+let assert = chai.assert;
 chai.use(chaiSubset);
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('Sounds', function() {
     it('should return json with no args ', function(done) {

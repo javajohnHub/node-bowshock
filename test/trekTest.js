@@ -1,8 +1,9 @@
-var trek = require('../index.js').trek;
-var chai = require('chai');
-var expect = chai.expect;
+"use strict";
+let trek = require('../index.js').trek;
+let chai = require('chai');
+let expect = chai.expect;
 
-var chaiXml = require('chai-xml');
+let chaiXml = require('chai-xml');
 chai.use(chaiXml);
 
 describe('Sounds', function() {

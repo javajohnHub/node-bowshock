@@ -1,7 +1,8 @@
-var earth = require('../index.js').earth;
-var chai = require('chai');
+"use strict";
+let earth = require('../index.js').earth;
+let chai = require('chai');
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('Earth', function() {
     it('should return json with full args imagery endpoint', function(done) {

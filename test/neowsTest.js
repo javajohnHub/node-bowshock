@@ -1,7 +1,8 @@
-var neows = require('../index.js').neows;
-var chai = require('chai');
-var chaiSubset = require('chai-subset');
-var assert = chai.assert;
+"use strict";
+let neows = require('../index.js').neows;
+let chai = require('chai');
+let chaiSubset = require('chai-subset');
+let assert = chai.assert;
 chai.use(chaiSubset);
 
 describe('NeoWs', function() {

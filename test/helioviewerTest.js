@@ -1,18 +1,18 @@
 "use strict";
-var helioviewer = require('../index.js').helioviewer;
-var chai = require('chai');
-var expect = chai.expect;
-var chaiXml = require('chai-xml');
+let helioviewer = require('../index.js').helioviewer;
+let chai = require('chai');
+let expect = chai.expect;
+let chaiXml = require('chai-xml');
 chai.use(chaiXml);
-var chaiSubset = require('chai-subset');
-var chaiFiles = require('chai-files');
-var file = chaiFiles.file;
-var dir = chaiFiles.dir;
+let chaiSubset = require('chai-subset');
+let chaiFiles = require('chai-files');
+let file = chaiFiles.file;
+let dir = chaiFiles.dir;
 chai.use(chaiFiles);
 chai.use(chaiSubset);
 
-var fs = require('fs');
-var assert = chai.assert;
+let fs = require('fs');
+let assert = chai.assert;
 
 describe('Helioviewer', function() {
     it('should return json with all args jp2Image', function(done) {

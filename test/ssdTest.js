@@ -1,10 +1,11 @@
-var ssd = require('../index.js').ssd;
-var chai = require('chai');
-var chaiSubset = require('chai-subset');
-var assert = chai.assert;
+"use strict";
+let ssd = require('../index.js').ssd;
+let chai = require('chai');
+let chaiSubset = require('chai-subset');
+let assert = chai.assert;
 chai.use(chaiSubset);
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('SSD', function() {
     describe('CAD', function() {
@@ -212,4 +213,172 @@ describe('SSD', function() {
         });
 
     });
+
+    describe('NHATS', function() {
+
+        it('should return json with no args ', function (done) {
+            this.timeout(10000);
+            ssd.nhats()
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL NHATS Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with all args ', function (done) {
+            this.timeout(10000);
+            ssd.nhats({
+                dv: 12,
+                dur: 450,
+                stay: 16,
+                launch: "2015-2020",
+                h: 30,
+                occ: 8,
+                //spk: 2000433,
+                //des: "433",
+                plot: true
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL NHATS Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with spk args ', function (done) {
+            this.timeout(10000);
+            ssd.nhats({
+                spk: 2000433,
+                plot: true
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        error: "specified NHATS object not found"
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with des args ', function (done) {
+            this.timeout(10000);
+            ssd.nhats({
+                des: "433",
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data),
+                    {
+                        error: "specified NHATS object not found"
+                    }
+                    );
+                    done();
+
+                }).catch(done);
+
+        });
+    });
+
+    describe("Sentry", function (done) {
+        it('should return json with no args ', function (done) {
+            this.timeout(10000);
+            ssd.sentry()
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Sentry Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with all args ', function (done) {
+            this.timeout(10000);
+            ssd.sentry({
+                //spk: 2029075,
+                //des: 29075,
+                h_max: 50,
+                ps_min: 10,
+                ip_min: 1e-3,
+                days: 7,
+                all: true,
+                //removed: false
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Sentry Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+        it('should return json with spk args ', function (done) {
+            this.timeout(10000);
+            ssd.sentry({
+                spk: 2029075
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Sentry Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with des args ', function (done) {
+            this.timeout(10000);
+            ssd.sentry({
+                des: 29075
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Sentry Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with removed args ', function (done) {
+            this.timeout(10000);
+            ssd.sentry({
+                removed: true
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Sentry Data API",
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+    });
 });
+

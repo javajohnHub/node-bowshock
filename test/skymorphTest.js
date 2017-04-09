@@ -1,10 +1,11 @@
-var skymorph = require('../index.js').skymorph;
-var chai = require('chai');
-var chaiSubset = require('chai-subset');
-var assert = chai.assert;
+"use strict";
+let skymorph = require('../index.js').skymorph;
+let chai = require('chai');
+let chaiSubset = require('chai-subset');
+let assert = chai.assert;
 chai.use(chaiSubset);
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('Skymorph', function() {
     it('should return json with no args ', function(done) {

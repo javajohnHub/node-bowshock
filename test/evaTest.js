@@ -1,7 +1,8 @@
-var eva = require('../index.js').eva;
-var chai = require('chai');
+"use strict";
+let eva = require('../index.js').eva;
+let chai = require('chai');
 
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('EVA', function() {
     it('should return json with no args ', function(done) {

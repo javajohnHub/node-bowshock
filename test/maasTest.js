@@ -1,7 +1,8 @@
-var maas = require('../index.js').maas;
-var chai = require('chai');
-var chaiSubset = require('chai-subset');
-var assert = chai.assert;
+"use strict";
+let maas = require('../index.js').maas;
+let chai = require('chai');
+let chaiSubset = require('chai-subset');
+let assert = chai.assert;
 chai.use(chaiSubset);
 
 describe('Maas', function() {
