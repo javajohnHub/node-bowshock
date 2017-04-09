@@ -161,5 +161,55 @@ describe('SSD', function() {
                 }).catch(done);
 
         });
-    })
+    });
+
+    describe('Fireballs', function(){
+
+        it('should return json with no args ', function (done) {
+            this.timeout(10000);
+            ssd.fireballs()
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Fireball Data API"
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+        it('should return json with all args ', function (done) {
+            this.timeout(10000);
+            ssd.fireballs({
+                date_min: "2015-03-01",
+                date_max: "2017-03-01",
+                energy_min: 1,
+                energy_max: 99,
+                impact_e_min: 1,
+                impact_e_max: 99,
+                vel_min: 1,
+                vel_max: 99,
+                req_loc: true,
+                req_alt: true,
+                req_vel: true,
+                req_vel_comp: true,
+                vel_comp: true,
+                sort: "date",
+                limit: 100
+            })
+                .then(function (data) {
+                    assert.containSubset(JSON.parse(data), {
+                        signature: {
+                            source: "NASA/JPL Fireball Data API"
+                        },
+                    });
+                    done();
+
+                }).catch(done);
+
+        });
+
+    });
 });

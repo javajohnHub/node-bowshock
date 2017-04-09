@@ -118,12 +118,6 @@ let ssd = {
             if(typeof object.vel_max === 'number'){
                 base_url += "vel-max=" + object.vel_max + "&";
             }
-            if(typeof object.alt_min === 'number'){
-                base_url += "alt-min=" + object.alt_min + "&";
-            }
-            if(typeof object.alt_max === 'number'){
-                base_url += "alt-max=" + object.alt_max + "&";
-            }
             if(typeof object.req_loc === 'boolean'){
                 base_url += "req-loc=" + object.req_loc + "&";
             }
