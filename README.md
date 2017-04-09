@@ -334,7 +334,10 @@ bowshock.patents({query: "temperature", concept_tags: true, limit: 5});
 let bowshock = require('node-bowshock');
 
 // mandatory obj id
-bowshock.skymorph.search_target_obj("J99TS7A")
+bowshock.skymorph.search_target_obj("J99TS7A");
+
+//argument is a key that can be found in search_target_obj data
+bowshock.skymorph.search_image("|001204124410|51882.530787037|129.062741402712|4.64001695570385|128.337645|4.0726|20.70|-4.28|-11.08|n.a.|n.a.|n.a.|71.9154214757038|547.287989060186|y|");
 
 ```
 
