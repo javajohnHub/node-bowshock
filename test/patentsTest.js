@@ -5,8 +5,6 @@ let chaiSubset = require('chai-subset');
 let assert = chai.assert;
 chai.use(chaiSubset);
 
-let assert = chai.assert;
-
 describe('Patents', function() {
     it('should return json with no args ', function(done) {
         patents()
