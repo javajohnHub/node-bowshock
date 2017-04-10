@@ -15,3 +15,4 @@ bowshock.eonet = require('./src/lib/eonet.js');
 bowshock.sounds = require('./src/lib/sounds.js');
 bowshock.ssd = require('./src/lib/ssd.js');
 bowshock.trek = require('./src/lib/trek.js');
+bowshock.techport = require('./src/lib/techport.js');

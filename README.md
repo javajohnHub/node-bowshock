@@ -25,6 +25,7 @@ Here is a list of currently supported API's :
 * [Skymorph API](http://www.asterank.com/skymorph)
 * [SSD/CNEOS API](https://api.nasa.gov/api.html#ssd_CNEOS)
 * [Trek WMTS API](https://api.nasa.gov/api.html#trek)
+* [Techport API](https://data.nasa.gov/developer/external/techport/techport-api.pdf)
 
 ## Install
 
@@ -46,6 +47,7 @@ Here is a list of currently supported API's :
 | Sounds   |&#10004;|        |
 | SSD/CNEOS|&#10004;|        |
 | Trek WMTS|        |&#10004;|
+| Techport |        |&#10004;|
 
 Get your NASA API KEY from : https://data.nasa.gov/developer/external/planetary/#apply-for-an-api-key
 
@@ -425,6 +427,14 @@ let bowshock = require('node-bowshock');
 bowshock.trek.mars("curiosity_ctx_mosaic");
 
 bowshock.trek.vesta("global_LAMO");
+
+```
+
+##### Techport
+```javascript
+let bowshock = require('node-bowshock');
+
+bowshock.techport(4795);
 
 ```
 ## Contributors
