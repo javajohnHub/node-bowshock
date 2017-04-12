@@ -97,7 +97,49 @@ describe('Helioviewer', function() {
             }).catch(done);
 
     });
+    it('should return json with all args queueMovie', function(done) {
+        helioviewer.queueMovie({
+            startTime: "2010-03-01T12:12:12",
+            endTime: "2010-03-04T12:12:12",
+            layers: "[3,1,100],[4,1,100]",
+            events: "[AR,HMI_HARP;,SPoCA,1],[CH,all,1]",
+            eventsLabels: false,
+            imageScale: 21.04,
+            width: 1920,
+            height: 1200,
+            x0: 1,
+            y0: 1
+            //callback: "callback"
+        })
+            .then(function(data){
+                expect(JSON.parse(data)).to.include.keys("eta");
+                done();
 
+            }).catch(done);
+
+    });
+    it('should return json with callback queueMovie', function(done) {
+        helioviewer.queueMovie({
+            startTime: "2010-03-01T12:12:12",
+            endTime: "2010-03-04T12:12:12",
+            layers: "[3,1,100],[4,1,100]",
+            events: "[AR,HMI_HARP;,SPoCA,1],[CH,all,1]",
+            eventsLabels: false,
+            imageScale: 21.04,
+            width: 1920,
+            height: 1200,
+            x0: 1,
+            y0: 1,
+            callback: ""
+
+        })
+            .then(function(data){
+                expect(JSON.parse(data)).to.include.keys("eta");
+                done();
+
+            }).catch(done);
+
+    });
     it('should return json with all args getMovieStatus', function(done) {
         helioviewer.getMovieStatus({
             id: "F3Dh5",
@@ -128,7 +170,21 @@ describe('Helioviewer', function() {
             }).catch(done);
 
     });
+    it('should return json with callback getMovieStatus', function(done) {
+        helioviewer.getMovieStatus({
+            id: "F3Dh5",
+            //format: "mp4",
+            //verbose: true,
+            callback: "",
+            token: "4673d6db4e2a3365ab361267f2a9a112"
+        })
+            .then(function(data){
+                expect(JSON.parse(data)).to.include.keys("status");
+                done();
 
+            }).catch(done);
+
+    });
 
     it('should return json with all args reQueueMovie', function(done) {
         helioviewer.reQueueMovie("VXvX5")
@@ -163,7 +219,7 @@ describe('Helioviewer', function() {
     });
 
     it('should return json with all args takeScreenshot', function(done) {
-        this.timeout(20000);
+        this.timeout(30000);
         helioviewer.takeScreenshot({
             date: "2014-01-01T23:59:59",
             imageScale: 2.4204409,
@@ -171,7 +227,7 @@ describe('Helioviewer', function() {
             eventLabels: false,
             height: 1200,
             events: "[AR,HMI_HARP;SPoCA,1],[CH,all,1]",
-            scale: false,
+            scale: true,
             scaleType: "earth",
             scaleX: -1000,
             scaleY: -500,
@@ -183,15 +239,33 @@ describe('Helioviewer', function() {
             x2: 5000,
             y2: 5000,
             display: false,
-            watermark: false
+            watermark: true,
+            callback: ""
         }).then(function(data){
             expect(JSON.parse(data)).to.include.keys("id");
             done();
         }).catch(done);
     });
+    it('should return json with display true takeScreenshot', function(done) {
+        this.timeout(30000);
+        let url = helioviewer.takeScreenshot({
+            date: "2014-01-01T23:59:59",
+            imageScale: 2.4204409,
+            layers: "[SDO,AIA,AIA,335,1,100]",
+            eventLabels: false,
+            height: 1200,
+            events: "[AR,HMI_HARP;SPoCA,1],[CH,all,1]",
+            width: 1920,
+            x0: 1,
+            y0: 1,
+            display: true
 
+        });
+            expect(url).to.equal("https://api.helioviewer.org/v2/takeScreenshot/?date=2014-01-01T23:59:59Z&imageScale=2.4204409&layers=[SDO,AIA,AIA,335,1,100]&height=1200&events=[AR,HMI_HARP;SPoCA,1],[CH,all,1]&width=1920&x0=1&y0=1&display=true");
+            done();
+    });
     it('should return json with all args getClosestImage', function(done) {
-        helioviewer.getClosestImage({date: "2014-01-01T23:59:59", sourceId: 14}).then(function(data){
+        helioviewer.getClosestImage({date: "2014-01-01T23:59:59", sourceId: 14, callback: ""}).then(function(data){
             expect(JSON.parse(data)).to.include.keys("id");
             done();
         }).catch(done);
@@ -206,7 +280,8 @@ describe('Helioviewer', function() {
     it('should return json with all args getDataSources', function(done) {
         helioviewer.getDataSources({
             verbose: true,
-            enable: "[Yohkoh,STEREO_A,STEREO_B]"
+            enable: "[Yohkoh,STEREO_A,STEREO_B]",
+            callback: ""
         }).then(function(data){
             expect(JSON.parse(data)).to.include.keys("Yohkoh");
             done();
@@ -231,7 +306,7 @@ describe('Helioviewer', function() {
     });
 
     it('should return json with all args shortenUrl', function(done) {
-        let r = helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue")
+        let r = helioviewer.shortenURL("date%3D2014-02-25T15%3A18%3A07.000Z%26imageScale%3D2.4204409%26centerX%3D-410.06307838566283%26centerY%3D-244.6662219973343%26imageLayers%3D%255BSDO%2CAIA%2CAIA%2C304%2C1%2C100%255D%26eventLayers%3D%26eventLabels%3Dtrue","")
             .then(function(data){
                 expect(JSON.parse(data)).to.include.keys("data");
                 done();
@@ -239,7 +314,7 @@ describe('Helioviewer', function() {
     });
 
     it('should return json with all args getNewsFeed', function(done) {
-        let r = helioviewer.getNewsFeed()
+        let r = helioviewer.getNewsFeed("")
             .then(function(data){
                 expect(data).xml.to.be.valid();
                 done();
@@ -247,7 +322,7 @@ describe('Helioviewer', function() {
     });
 
     it('should return req_url with all args checkYouTubeAuth', function(done) {
-        helioviewer.checkYouTubeAuth()
+        helioviewer.checkYouTubeAuth("")
             .then(function (data) {
                 expect(JSON.parse(data)).to.equal(false);
                 done();
@@ -269,7 +344,10 @@ describe('Helioviewer', function() {
     it('should return req_url with all args getYouTubeAuth', function(done) {
         helioviewer.uploadMovieToYouTube({
             id: "F3Dh5",
-            share: true
+            share: true,
+            title: "test",
+            description: "test",
+            tags: "SDO,AIA,94"
         }).then(function(data){
             expect(JSON.parse(data)).to.include.keys("error");
             done()

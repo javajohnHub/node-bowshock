@@ -6,6 +6,7 @@ let assert = chai.assert;
 
 describe('EVA', function() {
     it('should return json with no args ', function(done) {
+        this.timeout(5000);
         eva()
             .then(function(data){
                 assert.containSubset(JSON.parse(data)[0], {eva: "1"});
