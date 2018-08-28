@@ -38,7 +38,7 @@ let mars = {
 
         base_url += "api_key=" + helpers.nasa_api_key();
 
-        return helpers.getJSON(req_url, 'GET')
+        return helpers.getJSON(base_url, 'GET')
 
 
     },
