@@ -140,7 +140,7 @@ let bowshock = require('node-bowshock');
 bowshock.geneLab.search({type: 'cgene', term: 'a'})
 
 ```
-##### Mars Rovers
+##### Image and Video Library
 ```javascript
 let bowshock = require('node-bowshock');
 
