@@ -7,9 +7,7 @@ function techport(id){
     if(id){
       base_url = `https://techport.nasa.gov/api/items/${id}?objectId=${id}`;
     }
-    return of(helpers.getXML(base_url).then((data) => {
-      return data;
-  }))
+    return helpers.getXML(base_url)
 
 }
 module.exports = techport;

@@ -4,30 +4,22 @@ const helpers = require("./helpers");
 let epic = {
   natural() {
     let uri = "https://epic.gsfc.nasa.gov/api/natural";
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   naturalAll() {
     let uri = "https://epic.gsfc.nasa.gov/api/natural/all";
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   naturalDate(date) {
     let uri = `https://epic.gsfc.nasa.gov/api/natural/date/${date}`;
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   naturalAvailable() {
     let uri = "https://epic.gsfc.nasa.gov/api/natural/available";
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   createNaturalImageLinks(arr, date) {
@@ -44,30 +36,22 @@ let epic = {
 
   enhanced() {
     let uri = "https://epic.gsfc.nasa.gov/api/enhanced";
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   enhancedAll() {
     let uri = "https://epic.gsfc.nasa.gov/api/enhanced/all";
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   enhancedDate(date) {
     let uri = `https://epic.gsfc.nasa.gov/api/enhanced/date/${date}`;
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   enhancedAvailable() {
     let uri = "https://epic.gsfc.nasa.gov/api/enhyanced/available";
-    return of(helpers.getJSON(uri, 'GET').then((data) => {
-      return data;
-  }))
+    return helpers.getJSON(uri, 'GET')
   },
 
   createEnhancedImageLinks(arr, date) {

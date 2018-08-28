@@ -46,9 +46,7 @@ function patents(object){
 
     req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return of(helpers.getJSON(req_url, 'GET').then((data) => {
-        return data;
-    }))
+    return helpers.getJSON(req_url, 'GET')
 }
 
 module.exports = patents;

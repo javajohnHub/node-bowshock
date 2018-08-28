@@ -1,7 +1,6 @@
 "use strict";
 let moment = require("moment");
 let pd = require("pretty-data").pd;
-let fs = require("fs");
 let axios = require("axios");
 require("dotenv").config();
 
