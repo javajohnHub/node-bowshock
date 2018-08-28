@@ -16,7 +16,13 @@ Here is a list of currently supported API's :
 * [Mars Rover Photos API](https://api.nasa.gov/api.html#MarsPhotos)
 * [Asteroids - NeoWs API](https://api.nasa.gov/api.html#NeoWS)
 * [Extra Vehicular Activity - US and Russia](https://dev.socrata.com/foundry/data.nasa.gov/q8u9-7uq7)
+* [DONKI (Space Weather Database Of Notifications, Knowledge, Information) API](https://api.nasa.gov/api.html#DONKI)
 * [EONET API](https://eonet.sci.gsfc.nasa.gov/docs/v2.1)
+* [EPIC API](https://api.nasa.gov/api.html#EPIC)
+* [EXOPLANET API](https://api.nasa.gov/api.html#exoPlanet)
+* [NASA IMAGE AND VIDEO LIBRARY API](https://api.nasa.gov/api.html#Images)
+* [SATELLITE SITUATION CENTER API](https://api.nasa.gov/api.html#SSC)
+* [GENELAB API](https://api.nasa.gov/api.html#genelab)
 * [Patents API](https://api.nasa.gov/api.html#patents)
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
@@ -34,13 +40,19 @@ Here is a list of currently supported API's :
 |----------|--------|--------|
 | Earth    |&#10004;|        |
 | Apod     |&#10004;|        |
+| Donki    |&#10004;|        |
 | Rover    |&#10004;|        |
 | NeoWs    |&#10004;|        |
+| EPIC     |        |&#10004;|
 | EVA      |        |&#10004;|
 | EONET    |        |&#10004;|
+| ExoPlanet|        |&#10004;|
 | Helio    |        |&#10004;|
+| GeneLab  |&#10004;|        |
+| ImgVidLib|        |&#10004;|
 | Patents  |&#10004;|        |
 | Skymorph |        |&#10004;|
+| SSC      |        |&#10004;|
 | SSD/CNEOS|&#10004;|        |
 | Trek WMTS|        |&#10004;|
 | Techport |        |&#10004;|
@@ -71,7 +83,107 @@ let bowshock = require('node-bowshock');
 bowshock.apod("2017-03-11");
 
 ```
+##### Donki
+```javascript
+let bowshock = require('node-bowshock');
+let object ={
+    startDate: '2017-09-10',
+    endDate: '2017-10-10'
+}
+bowshock.donki.CME(object)
+bowshock.donki.CMEA(object)
+bowshock.donki.FLR(object)
+bowshock.donki.GST(object)
+bowshock.donki.HSS(object)
+bowshock.donki.IPS(object)
+bowshock.donki.MPC(object)
+bowshock.donki.notifications(object)
+bowshock.donki.RBE(object)
+bowshock.donki.SEP(object)
+bowshock.donki.WSASim(object)
+```
+##### EPIC
+```javascript
+let bowshock = require('node-bowshock');
 
+bowshock.epic.natural();
+bowshock.epic.naturalAll()
+bowshock.epic.naturalDate('2018-5-15')
+bowshock.epic.naturalAvailable()
+bowshock.epic.enhanced()
+bowshock.epic.enhancedAll()
+bowshock.epic.enhancedDate('2018-5-15')
+bowshock.epic.enhancedAvailable()
+
+```
+
+##### ExoPlanet
+```javascript
+let bowshock = require('node-bowshock');
+
+bowshock.exoPlanet.getSingleKOI('K00007.01')
+bowshock.exoPlanet.allConfirmedPlanetsAndCols()
+bowshock.exoPlanet.confirmedPlanetsInKeplerField()
+bowshock.exoPlanet.starsKnownToHostExoPlanets()
+bowshock.exoPlanet.confirmedPlanetsThatTransitHostStars()
+bowshock.exoPlanet.currentNonConfirmedPlanetCandidates()
+bowshock.exoPlanet.k2TargetsFromCapaign9()
+bowshock.exoPlanet.confirmedPlanetsInMissionStarList()
+bowshock.exoPlanet.allMicrolensingPlanetsWithTimeSeries()
+bowshock.exoPlanet.allPlanetaryCandidatesSmallerThan2ReWithEquilibriumTemperaturesBetween180and303K()
+
+```
+##### GeneLab
+```javascript
+let bowshock = require('node-bowshock');
+
+bowshock.geneLab.search({type: 'cgene', term: 'a'})
+
+```
+##### Mars Rovers
+```javascript
+let bowshock = require('node-bowshock');
+
+let obj = {
+  q: "space",
+//   center: '',
+//   description: '',
+//   description_508: '',
+//   keywords: 'space',
+//   location: '',
+//   media_type: '',
+//   nasa_id: '',
+//   photographer: '',
+//   secondary_creator: '',
+//   title: '',
+//   year_start: '',
+//   year_end: ''
+};
+bowshock.nasaImgVideo.search(obj);
+
+bowshock.nasaImgVideo.getAsset('Space-to-Ground_171_170407');
+bowshock.nasaImgVideo.getMetadata('Space-to-Ground_171_170407');
+bowshock.nasaImgVideo.getCaptions('Space-to-Ground_171_170407');
+
+```
+##### SSC
+```javascript
+let bowshock = require('node-bowshock');
+
+bowshock.satelliteSituationCenter.getObservatories()
+
+bowshock.satelliteSituationCenter.getWADL()
+
+bowshock.satelliteSituationCenter.getSpaseObservatories()
+
+bowshock.satelliteSituationCenter.getGroundStations();
+
+bowshock.satelliteSituationCenter.getLocations()
+
+bowshock.satelliteSituationCenter.getGraphs()
+bowshock.satelliteSituationCenter.getConjunctions()
+
+```
 ##### Mars Rovers
 ```javascript
 let bowshock = require('node-bowshock');
@@ -79,6 +191,7 @@ let bowshock = require('node-bowshock');
 bowshock.mars.curiosity("2015-06-03");
 bowshock.mars.opportunity("2015-06-03");
 bowshock.mars.spirit("2015-06-03");
+bowshock.mars.manifest("curiosity");
 
 ```
 

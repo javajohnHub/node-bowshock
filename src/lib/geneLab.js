@@ -1,7 +1,7 @@
 "use strict";
 
 const helpers = require('./helpers');
-let genLab = {
+let geneLab = {
     search(object){
         let base_url = `https://genelab-data.ndc.nasa.gov/genelab/data/search?term=${object.term}&type=${object.type}`;
         base_url += "&";
@@ -28,6 +28,6 @@ let genLab = {
     },
 }
 
-module.exports = genLab;
+module.exports = geneLab;
 
 //genLab.search({type: 'cgene', term: 'a'})
