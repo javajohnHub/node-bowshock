@@ -55,7 +55,7 @@ let neows = {
     },
     stats(){
         let req_url = "https://api.nasa.gov/neo/rest/v1/stats?api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url, 'GET').then((data) => {
+        helpers.getJSON(req_url, 'GET').then((data) => {
             return of(data);
         })
 
