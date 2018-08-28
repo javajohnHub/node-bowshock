@@ -13,7 +13,7 @@ Note that this is a rough calculation, mainly used to filter out exceedingly clo
 const helpers = require('./helpers');
 let earth = {
     imagery(object) {
-    let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
+    let base_url = "https://api.nasa.gov/planetary/earth/imagery/?";
         if (object.lon && object.lat) {
             base_url += "lon=" + parseFloat(object.lon) + "&" + "lat=" + parseFloat(object.lat) + "&";
             if (object.date) {

@@ -431,15 +431,15 @@ let helioviewer = {
     },
     getYouTubeAuth(object){
         let base_url = "https://api.helioviewer.org/v2/getYouTubeAuth/?";
-        base_url += "id=" + object.id + "&";
+        base_url += "id=" + object.id.toString() + "&";
         base_url += "title=" + object.title + "&";
         base_url += "description=" + object.description + "&";
         base_url += "tags=" + object.tags + "&";
         if(object.share){
             base_url += "share=" + object.share + "&";
         }
-        opn(base_url.slice(0, -1));
-        return base_url.slice(0, -1);
+        opn(encodeURI(base_url.slice(0, -1)));
+        return encodeURI(base_url.slice(0, -1));
     },
 
     uploadMovieToYouTube(object){

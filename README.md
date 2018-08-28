@@ -18,10 +18,8 @@ Here is a list of currently supported API's :
 * [Extra Vehicular Activity - US and Russia](https://dev.socrata.com/foundry/data.nasa.gov/q8u9-7uq7)
 * [EONET API](https://eonet.sci.gsfc.nasa.gov/docs/v2.1)
 * [Patents API](https://api.nasa.gov/api.html#patents)
-* [Sounds API](https://api.nasa.gov/api.html#sounds)
 * [Asterank API](http://www.asterank.com/api)
 * [HelioViewer API](http://helioviewer.org/api/docs/v1/)
-* [MAAS (Mars Weather) API](http://marsweather.ingenology.com/#get_started)
 * [Skymorph API](http://www.asterank.com/skymorph)
 * [SSD/CNEOS API](https://api.nasa.gov/api.html#ssd_CNEOS)
 * [Trek WMTS API](https://api.nasa.gov/api.html#trek)
@@ -41,10 +39,8 @@ Here is a list of currently supported API's :
 | EVA      |        |&#10004;|
 | EONET    |        |&#10004;|
 | Helio    |        |&#10004;|
-| Maas     |        |&#10004;|
 | Patents  |&#10004;|        |
 | Skymorph |        |&#10004;|
-| Sounds   |&#10004;|        |
 | SSD/CNEOS|&#10004;|        |
 | Trek WMTS|        |&#10004;|
 | Techport |        |&#10004;|
@@ -108,14 +104,6 @@ bowshock.neows.browse();
 let bowshock = require('node-bowshock');
 
 bowshock.eva();
-
-```
-
-##### Sounds
-```javascript
-let bowshock = require('node-bowshock');
-//query , limit
-bowshock.sounds("apollo", 10);
 
 ```
 
@@ -308,17 +296,6 @@ bowshock.helioviewer.uploadMovieToYouTube({
 
 helioviewer.getUserVideos();
 
-
-```
-
-##### MAAS
-```javascript
-let bowshock = require('node-bowshock');
-
-//mandatory date begin / end
-bowshock.maas.maas_archive("2015-03-19", "2017-03-19")
-
-bowshock.maas.maas_latest()
 
 ```
 
