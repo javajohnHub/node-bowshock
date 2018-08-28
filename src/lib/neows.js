@@ -6,7 +6,7 @@ let neows = {
         let base_url = "https://api.nasa.gov/neo/rest/v1/feed/today?";
 
         let req_url = base_url + "detailed=True&api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
 
     },
     feed(start_date, end_date) {
@@ -25,7 +25,7 @@ let neows = {
 
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
 
 
 
@@ -39,15 +39,15 @@ let neows = {
         if (parseInt(Id)) {
             req_url += base_url + Id + "?api_key=" + helpers.nasa_api_key();
         }
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
     },
     browse() {
         let req_url = "https://api.nasa.gov/neo/rest/v1/neo/browse/?api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
     },
     stats(){
         let req_url = "https://api.nasa.gov/neo/rest/v1/stats?api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
 
     }
 

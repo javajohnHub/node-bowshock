@@ -28,13 +28,13 @@ let eonet = {
             }
         }
 
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
     categories(object) {
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories/";
 
         if (!object) {
-            return helpers.getJSON(base_url.slice(0, -1));
+            return helpers.getJSON(base_url.slice(0, -1), 'GET');
         }
 
         base_url += object.id + "?";
@@ -62,13 +62,13 @@ let eonet = {
             }
         }
 
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
 
 
     },
     layers(id){
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/layers/" + id;
-        return helpers.getJSON(base_url);
+        return helpers.getJSON(base_url, 'GET');
     }
 };
 module.exports = eonet;

@@ -26,7 +26,7 @@ let earth = {
             }
         }
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
 },
 
 /*
@@ -68,7 +68,7 @@ assets(object){
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.getJSON(req_url);
+    return helpers.getJSON(req_url, 'GET');
 
 }
 };

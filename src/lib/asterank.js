@@ -31,7 +31,7 @@ function asterank(object){
     if(object.limit){
         base_url += "limit=" + object.limit;
     }
-    return helpers.getJSON(base_url);
+    return helpers.getJSON(base_url, 'GET');
 }
 module.exports = asterank;
 //asterank({query: {"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}, limit: 10});

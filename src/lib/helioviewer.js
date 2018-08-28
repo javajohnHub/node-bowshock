@@ -53,7 +53,7 @@ let helioviewer = {
         req_url += base_url + "json=true&jpip=true";
 
 
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
 
     },
     getjp2header(id){
@@ -108,7 +108,7 @@ let helioviewer = {
             base_url += "cadence=" + object.cadence + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
     },
     getJPXClosestToMidPoint(object){
         let base_url = 'https://api.helioviewer.org/v2/getJPXClosestToMidPoint/?';
@@ -132,7 +132,7 @@ let helioviewer = {
             base_url += "linked=" + object.linked + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        return helpers.getJSON(req_url);
+        return helpers.getJSON(req_url, 'GET');
     },
     queueMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/queueMovie/?';
@@ -208,10 +208,10 @@ let helioviewer = {
             base_url += 'callback=' + object.callback + '&';
         }
 
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
         },
     reQueueMovie(id){
-        return helpers.getJSON("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id);
+        return helpers.getJSON("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id, 'GET');
     },
 
     getMovieStatus(object){
@@ -228,7 +228,7 @@ let helioviewer = {
             base_url += 'token=' + object.token + "&";
         }
 
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
     downloadMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/downloadMovie/?';
@@ -341,7 +341,7 @@ let helioviewer = {
                 return base_url.slice(0, -1);
             }
         }
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
     downloadScreenshot(id){
         let base_url = 'https://api.helioviewer.org/v2/downloadScreenshot/?id=' + id;
@@ -378,7 +378,7 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
     getDataSources(object){
         let base_url = "https://api.helioviewer.org/v2/getDataSources/?";
@@ -394,7 +394,7 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
     getTile(object){
         let base_url = "https://api.helioviewer.org/v2/getTile/?";
@@ -411,7 +411,7 @@ let helioviewer = {
         if(callback){
             base_url += "callback=" + callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
     getNewsFeed(callback){
         let base_url = "https://api.helioviewer.org/v2/getNewsFeed/?";
@@ -426,7 +426,7 @@ let helioviewer = {
         if (callback) {
             base_url += "callback=" + callback;
         }
-        return helpers.getJSON(base_url);
+        return helpers.getJSON(base_url, 'GET');
 
     },
     getYouTubeAuth(object){
@@ -460,7 +460,7 @@ let helioviewer = {
         if(object.html){
             base_url += "html=" + object.html + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     },
 
     getUserVideos(object){
@@ -486,7 +486,7 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1));
+        return helpers.getJSON(base_url.slice(0, -1), 'GET');
     }
 };
 module.exports = helioviewer;
