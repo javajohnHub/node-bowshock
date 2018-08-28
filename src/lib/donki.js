@@ -13,7 +13,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
   CMEA(object) {
     let base_url = `https://api.nasa.gov/DONKI/CMEAnalysis?`;
@@ -41,7 +43,9 @@ let donki = {
       base_url += "catalog=" + object.catalog + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
   GST(object) {
     let base_url = `https://api.nasa.gov/DONKI/GST?`;
@@ -54,7 +58,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   IPS(object) {
@@ -74,7 +80,9 @@ let donki = {
         base_url += "catalog=" + object.catalog + "&";
       }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   FLR(object) {
@@ -88,7 +96,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   SEP(object) {
@@ -102,7 +112,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   MPC(object) {
@@ -116,7 +128,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   RBE(object) {
@@ -130,7 +144,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
   HSS(object) {
     let base_url = `https://api.nasa.gov/DONKI/HSS?`;
@@ -143,7 +159,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   WSASim(object) {
@@ -157,7 +175,9 @@ let donki = {
       base_url += "endDate=" + object.endDate + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   notifications(object) {
@@ -174,7 +194,9 @@ let donki = {
         base_url += "type=" + object.type + "&";
       }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    helpers.getJSON(base_url, "GET");
+    return of(helpers.getJSON(base_url, 'GET').then((data) => {
+      return data;
+  }))
   }
 };
 

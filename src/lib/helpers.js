@@ -18,23 +18,22 @@ let helpers = {
       }
     });
     if(type == 'GET'){
-        instance
+        return instance
         .get(url)
-        .then(function(response) {
-          console.log(response)
-          //console.log(response.data.collection.items[0].data[0].nasa_id);
+        .then((response)=> {
+          return response.data
         })
-        .catch(function(error) {
+        .catch((error) => {
           console.log(error);
         });
     }
     if(type == 'POST'){
-        instance
+        return instance
         .post(url)
-        .then(function(response) {
-          console.log(response.data);
+        .then((response) => {
+          return response.data
         })
-        .catch(function(error) {
+        .catch((error) => {
           console.log(error);
         });
     }
@@ -52,10 +51,10 @@ let helpers = {
         "Content-Type": "application/xml"
       }
     });
-    instance
+   return instance
       .get(url)
-      .then(function(response) {
-        console.log(response);
+      .then((response) =>{
+        return response.data
       })
       .catch(function(error) {
         console.log(error);

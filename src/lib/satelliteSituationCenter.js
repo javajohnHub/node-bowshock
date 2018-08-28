@@ -4,36 +4,50 @@ const helpers = require("./helpers");
 let satelliteSituationCenter = {
   getWADL() {
     let uri = `/application.wadl`;
-    helpers.getXML(uri, 'GET');
+    return of(helpers.getXML(uri).then((data) => {
+      return data;
+  }))
   },
 
   getObservatories() {
     let uri = `/observatories`;
-    helpers.getJSON(uri, 'GET');
+    return of(helpers.getJSON(uri, 'GET').then((data) => {
+      return data;
+  }))
   },
   getSpaseObservatories() {
     let uri = `/spaseObservatories`;
-    helpers.getJSON(uri, 'GET');
+    return of(helpers.getJSON(uri, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   getGroundStations() {
     let uri = `/groundStations`;
-    helpers.getJSON(uri, 'GET');
+    return of(helpers.getJSON(uri, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   getLocations() {
     let uri = `/locations`;
-    helpers.getJSON(uri, 'POST');
+    return of(helpers.getJSON(uri, 'POST').then((data) => {
+      return data;
+  }))
   },
 
   getGraphs() {
     let uri = `/graphs`;
-    helpers.getJSON(uri, 'POST');
+    return of(helpers.getJSON(uri, 'POST').then((data) => {
+      return data;
+  }))
   },
 
   getConjunctions() {
     let uri = `/conjunctions`;
-    helpers.getJSON(uri, 'POST');
+    return of(helpers.getJSON(uri, 'POST').then((data) => {
+      return data;
+  }))
   }
 };
 

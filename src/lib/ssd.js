@@ -79,7 +79,9 @@ let ssd = {
             }
         }
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
 
     },
     fireballs(object){
@@ -142,7 +144,9 @@ let ssd = {
 
         }
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     nhats(object){
         let base_url = "https://ssd-api.jpl.nasa.gov/nhats.api?";
@@ -187,7 +191,9 @@ let ssd = {
         }
 
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
 
     },
     sentry(object){
@@ -222,7 +228,9 @@ let ssd = {
             }
         }
         req_url = base_url;
-        return helpers.getJSON(req_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
 
 };

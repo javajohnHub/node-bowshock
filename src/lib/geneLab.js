@@ -23,8 +23,9 @@ let geneLab = {
         if(object.fvalue){
             base_url += "fvalue=" + object.fvalue + "&";
         }
-        
-        return helpers.getJSON(encodeURI(`${base_url}api_key=${helpers.nasa_api_key()}`), 'GET');
+        return of(helpers.getJSON(encodeURI(`${base_url}api_key=${helpers.nasa_api_key()}`), 'GET').then((data) => {
+            return data;
+        }))
     },
 }
 

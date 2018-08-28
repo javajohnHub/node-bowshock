@@ -11,7 +11,9 @@ let mars = {
 
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-        return helpers.getJSON(req_url, 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
 
 
     },
@@ -24,7 +26,9 @@ let mars = {
 
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-        return helpers.getJSON(req_url, 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
 
 
     },
@@ -38,14 +42,18 @@ let mars = {
 
         let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-        return helpers.getJSON(req_url, 'GET');
+        return of(helpers.getJSON(req_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
 
 
     },
 
     manifest(rover){
         let base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}`
-        return helpers.getJSON(`${base_url}?api_key=${helpers.nasa_api_key()}`, 'GET');
+        return of(helpers.getJSON(`${base_url}?api_key=${helpers.nasa_api_key()}`, 'GET').then((data) => {
+            return data;
+        }))
     }
 };
 module.exports = mars;

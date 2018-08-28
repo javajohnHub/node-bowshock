@@ -52,8 +52,9 @@ let helioviewer = {
         }
         req_url += base_url + "json=true&jpip=true";
 
-
-        return helpers.getJSON(req_url, 'GET');
+        return of(helpers.getJSON(req_url, 'GET').then((data) => {
+            return data;
+        }))
 
     },
     getjp2header(id){
@@ -78,7 +79,9 @@ let helioviewer = {
          http://helioviewer.org/api/v1/getJP2Header/?id=7654321
 
          */
-        return helpers.getXML('https://api.helioviewer.org/v2/getJP2Header/?id=' + id);
+        return of(helpers.getXML(helpers.getXML('https://api.helioviewer.org/v2/getJP2Header/?id=' + id), 'GET').then((data) => {
+            return data;
+        }))
 
     },
     getJPX(object){
@@ -108,7 +111,9 @@ let helioviewer = {
             base_url += "cadence=" + object.cadence + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        return helpers.getJSON(req_url, 'GET');
+        return of(helpers.getJSON(req_url, 'GET').then((data) => {
+            return data;
+        }))
     },
     getJPXClosestToMidPoint(object){
         let base_url = 'https://api.helioviewer.org/v2/getJPXClosestToMidPoint/?';
@@ -132,7 +137,9 @@ let helioviewer = {
             base_url += "linked=" + object.linked + "&";
         }
         req_url += base_url + "verbose=true&jpip=true";
-        return helpers.getJSON(req_url, 'GET');
+        return of(helpers.getJSON(req_url, 'GET').then((data) => {
+            return data;
+        }))
     },
     queueMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/queueMovie/?';
@@ -207,11 +214,14 @@ let helioviewer = {
         if(object.callback){
             base_url += 'callback=' + object.callback + '&';
         }
-
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
         },
     reQueueMovie(id){
-        return helpers.getJSON("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id, 'GET');
+        return of(helpers.getJSON("https://api.helioviewer.org/v2/reQueueMovie/?id=" + id, 'GET').then((data) => {
+            return data;
+        }))
     },
 
     getMovieStatus(object){
@@ -227,8 +237,9 @@ let helioviewer = {
         if(object.token){
             base_url += 'token=' + object.token + "&";
         }
-
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     downloadMovie(object){
         let base_url = 'https://api.helioviewer.org/v2/downloadMovie/?';
@@ -341,7 +352,9 @@ let helioviewer = {
                 return base_url.slice(0, -1);
             }
         }
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     downloadScreenshot(id){
         let base_url = 'https://api.helioviewer.org/v2/downloadScreenshot/?id=' + id;
@@ -378,7 +391,9 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     getDataSources(object){
         let base_url = "https://api.helioviewer.org/v2/getDataSources/?";
@@ -394,7 +409,9 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     getTile(object){
         let base_url = "https://api.helioviewer.org/v2/getTile/?";
@@ -411,14 +428,18 @@ let helioviewer = {
         if(callback){
             base_url += "callback=" + callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     getNewsFeed(callback){
         let base_url = "https://api.helioviewer.org/v2/getNewsFeed/?";
         if(callback){
             base_url += "callback=" + callback;
         }
-        return helpers.getXML(base_url);
+        return of(helpers.getXML(base_url).then((data) => {
+            return data;
+        }))
     },
 
     checkYouTubeAuth(callback){
@@ -426,7 +447,9 @@ let helioviewer = {
         if (callback) {
             base_url += "callback=" + callback;
         }
-        return helpers.getJSON(base_url, 'GET');
+        return of(helpers.getJSON(base_url, 'GET').then((data) => {
+            return data;
+        }))
 
     },
     getYouTubeAuth(object){
@@ -460,13 +483,17 @@ let helioviewer = {
         if(object.html){
             base_url += "html=" + object.html + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
 
     getUserVideos(object){
         let base_url = "https://api.helioviewer.org/v2/getUserVideos/?";
         if(!object){
-            return helpers.getJSON(base_url.slice(0, -1));
+            return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+                return data;
+            }))
         }
         if(object.num){
             base_url += "num=" + object.num + "&";
@@ -486,7 +513,9 @@ let helioviewer = {
         if(object.callback){
             base_url += "callback=" + object.callback + "&";
         }
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     }
 };
 module.exports = helioviewer;

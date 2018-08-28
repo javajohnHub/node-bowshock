@@ -28,13 +28,17 @@ let eonet = {
             }
         }
 
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
     },
     categories(object) {
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories/";
 
         if (!object) {
-            return helpers.getJSON(base_url.slice(0, -1), 'GET');
+            return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+                return data;
+            }))
         }
 
         base_url += object.id + "?";
@@ -61,14 +65,17 @@ let eonet = {
                 base_url += "days=" + object.days + "&";
             }
         }
-
-        return helpers.getJSON(base_url.slice(0, -1), 'GET');
+        return of(helpers.getJSON(base_url.slice(0, -1), 'GET').then((data) => {
+            return data;
+        }))
 
 
     },
     layers(id){
         let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/layers/" + id;
-        return helpers.getJSON(base_url, 'GET');
+        return of(helpers.getJSON(base_url, 'GET').then((data) => {
+            return data;
+        }))
     }
 };
 module.exports = eonet;

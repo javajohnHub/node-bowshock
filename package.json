@@ -28,6 +28,7 @@
     "opn": "^5.3.0",
     "pretty-data": "^0.40.0",
     "progress": "^2.0.0",
+    "rxjs": "^6.2.2",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {

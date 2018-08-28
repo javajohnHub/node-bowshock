@@ -45,22 +45,30 @@ let nasaImgVideo = {
     if (object.year_end) {
       base_url += "year_end=" + object.year_end + "&";
     }
-    return helpers.getJSON(encodeURI(base_url.slice(0, -1)), "GET");
+    return of(helpers.getJSON(`${base_url}?api_key=${helpers.nasa_api_key()}`, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   getAsset(nasa_id) {
     let uri = `https://images-api.nasa.gov/asset/${nasa_id}`;
-    helpers.getJSON(uri, 'GET')
+    return of(helpers.getJSON(uri, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   getMetadata(nasa_id) {
     let uri = `https://images-api.nasa.gov/metadata/${nasa_id}`;
-    helpers.getJSON(uri, 'GET')
+    return of(helpers.getJSON(uri, 'GET').then((data) => {
+      return data;
+  }))
   },
 
   getCaptions(nasa_id) {
     let uri = `https://images-api.nasa.gov/captions/${nasa_id}`;
-    helpers.getJSON(uri, 'GET')
+    return of(helpers.getJSON(uri, 'GET').then((data) => {
+      return data;
+  }))
   }
 };
 
