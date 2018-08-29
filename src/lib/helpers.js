@@ -60,6 +60,7 @@ let helpers = {
       });
   },
   vali_date: function(date_text) {
+    console.log(date_text)
     if (moment(date_text, "YYYY-MM-DD", true).isValid()) {
       return date_text;
     } else {

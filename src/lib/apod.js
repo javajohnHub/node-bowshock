@@ -2,6 +2,7 @@
 let helpers = require('./helpers');
 
 function apod(date, concept_tags){
+    console.log(date)
     let base_url = "https://api.nasa.gov/planetary/apod?";
     if (date) {
         helpers.vali_date(date);
