@@ -60,11 +60,12 @@ let helpers = {
       });
   },
   vali_date: function(date_text) {
-    if (moment(date_text, "YYYY-MM-DD", true).isValid()) {
-      return date_text;
-    } else {
-      throw "Incorrect date format, should be YYYY-MM-DD";
-    }
+    // if (moment(date_text, "YYYY-MM-DD", true).isValid()) {
+    //   return date_text;
+    // } else {
+    //   throw "Incorrect date format, should be YYYY-MM-DD";
+    // }
+    return date_text;
   },
 
   validate_year: function(date_text) {
@@ -91,7 +92,7 @@ let helpers = {
     return process.env.LOGGER || "false";
   },
   format_date(date) {
-    this.vali_date(date);
+    //this.vali_date(date);
     return date.replace(/-/g, "/");
   }
 };
