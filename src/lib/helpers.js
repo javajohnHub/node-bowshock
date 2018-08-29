@@ -60,11 +60,10 @@ let helpers = {
       });
   },
   vali_date: function(date_text) {
-    console.log(date_text)
     if (moment(date_text, "YYYY-MM-DD", true).isValid()) {
       return date_text;
     } else {
-      return date_text;
+      throw `Incorrect date format, should be YYYY-MM-DD you have ${date_text}`;
     }
     
   },
