@@ -47,6 +47,7 @@ let mars = {
         if(!rover.camera && !rover.sol){
             base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}?`
             base_url += "api_key=" + helpers.nasa_api_key();
+            console.log(base_url)
             return helpers.getJSON(`${base_url}`, 'GET')
         }else{
             base_url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.rover}/photos?`;
@@ -57,6 +58,7 @@ let mars = {
                 base_url += "camera=" + rover.camera + "&";
             }
             base_url += "api_key=" + helpers.nasa_api_key();
+            console.log(base_url)
             return helpers.getJSON(`${base_url}`, 'GET')
         }
         
