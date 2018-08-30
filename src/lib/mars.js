@@ -6,7 +6,8 @@ let mars = {
         let base_url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?";
 
         helpers.validate_iso8601(date);
-        base_url += "earth_date=" + date + "&";
+        
+        base_url += "earth_date=" + date.toISOString().split('T')[0] + "&";
 
 
         base_url += "api_key=" + helpers.nasa_api_key();
