@@ -51,7 +51,12 @@ let mars = {
         if(rover.camera){
             base_url += "camera=" + rover.camera + "&";
         }
-        base_url += "api_key=" + helpers.nasa_api_key();
+        if(rover.sol || rover.camera){
+            base_url += "api_key=" + helpers.nasa_api_key();
+        }else{
+            base_url += "&api_key=" + helpers.nasa_api_key();
+        }
+        
         return helpers.getJSON(`${base_url}`, 'GET')
     }
 };
