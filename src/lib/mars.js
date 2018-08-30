@@ -43,13 +43,7 @@ let mars = {
     },
 
     manifest(rover){
-        let base_url = '';
-        if(rover.sol || rover.camera){
-            base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}?`
-        }else{
-            base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}`
-        }
-        
+        let base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}?`
 
         if(rover.sol){
             base_url += "sol=" + rover.sol + "&";
