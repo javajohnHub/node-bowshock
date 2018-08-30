@@ -6,7 +6,7 @@ function apod(date, concept_tags){
     let base_url = "https://api.nasa.gov/planetary/apod?";
     if (date) {
         helpers.validate_iso8601(date);
-        base_url += "date=" + date.toISOString().split('T')[0] + "&"
+        base_url += "date=" + date.split('T')[0] + "&"
     }
     if (concept_tags === true){
         base_url += "concept_tags=True" + "&"
