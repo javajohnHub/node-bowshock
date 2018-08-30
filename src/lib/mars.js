@@ -43,16 +43,24 @@ let mars = {
     },
 
     manifest(rover){
-        let base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}?`
-
-        if(rover.sol){
-            base_url += "sol=" + rover.sol + "&";
+        if(!rover.camera && !rover.sol){
+            let base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}?`
+            base_url += "api_key=" + helpers.nasa_api_key();
+            return helpers.getJSON(`${base_url}`, 'GET')
+        }else{
+            let base_url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.rover}/photos?`;
+            if(rover.sol){
+                base_url += "sol=" + rover.sol + "&";
+            }
+            if(rover.camera){
+                base_url += "camera=" + rover.camera + "&";
+            }
+            base_url += "api_key=" + helpers.nasa_api_key();
+            return helpers.getJSON(`${base_url}`, 'GET')
         }
-        if(rover.camera){
-            base_url += "camera=" + rover.camera + "&";
-        }
-        base_url += "api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(`${base_url}`, 'GET')
+        
+        
+       
     }
 };
 module.exports = mars;
