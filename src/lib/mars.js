@@ -44,7 +44,10 @@ let mars = {
 
     manifest(rover){
         let base_url = '';
-        rover.sol = parseInt(rover.sol)
+        if(rover.sol){
+            rover.sol = parseInt(rover.sol)
+        }
+        
         if(!rover.camera && !rover.sol){
             base_url = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover.rover}?`
             base_url += "api_key=" + helpers.nasa_api_key();
