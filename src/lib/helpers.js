@@ -60,6 +60,10 @@ let helpers = {
       });
   },
   vali_date: function(date_text) {
+    if(date_text.charAt( date_text.length-1 ) == '0' && date_text.charAt( date_text.length-2 ) == '/'){
+      date_text.charAt( date_text.length-1 ) = 1;
+      date_text.charAt( date_text.length-2 ) = 3;
+    }
     if (moment(date_text, "YYYY-MM-DD", true).isValid()) {
       return date_text;
     } else {
