@@ -59,13 +59,8 @@ let helpers = {
         console.log(error);
       });
   },
-  vali_date: function(date_text) {
-    if (moment(date_text, "YYYY-MM-DD", true).isValid()) {
-      return date_text;
-    } else {
-      console.log(`Incorrect date format, should be YYYY-MM-DD you have ${date_text}`);
-    }
-    
+  vali_date: function(date) {
+    return moment(new Date(date)).format('YYYY-MM-DD')
   },
 
   validate_year: function(date_text) {
