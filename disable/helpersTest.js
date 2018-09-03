@@ -37,12 +37,12 @@ describe('Helpers', function() {
         assert.equal(r.toString(), "2014-01-01T23:59:59" );
     });
     it('should throw error if date is not valid', function() {
-        assert.throws(function () { helpers.format_date("201-12-03") }, "Incorrect date format, should be YYYY");
+        assert.throws(function () { helpers.vali_date("201-12-03") }, "Incorrect date format, should be YYYY");
 
     });
 
     it('should reformat date', function() {
-        let r = helpers.format_date("2017-12-03");
+        let r = helpers.vali_date("2017-12-03");
         assert.equal(r.toString(), "2017/12/03" );
 
     });
