@@ -16,27 +16,26 @@ let helpers = {
         "Content-Type": "application/json"
       }
     });
-    if(type == 'GET'){
-        return instance
+    if (type == "GET") {
+      return instance
         .get(url)
-        .then((response)=> {
-          return response.data
+        .then(response => {
+          return response.data;
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     }
-    if(type == 'POST'){
-        return instance
+    if (type == "POST") {
+      return instance
         .post(url)
-        .then((response) => {
-          return response.data
+        .then(response => {
+          return response.data;
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     }
-    
   },
 
   getXML(url) {
@@ -50,17 +49,17 @@ let helpers = {
         "Content-Type": "application/xml"
       }
     });
-   return instance
+    return instance
       .get(url)
-      .then((response) =>{
-        return response.data
+      .then(response => {
+        return response.data;
       })
       .catch(function(error) {
         console.log(error);
       });
   },
   vali_date: function(date) {
-    return moment(new Date(date)).format('YYYY-MM-DD')
+    return moment(new Date(date)).format("YYYY-MM-DD");
   },
 
   validate_year: function(date_text) {
@@ -85,7 +84,7 @@ let helpers = {
 
   logging: function() {
     return process.env.LOGGER || "false";
-  },
+  }
 };
 
 module.exports = helpers;

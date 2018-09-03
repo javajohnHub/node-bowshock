@@ -4,21 +4,19 @@ const helpers = require("./helpers");
 let donki = {
   CME(object) {
     let base_url = `https://api.nasa.gov/DONKI/CME?`;
-      
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
   CMEA(object) {
     let base_url = `https://api.nasa.gov/DONKI/CMEAnalysis?`;
-    
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     if (object.mostAccurateOnly) {
@@ -37,120 +35,111 @@ let donki = {
       base_url += "catalog=" + object.catalog + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
   GST(object) {
     let base_url = `https://api.nasa.gov/DONKI/GST?`;
-    
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   IPS(object) {
     let base_url = `https://api.nasa.gov/DONKI/IPS?`;
-    
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     if (object.location) {
-        base_url += "location=" + object.location + "&";
-      }
-      if (object.catalog) {
-        base_url += "catalog=" + object.catalog + "&";
-      }
+      base_url += "location=" + object.location + "&";
+    }
+    if (object.catalog) {
+      base_url += "catalog=" + object.catalog + "&";
+    }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   FLR(object) {
     let base_url = `https://api.nasa.gov/DONKI/FLR?`;
-    
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   SEP(object) {
     let base_url = `https://api.nasa.gov/DONKI/SEP?`;
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   MPC(object) {
     let base_url = `https://api.nasa.gov/DONKI/MPC?`;
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   RBE(object) {
     let base_url = `https://api.nasa.gov/DONKI/RBE?`;
-    
-      base_url += "startDate=" + helpers.vali_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.vali_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
   HSS(object) {
     let base_url = `https://api.nasa.gov/DONKI/HSS?`;
-   
-      base_url += "startDate=" +  helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   WSASim(object) {
     let base_url = `https://api.nasa.gov/DONKI/WSAEnlilSimulations?`;
-    
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   },
 
   notifications(object) {
     let base_url = `https://api.nasa.gov/DONKI/notifications?`;
-    
-      base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
+
+    base_url += "startDate=" + helpers.valid_date(object.startDate) + "&";
     if (object.endDate) {
-      
       base_url += "endDate=" + helpers.valid_date(object.endDate) + "&";
     }
     if (object.type) {
-        base_url += "type=" + object.type + "&";
-      }
+      base_url += "type=" + object.type + "&";
+    }
     base_url += `api_key=${helpers.nasa_api_key()}`;
-    return helpers.getJSON(base_url, 'GET')
+    return helpers.getJSON(base_url, "GET");
   }
 };
 
