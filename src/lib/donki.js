@@ -10,6 +10,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
   CMEA(object) {
@@ -35,6 +36,7 @@ let donki = {
       base_url += "catalog=" + object.catalog + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
   GST(object) {
@@ -45,6 +47,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -62,6 +65,7 @@ let donki = {
       base_url += "catalog=" + object.catalog + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -73,6 +77,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -83,6 +88,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -93,6 +99,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -104,6 +111,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
   HSS(object) {
@@ -114,6 +122,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -125,6 +134,7 @@ let donki = {
       base_url += "endDate=" + helpers.vali_date(object.endDate) + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   },
 
@@ -139,6 +149,7 @@ let donki = {
       base_url += "type=" + object.type + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
+    console.log(base_url)
     return helpers.getJSON(base_url, "GET");
   }
 };
