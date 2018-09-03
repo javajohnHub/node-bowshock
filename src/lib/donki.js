@@ -4,10 +4,8 @@ const helpers = require("./helpers");
 let donki = {
   CME(object) {
     let base_url = `https://api.nasa.gov/DONKI/CME?`;
-    if (object.startDate) {
       helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -17,10 +15,8 @@ let donki = {
   },
   CMEA(object) {
     let base_url = `https://api.nasa.gov/DONKI/CMEAnalysis?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -45,10 +41,8 @@ let donki = {
   },
   GST(object) {
     let base_url = `https://api.nasa.gov/DONKI/GST?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -59,10 +53,8 @@ let donki = {
 
   IPS(object) {
     let base_url = `https://api.nasa.gov/DONKI/IPS?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -79,10 +71,8 @@ let donki = {
 
   FLR(object) {
     let base_url = `https://api.nasa.gov/DONKI/FLR?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -93,10 +83,8 @@ let donki = {
 
   SEP(object) {
     let base_url = `https://api.nasa.gov/DONKI/SEP?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -107,10 +95,8 @@ let donki = {
 
   MPC(object) {
     let base_url = `https://api.nasa.gov/DONKI/MPC?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -121,10 +107,8 @@ let donki = {
 
   RBE(object) {
     let base_url = `https://api.nasa.gov/DONKI/RBE?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -134,10 +118,8 @@ let donki = {
   },
   HSS(object) {
     let base_url = `https://api.nasa.gov/DONKI/HSS?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -148,10 +130,8 @@ let donki = {
 
   WSASim(object) {
     let base_url = `https://api.nasa.gov/DONKI/WSAEnlilSimulations?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
@@ -162,10 +142,8 @@ let donki = {
 
   notifications(object) {
     let base_url = `https://api.nasa.gov/DONKI/notifications?`;
-    if (object.startDate) {
-      helpers.format_date(object.startDate);
+    helpers.format_date(object.startDate);
       base_url += "startDate=" + object.startDate + "&";
-    }
     if (object.endDate) {
       helpers.format_date(object.endDate);
       base_url += "endDate=" + object.endDate + "&";
