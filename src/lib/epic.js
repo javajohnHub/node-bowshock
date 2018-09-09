@@ -57,7 +57,7 @@ let epic = {
   },
 
   createEnhancedImageLink(image, date) {
-    let img = `${image.image}.png`;
+    let img = `${image}.png`;
     let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${date.getFullYear()}/${date.getMonth() +
       1}/${date.getDate()}/png/${img}`;
     return new Promise(function(resolve, reject) {
