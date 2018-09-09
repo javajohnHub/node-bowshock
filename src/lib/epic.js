@@ -27,7 +27,13 @@ let epic = {
     let archive = `https://epic.gsfc.nasa.gov/archive/natural/${date.year}/${
       date.month
     }/${date.day}/png/${img}`;
-    return archive;
+    new Promise(function(resolve, reject) {
+      if (archive) {
+        resolve(archive);
+      } else {
+        reject();
+      }
+    });
   },
 
   enhanced() {
@@ -55,7 +61,13 @@ let epic = {
     let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${date.year}/${
       date.month
     }/${date.day}/png/${img}`;
-    return archive;
+    return new Promise(function(resolve, reject) {
+      if (archive) {
+        resolve(archive);
+      } else {
+        reject();
+      }
+    });
   }
 };
 
