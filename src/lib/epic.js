@@ -52,6 +52,7 @@ let epic = {
 
   enhancedAvailable() {
     let uri = "https://epic.gsfc.nasa.gov/api/enhanced/available";
+    console.log(uri);
     return helpers.getJSON(uri, "GET");
   },
 
