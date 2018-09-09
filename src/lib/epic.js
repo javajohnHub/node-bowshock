@@ -66,6 +66,7 @@ let epic = {
     ).format("YYYY")}/${moment(date.getMonth() + 1).format("MM")}/${moment(
       date.getDate()
     ).format("DD")}/png/${img}`;
+    console.log(archive);
     return new Promise(function(resolve, reject) {
       if (archive) {
         resolve(archive);
