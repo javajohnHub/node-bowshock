@@ -24,8 +24,11 @@ let epic = {
 
   createNaturalImageLink(image, date) {
     let img = `${image}.png`;
-    let archive = `https://epic.gsfc.nasa.gov/archive/natural/${date.getFullYear()}/${date.getMonth() +
-      1}/${date.getDate()}/png/${img}`;
+    let archive = `https://epic.gsfc.nasa.gov/archive/natural/${moment(
+      date.getFullYear()
+    ).format("YYYY")}/${moment(date.getMonth() + 1).format("MM")}/${moment(
+      date.getDate()
+    ).format("DD")}/png/${img}`;
     return new Promise(function(resolve, reject) {
       if (archive) {
         resolve(archive);
@@ -58,8 +61,11 @@ let epic = {
 
   createEnhancedImageLink(image, date) {
     let img = `${image}.png`;
-    let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${date.getFullYear()}/${date.getMonth() +
-      1}/${date.getDate()}/png/${img}`;
+    let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${moment(
+      date.getFullYear()
+    ).format("YYYY")}/${moment(date.getMonth() + 1).format("MM")}/${moment(
+      date.getDate()
+    ).format("DD")}/png/${img}`;
     return new Promise(function(resolve, reject) {
       if (archive) {
         resolve(archive);
