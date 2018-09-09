@@ -27,7 +27,7 @@ let epic = {
     let archive = `https://epic.gsfc.nasa.gov/archive/natural/${date.year}/${
       date.month
     }/${date.day}/png/${img}`;
-    new Promise(function(resolve, reject) {
+    return new Promise(function(resolve, reject) {
       if (archive) {
         resolve(archive);
       } else {
