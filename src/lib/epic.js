@@ -22,11 +22,11 @@ let epic = {
     return helpers.getJSON(uri, "GET");
   },
 
-  createNaturalImageLink(arr, image) {
-    let img = `${image}.png`;
-    let archive = `https://epic.gsfc.nasa.gov/archive/natural/${arr[0]}/${
-      arr[1]
-    }/${arr[2]}/png/${img}`;
+  createNaturalImageLink(obj) {
+    let img = `${obj.image}.png`;
+    let archive = `https://epic.gsfc.nasa.gov/archive/natural/${obj.arr[0]}/${
+      obj.arr[1]
+    }/${obj.arr[2]}/png/${img}`;
     return new Promise(function(resolve, reject) {
       if (archive) {
         resolve(archive);
@@ -57,11 +57,11 @@ let epic = {
     return helpers.getJSON(uri, "GET");
   },
 
-  createEnhancedImageLink(arr, image) {
-    let img = `${image}.png`;
-    let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${arr[0]}/${
-      arr[1]
-    }/${arr[2]}/png/${img}`;
+  createEnhancedImageLink(obj) {
+    let img = `${obj.image}.png`;
+    let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${obj.arr[0]}/${
+      obj.arr[1]
+    }/${obj.arr[2]}/png/${img}`;
     console.log(archive);
     return new Promise(function(resolve, reject) {
       if (archive) {
