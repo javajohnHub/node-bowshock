@@ -22,7 +22,7 @@ let epic = {
     return helpers.getJSON(uri, "GET");
   },
 
-  createNaturalImageLink(image, date) {
+  createNaturalImageLink(arr, image) {
     let img = `${image}.png`;
     let archive = `https://epic.gsfc.nasa.gov/archive/natural/${arr[0]}/${
       arr[1]
@@ -57,7 +57,7 @@ let epic = {
     return helpers.getJSON(uri, "GET");
   },
 
-  createEnhancedImageLink(arr) {
+  createEnhancedImageLink(arr, image) {
     let img = `${image}.png`;
     let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${arr[0]}/${
       arr[1]
