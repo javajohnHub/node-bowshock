@@ -1,5 +1,5 @@
 "use strict";
-
+let moment = require("moment");
 const helpers = require("./helpers");
 let epic = {
   natural() {
