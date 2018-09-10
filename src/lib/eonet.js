@@ -62,6 +62,39 @@ let eonet = {
     }
     return helpers.getJSON(base_url.slice(0, -1), "GET");
   },
+
+  sources(object) {
+    let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/sources/";
+
+    if (!object) {
+      return helpers.getJSON(base_url.slice(0, -1), "GET");
+    }
+
+    base_url += object.id + "?";
+
+    if (object.source) {
+      if (typeof object.source === "string") {
+        base_url += "source=" + object.source + "&";
+      }
+    }
+
+    if (object.status) {
+      if (typeof object.status === "string") {
+        base_url += "status=" + object.status + "&";
+      }
+    }
+    if (object.limit) {
+      if (parseInt(object.limit)) {
+        base_url += "limit=" + object.limit + "&";
+      }
+    }
+    if (object.days) {
+      if (parseInt(object.days)) {
+        base_url += "days=" + object.days + "&";
+      }
+    }
+    return helpers.getJSON(base_url.slice(0, -1), "GET");
+  },
   layers(id) {
     let base_url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/layers/" + id;
     return helpers.getJSON(base_url, "GET");
