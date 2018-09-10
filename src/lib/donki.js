@@ -36,7 +36,7 @@ let donki = {
       base_url += "catalog=" + object.catalog + "&";
     }
     if (object.keyword) {
-      base_url += "catalog=" + object.catalog + "&";
+      base_url += "keyword=" + object.keyword + "&";
     }
     base_url += `api_key=${helpers.nasa_api_key()}`;
     console.log(base_url);
