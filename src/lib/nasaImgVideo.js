@@ -46,7 +46,7 @@ let nasaImgVideo = {
       base_url += "year_end=" + object.year_end + "&";
     }
     return helpers.getJSON(
-      `${base_url}&api_key=${helpers.nasa_api_key()}`,
+      `${base_url}api_key=${helpers.nasa_api_key()}`,
       "GET"
     );
   },
