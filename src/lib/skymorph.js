@@ -17,7 +17,6 @@ let skymorph = {
   search_image(key) {
     let base_url = "http://asterank.com/api/skymorph/image?key=" + key.key;
     console.log(base_url);
-    opn(base_url);
     let promise = new Promise((resolve, reject) => {
       resolve(base_url);
       reject("whoops");
