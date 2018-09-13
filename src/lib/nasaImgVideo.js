@@ -45,7 +45,7 @@ let nasaImgVideo = {
     if (object.year_end) {
       base_url += "year_end=" + object.year_end + "&";
     }
-    return helpers.getJSON(base_url, "GET");
+    return helpers.getJSON(base_url.slice(0, -1), "GET");
   },
 
   getAsset(nasa_id) {
