@@ -10,32 +10,37 @@ If True is supplied, then a keypair will always be returned, even if the backend
 Note that this is a rough calculation, mainly used to filter out exceedingly cloudy images.
 */
 
-const helpers = require('./helpers');
+const helpers = require("./helpers");
 let earth = {
-    imagery(object) {
-    let base_url = "https://api.nasa.gov/planetary/earth/imagery/?";
-        if (object.lon && object.lat) {
-            base_url += "lon=" + parseFloat(object.lon) + "&" + "lat=" + parseFloat(object.lat) + "&";
-            if (object.date) {
-                helpers.vali_date(object.date);
-                base_url += "date=" + object.date + "&";
+  imagery(object) {
+    let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
+    if (object.lon && object.lat) {
+      base_url +=
+        "lon=" +
+        parseFloat(object.lon) +
+        "&" +
+        "lat=" +
+        parseFloat(object.lat) +
+        "&";
+      if (object.date) {
+        helpers.vali_date(object.date);
+        base_url += "date=" + object.date + "&";
+      }
+      if (object.cloud_score === true) {
+        base_url += "cloud_score=True" + "&";
+      }
+    }
+    let req_url = base_url + "api_key=" + helpers.nasa_api_key();
+    return helpers.getJSON(req_url, "GET");
+  },
 
-            }
-            if (object.cloud_score === true) {
-                base_url += "cloud_score=True" + "&";
-            }
-        }
-        let req_url = base_url + "api_key=" + helpers.nasa_api_key();
-        return helpers.getJSON(req_url, 'GET')
-},
-
-/*
+  /*
  This endpoint retrieves the date-times and asset names for available imagery for a supplied location.
  The satellite passes over each point on earth roughly once every sixteen days.
  This is an amazing visualization of the acquisition pattern for Landsat 8 imagery.
  The objective of this endpoint is primarily to support the use of the imagery endpoint.
  */
-assets(object){
+  assets(object) {
     /*
      HTTP REQUEST
 
@@ -55,22 +60,21 @@ assets(object){
      */
     let base_url = "https://api.nasa.gov/planetary/earth/assets?";
     if (object.lon && object.lat) {
-        base_url += "lon=" + object.lon + "&" + "lat=" + object.lat + "&";
+      base_url += "lon=" + object.lon + "&" + "lat=" + object.lat + "&";
 
-        if (object.begin) {
-            helpers.vali_date(object.begin);
-            base_url += "begin=" + object.begin + "&";
-        }
-        if (object.end) {
-            helpers.vali_date(object.end);
-            base_url += "end=" + object.end + "&";
-        }
+      if (object.begin) {
+        helpers.vali_date(object.begin);
+        base_url += "begin=" + object.begin + "&";
+      }
+      if (object.end) {
+        helpers.vali_date(object.end);
+        base_url += "end=" + object.end + "&";
+      }
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
 
-    return helpers.getJSON(req_url, 'GET')
-
-}
+    return helpers.getJSON(req_url, "GET");
+  }
 };
 module.exports = earth;
 //earth.imagery({lon:100.75, lat:1.5, date:"2014-02-04"});

@@ -1,24 +1,25 @@
 "use strict";
-var helpers = require('./helpers');
-var opn = require('opn');
+var helpers = require("./helpers");
+var opn = require("opn");
 let skymorph = {
-    search_target_obj(target){
-        /*
+  search_target_obj(target) {
+    /*
          Query for a specific target:
 
          http://asterank.com/api/skymorph/search?<params>
          target	Target object (lookup in MPC).
          */
-        let base_url = "http://www.asterank.com/api/skymorph/search?";
-        base_url += "target=" + target;
-        return helpers.getJSON(base_url, 'GET')
-    },
-    search_image(key){
-        let base_url = "http://asterank.com/api/skymorph/image?key=" + key;
-        opn(base_url);
-        return base_url;
-    }
-
+    let base_url = "http://www.asterank.com/api/skymorph/search?";
+    base_url += "target=" + target;
+    console.log(base_url);
+    return helpers.getJSON(base_url, "GET");
+  },
+  search_image(key) {
+    let base_url = "http://asterank.com/api/skymorph/image?key=" + key;
+    console.log(base_url);
+    opn(base_url);
+    return base_url;
+  }
 };
 module.exports = skymorph;
 
