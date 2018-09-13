@@ -20,7 +20,6 @@ let skymorph = {
     opn(base_url);
     let promise = new Promise((resolve, reject) => {
       resolve(base_url);
-      reject();
     });
     return promise;
   }
