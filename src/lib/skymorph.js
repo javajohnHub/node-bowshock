@@ -15,6 +15,7 @@ let skymorph = {
     return helpers.getJSON(base_url, "GET");
   },
   search_image(key) {
+    console.log(key);
     let base_url = "http://asterank.com/api/skymorph/image?key=" + key;
     console.log(base_url);
     opn(base_url);
