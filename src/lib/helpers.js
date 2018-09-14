@@ -10,13 +10,13 @@ let helpers = {
       console.log("Dispatching HTTP GET Request : ", url.host || url);
     }
     var instance = axios.create({
-      baseURL: "https://sscweb.sci.gsfc.nasa.gov/WS/sscr/2",
+      //baseURL: "https://sscweb.sci.gsfc.nasa.gov/WS/sscr/2",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
     });
-    console.log(escape(url));
+    console.log(url);
     if (type == "GET") {
       return instance
         .get(url)
