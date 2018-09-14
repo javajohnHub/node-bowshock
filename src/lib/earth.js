@@ -13,6 +13,7 @@ Note that this is a rough calculation, mainly used to filter out exceedingly clo
 const helpers = require("./helpers");
 let earth = {
   imagery(object) {
+    console.log(object);
     let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
     if (object.lon && object.lat) {
       base_url +=
@@ -32,7 +33,7 @@ let earth = {
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
     console.log(req_url);
-    return helpers.getJSON(req_url, "GET");
+    return helpers.getJSON(encodeURI(req_url), "GET");
   },
 
   /*
