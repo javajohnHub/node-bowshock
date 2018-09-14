@@ -34,7 +34,7 @@ let earth = {
       }
     }
     console.log(base_url);
-    return helpers.getJSON(base_url, "GET");
+    return helpers.getJSON(base_url.slice(0, -1), "GET");
   },
 
   /*
