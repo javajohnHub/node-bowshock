@@ -14,10 +14,12 @@ const helpers = require("./helpers");
 let earth = {
   imagery(object) {
     console.log(object);
-    let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
+    let base_url =
+      "https://api.nasa.gov/planetary/earth/imagery?api_key=" +
+      helpers.nasa_api_key();
     if (object.lon && object.lat) {
       base_url +=
-        "lon=" +
+        "&lon=" +
         parseFloat(object.lon) +
         "&" +
         "lat=" +
@@ -31,9 +33,8 @@ let earth = {
         base_url += "cloud_score=True" + "&";
       }
     }
-    let req_url = base_url + "api_key=" + helpers.nasa_api_key();
-    console.log(req_url);
-    return helpers.getJSON(encodeURI(req_url), "GET");
+    console.log(base_url);
+    return helpers.getJSON(base_url, "GET");
   },
 
   /*
