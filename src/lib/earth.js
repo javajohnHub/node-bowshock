@@ -33,8 +33,11 @@ let earth = {
         base_url += "cloud_score=True" + "&";
       }
     }
-    console.log(base_url);
-    return helpers.getJSON(base_url.slice(0, -1), "GET");
+    console.log(
+      decodeURI(base_url.slice(0, -1)),
+      decodeURIComponent(base_url.slice(0, -1))
+    );
+    return helpers.getJSON(decodebase_url.slice(0, -1), "GET");
   },
 
   /*
