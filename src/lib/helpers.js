@@ -16,6 +16,7 @@ let helpers = {
         "Content-Type": "application/json"
       }
     });
+    console.log(url);
     if (type == "GET") {
       return instance
         .get(decodeURI(url))
