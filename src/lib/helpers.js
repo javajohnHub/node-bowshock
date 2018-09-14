@@ -16,10 +16,10 @@ let helpers = {
         "Content-Type": "application/json"
       }
     });
-    console.log(url);
+    console.log(escape(url));
     if (type == "GET") {
       return instance
-        .get(decodeURI(url))
+        .get(url)
         .then(response => {
           return response.data;
         })
@@ -29,7 +29,7 @@ let helpers = {
     }
     if (type == "POST") {
       return instance
-        .post(decodeURI(url))
+        .post(url)
         .then(response => {
           return response.data;
         })
