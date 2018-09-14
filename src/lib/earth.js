@@ -37,7 +37,7 @@ let earth = {
       decodeURI(base_url.slice(0, -1)),
       decodeURIComponent(base_url.slice(0, -1))
     );
-    return helpers.getJSON(decodebase_url.slice(0, -1), "GET");
+    return helpers.getJSON(decodeURI(base_url.slice(0, -1)), "GET");
   },
 
   /*
