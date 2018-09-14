@@ -18,7 +18,7 @@ let helpers = {
     });
     if (type == "GET") {
       return instance
-        .get(url)
+        .get(decodeURI(url))
         .then(response => {
           return response.data;
         })
@@ -28,7 +28,7 @@ let helpers = {
     }
     if (type == "POST") {
       return instance
-        .post(url)
+        .post(decodeURI(url))
         .then(response => {
           return response.data;
         })
