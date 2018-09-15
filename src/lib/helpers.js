@@ -10,7 +10,7 @@ let helpers = {
       console.log("Dispatching HTTP GET Request : ", url.host || url);
     }
     var instance = axios.create({
-      //baseURL: "https://sscweb.sci.gsfc.nasa.gov/WS/sscr/2",
+      baseURL: "https://sscweb.sci.gsfc.nasa.gov/WS/sscr/2",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
@@ -89,6 +89,7 @@ let helpers = {
 };
 
 module.exports = helpers;
+
 //helpers.vali_date("2017-12-03");
 //helpers.validate_year("2017");
 //helpers.validate_iso8601("2014-01-01T23:59:59");

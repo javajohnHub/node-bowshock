@@ -13,13 +13,10 @@ Note that this is a rough calculation, mainly used to filter out exceedingly clo
 const helpers = require("./helpers");
 let earth = {
   imagery(object) {
-    console.log(object);
-    let base_url =
-      "https://api.nasa.gov/planetary/earth/imagery?api_key=" +
-      helpers.nasa_api_key();
+    let base_url = "https://api.nasa.gov/planetary/earth/imagery?";
     if (object.lon && object.lat) {
       base_url +=
-        "&lon=" +
+        "lon=" +
         parseFloat(object.lon) +
         "&" +
         "lat=" +
@@ -33,11 +30,8 @@ let earth = {
         base_url += "cloud_score=True" + "&";
       }
     }
-    console.log(
-      decodeURI(base_url.slice(0, -1)),
-      decodeURIComponent(base_url.slice(0, -1))
-    );
-    return helpers.getJSON(base_url.slice(0, -1), "GET");
+    let req_url = base_url + "api_key=" + helpers.nasa_api_key();
+    return helpers.getJSON(req_url, "GET");
   },
 
   /*
@@ -78,10 +72,10 @@ let earth = {
       }
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
-
+    console.log(req_url);
     return helpers.getJSON(req_url, "GET");
   }
 };
 module.exports = earth;
-//earth.imagery({lon:100.75, lat:1.5, date:"2014-02-04"});
+earth.imagery({ lon: 100.75, lat: 1.5 });
 //earth.assets({lon:100.75, lat:1.5, begin:"2014-02-01"});
