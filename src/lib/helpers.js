@@ -21,11 +21,11 @@ let helpers = {
       return instance
         .get(url)
         .then(response => {
-          console.log(response, response.data);
+          console.log("res", response, "res data", response.data);
           return response.data;
         })
         .catch(error => {
-          console.log(error);
+          console.log("ERROR:", error);
         });
     }
     if (type == "POST") {
