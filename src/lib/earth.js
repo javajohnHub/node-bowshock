@@ -23,7 +23,7 @@ let earth = {
         parseFloat(object.lat) +
         "&";
       if (object.date) {
-        helpers.vali_date(object.date);
+        object.date = helpers.vali_date(object.date);
         base_url += "date=" + object.date + "&";
       }
       if (object.cloud_score === true) {
