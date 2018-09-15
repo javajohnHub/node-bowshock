@@ -29,6 +29,9 @@ let earth = {
       if (object.cloud_score === true) {
         base_url += "cloud_score=True" + "&";
       }
+      if (object.dim) {
+        base_url += "dim=" + object.dim + "&";
+      }
     }
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
     return helpers.getJSON(req_url, "GET");
