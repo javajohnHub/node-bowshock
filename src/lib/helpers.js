@@ -21,6 +21,7 @@ let helpers = {
       return instance
         .get(url)
         .then(response => {
+          console.log(response, response.data);
           return response.data;
         })
         .catch(error => {
