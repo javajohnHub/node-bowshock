@@ -25,7 +25,7 @@ let helpers = {
           return response.data;
         })
         .catch(error => {
-          return error.data;
+          return error;
         });
     }
     if (type == "POST") {
