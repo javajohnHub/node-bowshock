@@ -206,6 +206,7 @@ bowshock.mars.curiosity("2015-06-03");
 bowshock.mars.opportunity("2015-06-03");
 bowshock.mars.spirit("2015-06-03");
 bowshock.mars.manifest("curiosity");
+bowshock.mars.insight({perPage: 50});
 ```
 
 ##### NeoWs

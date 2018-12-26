@@ -42,6 +42,20 @@ let mars = {
 
     },
 
+    insight(object){
+      let base_url = "https://mars.nasa.gov/api/v1/raw_image_items/?order=sol+desc%2Cdate_taken+desc";
+
+     if(object.perPage){
+       base_url += `&per_page=${object.perPage}`
+     }
+     if(object.page){
+       base_url += `&page=${object.page}`
+     }
+     base_url += "&condition_1=insight%3Amission&search=&extended="
+
+     return helpers.getJSON(base_url, 'GET')
+    },
+
     manifest(rover){
         let base_url = '';
         if(!rover.camera && !rover.sol){
@@ -61,9 +75,9 @@ let mars = {
             console.log(base_url)
             return helpers.getJSON(`${base_url}`, 'GET')
         }
-        
-        
-       
+
+
+
     }
 };
 module.exports = mars;
@@ -72,3 +86,4 @@ module.exports = mars;
 //opportunity("2015-06-03");
 //spirit("2015-06-03");
 //mars.manifest('curiosity')
+//mars.insight({perPage: 50})
