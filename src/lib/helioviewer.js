@@ -272,7 +272,10 @@ let helioviewer = {
         }
         let req_url = base_url.slice(0, -1);
         opn(req_url);
-        return req_url;
+        return new Promise(function(resolve, reject) {
+            resolve(req_url);
+            reject('Error');
+        });
     },
     takeScreenshot(object){
         /*You must specify values for either `x1`, `y1`, `x2`, and `y2`
