@@ -20,7 +20,7 @@ let helpers = {
       return instance
         .get(url)
         .then(response => {
-          if(logging()){
+          if(logging() === true){
             console.log("res", response, "res data", response.data);
           }
 
@@ -43,7 +43,7 @@ let helpers = {
   },
 
   getXML(url) {
-    if (this.logging() === "true") {
+    if (this.logging() === true) {
       console.log("Dispatching HTTP GET Request : ", url);
     }
     var instance = axios.create({
@@ -87,7 +87,7 @@ let helpers = {
   },
 
   logging: function() {
-    return process.env.LOGGER || "false";
+    return !!process.env.LOGGER || false;
   }
 };
 
