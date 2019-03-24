@@ -86,7 +86,6 @@ LOGGER=true
 let bowshock = require("node-bowshock")
 //with specific date and tags - For apod all args are optional
 bowshock.apod("2017-03-11").then(apod => {
-  console.log(apod);
 });
 ```
 

@@ -53,7 +53,6 @@ let epic = {
 
   enhancedAvailable() {
     let uri = "https://epic.gsfc.nasa.gov/api/enhanced/available";
-    console.log(uri);
     return helpers.getJSON(uri, "GET");
   },
 
@@ -62,7 +61,6 @@ let epic = {
     let archive = `https://epic.gsfc.nasa.gov/archive/enhanced/${obj.arr[0]}/${
       obj.arr[1]
     }/${obj.arr[2]}/png/${img}`;
-    console.log(archive);
     return new Promise(function(resolve, reject) {
       if (archive) {
         resolve(archive);

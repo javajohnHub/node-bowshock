@@ -9,7 +9,7 @@ let neows = {
     return helpers.getJSON(req_url, "GET");
   },
   feed(start_date, end_date) {
-    console.log(start_date);
+
     let base_url = "https://api.nasa.gov/neo/rest/v1/feed?";
     if (start_date) {
       helpers.vali_date(start_date);
@@ -21,7 +21,7 @@ let neows = {
     }
 
     let req_url = base_url + "api_key=" + helpers.nasa_api_key();
-    console.log(req_url);
+
     return helpers.getJSON(req_url, "GET");
   },
   lookup(Id) {

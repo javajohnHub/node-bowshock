@@ -6,7 +6,7 @@ require("dotenv").config();
 
 let helpers = {
   getJSON(url, type) {
-    if (this.logging() === "true") {
+    if (this.logging()) {
       console.log("Dispatching HTTP GET Request : ", url.host || url);
     }
     var instance = axios.create({
@@ -16,7 +16,6 @@ let helpers = {
         "Content-Type": "application/json"
       }
     });
-    console.log(url);
     if (type == "GET") {
       return instance
         .get(url)
