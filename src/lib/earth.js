@@ -79,5 +79,5 @@ let earth = {
   }
 };
 module.exports = earth;
-earth.imagery({ lon: 100.75, lat: 1.5 });
+//earth.imagery({ lon: 100.75, lat: 1.5 });
 //earth.assets({lon:100.75, lat:1.5, begin:"2014-02-01"});
