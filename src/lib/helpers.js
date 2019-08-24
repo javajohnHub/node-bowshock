@@ -20,8 +20,8 @@ let helpers = {
       return instance
         .get(url)
         .then(response => {
-          if(logging() === true){
-            console.log("res", response, "res data", response.data);
+          if(this.logging() === true){
+            console.log(response.data);
           }
 
           return response.data;
