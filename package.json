@@ -1,6 +1,6 @@
 {
   "name": "node-bowshock",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "An npm Package for Node.js based on https://github.com/emirozer/bowshock",
   "private": false,
   "_location": "/node-bowshock",
